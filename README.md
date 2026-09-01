@@ -42,6 +42,8 @@ data/search-index.json         全站搜尋用的純文字索引（由工具腳�
 manuals/{分類}/{產品}/{類型}/{語言}.html   實際手冊內容（乾淨的 HTML 片段）
 
 tools/build-search-index.js     重新產生 search-index.json 的小工具
+
+admin/index.html, admin.js, admin.css   管理後台（新增／修改／刪除產品線、產品、文件類型、手冊內容）
 ```
 
 ## 常見維護操作
@@ -65,6 +67,16 @@ tools/build-search-index.js     重新產生 search-index.json 的小工具
 1. 在 `manuals/{分類代碼}/{產品代碼}/{類型代碼}/` 底下新增對應語言的 `.html`（例如 `zh-CN.html`），內容只需要乾淨的 HTML（`<h2 id="...">`、`<p>`、`<table>`、`<ul>` 等），不需要 `<html>`/`<head>`/`<body>`。
 2. 在 `data/manuals-index.json` 加入對應的一筆紀錄（`productId`、`categoryId`、`typeId`、`lang`、`title`、`path`、`updatedAt`）。
 3. 執行 `node tools/build-search-index.js` 重新產生搜尋索引，讓新內容可以被搜尋到。
+
+## 管理後台（admin/）
+
+部署到 GitHub Pages 後，可以透過 `你的網址/admin/` 開啟管理後台，用網頁介面管理產品線、產品、文件類型與手冊內容，不需要手動編輯 JSON 或用 git 指令。
+
+**運作原理**：後台沒有自己的資料庫，每一次新增／修改／刪除都是直接呼叫 GitHub API，對這個 repository 送出一次 commit，網站會沿用現有的 GitHub Pages 自動重新部署（約 30–90 秒生效）。沒有草稿或審核機制——按下「儲存」就會直接上線。
+
+**登入方式**：需要一組 GitHub Fine-grained Personal Access Token（只需授權這一個 repository、Contents 權限設為 Read and write），後台頁面裡的登入畫面有申請步驟。Token 只會存在你自己瀏覽器的本機儲存空間，不會上傳到任何地方，也不會出現在 git 紀錄裡。每一位需要用後台的人都要各自申請自己的 Token。
+
+**安全提醒**：`admin/` 底下的頁面本身沒有帳號密碼保護，只要知道網址任何人都能打開登入畫面——但沒有有效的 Token 就完全無法讀取或修改任何資料，所以實際的存取控制是靠 Token 本身，而不是隱藏這個網址。請把 Token 當密碼一樣保管，不要分享、不要貼到公開的地方；覺得外流時，直接到 GitHub 的 Token 設定頁面撤銷即可，不影響網站本身。
 
 ## 設計說明
 
