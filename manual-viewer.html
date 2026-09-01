@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n-site-name>Lumens Manual Center</title>
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="products">
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header"></header>
+
+<main id="main">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb" id="breadcrumbTrail">
+      <a href="index.html">Home</a>
+    </nav>
+
+    <div class="viewer-layout">
+      <aside class="viewer-toc" id="tocDesktop">
+        <h4>On this page</h4>
+        <ul id="tocListDesktop"></ul>
+        <div id="relatedTitle" style="margin-top:26px; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint);"></div>
+        <div id="relatedManuals"></div>
+        <a id="switchToTypeView" href="manual-types.html" style="display:block; margin-top:18px; font-size:13px; font-weight:600;"></a>
+      </aside>
+
+      <div class="viewer-main">
+        <details class="viewer-toc-mobile" id="tocMobile">
+          <summary>On this page</summary>
+          <ul id="tocListMobile"></ul>
+        </details>
+
+        <div class="doc-head">
+          <div>
+            <h1 id="docTitle">Loading…</h1>
+            <div class="doc-meta" id="docMeta"></div>
+          </div>
+          <div class="doc-actions">
+            <button class="btn" id="printBtn" type="button">Print</button>
+            <button class="btn primary" id="pdfBtn" type="button">Save as PDF</button>
+          </div>
+        </div>
+
+        <div class="lang-tabs" id="langTabs"></div>
+
+        <article class="manual-content" id="manualContent"></article>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/page-manual-viewer.js"></script>
+</body>
+</html>

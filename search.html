@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n-site-name>Lumens Manual Center</title>
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="search">
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header"></header>
+
+<main id="main">
+  <section class="search-hero">
+    <div class="container">
+      <h1 id="searchTitle" style="font-size:24px; margin-bottom:16px;">Search results</h1>
+      <form id="searchForm" action="search.html" role="search">
+        <input type="search" id="searchInput" name="q" placeholder="Search…">
+        <input type="hidden" name="lang" id="searchLangField">
+        <button type="submit">Search</button>
+      </form>
+      <p class="result-count" id="resultCount"></p>
+    </div>
+  </section>
+
+  <section class="page-section" style="padding-top:0;">
+    <div class="container" id="searchResults"></div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/page-search.js"></script>
+</body>
+</html>
