@@ -133,5 +133,14 @@
     "title": "OIP-N60D Regulatory & Compliance Notice",
     "path": "manuals/oip-bridge/oip-n60d/other/en.html",
     "text": "Sample content. Replace with the official OIP-N60D regulatory and warranty documentation before publishing. This document collects regulatory notices and warranty information for the OIP-N60D that do not belong in the user or installation guides. Regulatory Notices This device should be installed and operated in accordance with local electrical and radio-frequency emission regulations applicable in the country of use. Refer to the product label for applicable certification marks. Warranty Information Standard hardware warranty terms apply as stated in the sales contract or regional distributor agreement. Contact your regional Lumens support contact for warranty claims."
+  },
+  {
+    "productId": "tp-200",
+    "categoryId": "control-panel",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "TP-200 使用手冊",
+    "path": "manuals/control-panel/tp-200/user-guide/en.html",
+    "text": "TP-200 上手指南 Lumens · TP-200 產品培訓手冊 Lumens Digital Optics Inc. TP-200 內部培訓資料 · v1.0 00 / 13 封面"
   }
 ]
