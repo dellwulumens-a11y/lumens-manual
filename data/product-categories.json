@@ -361,7 +361,21 @@
         "zh-CN": "触控控制面板",
         "zh-TW": "觸控控制面板"
       },
-      "products": []
+      "products": [
+        {
+          "id": "tp-200",
+          "model": "TP-200",
+          "name": {
+            "en": "Touch Control Panel 10 inch",
+            "zh-CN": "触控控制面板-10吋",
+            "zh-TW": "觸控控制面板-10吋"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "user-guide"
+          ]
+        }
+      ]
     }
   ]
 }
