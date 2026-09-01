@@ -65,10 +65,19 @@
     }).join("");
 
     // actions
-    document.getElementById("printBtn").textContent = t.common.print;
-    document.getElementById("pdfBtn").textContent = t.common.downloadPdf;
-    document.getElementById("printBtn").addEventListener("click", function () { window.print(); });
-    document.getElementById("pdfBtn").addEventListener("click", function () { window.print(); });
+    var isStandalone = entry.format === "standalone";
+    var actionsEl = document.querySelector(".doc-actions");
+    if (isStandalone) {
+      // A full standalone document has its own layout/behavior; printing the
+      // shared page shell around an iframe is unreliable across browsers, so
+      // offer a plain link to the original file instead of Print/Save-as-PDF.
+      actionsEl.innerHTML = '<a class="btn primary" id="openStandaloneBtn" target="_blank" rel="noopener" href="' + entry.path + '">' + esc(t.common.openOriginal) + "</a>";
+    } else {
+      document.getElementById("printBtn").textContent = t.common.print;
+      document.getElementById("pdfBtn").textContent = t.common.downloadPdf;
+      document.getElementById("printBtn").addEventListener("click", function () { window.print(); });
+      document.getElementById("pdfBtn").addEventListener("click", function () { window.print(); });
+    }
 
     // related manuals
     var others = ctx.manualsIndex.filter(function (m) { return m.productId === productId && m.typeId !== typeId; });
@@ -90,6 +99,26 @@
 
     // load content, then build TOC
     var contentEl = document.getElementById("manualContent");
+    var layoutEl = document.querySelector(".viewer-layout");
+    var tocDesktopEl = document.getElementById("tocDesktop");
+    var tocMobileEl = document.getElementById("tocMobile");
+
+    if (isStandalone) {
+      // This manual is kept in its own original, fully self-contained design
+      // (its own navigation, styling and scripts). Rendering it inline would
+      // let its CSS/JS collide with the site's, so it's shown isolated in an
+      // iframe instead — the site's own on-page TOC doesn't apply to it since
+      // its headings live in a different document.
+      contentEl.classList.add("is-standalone");
+      if (layoutEl) layoutEl.classList.add("no-toc");
+      if (tocDesktopEl) tocDesktopEl.style.display = "none";
+      if (tocMobileEl) tocMobileEl.style.display = "none";
+      contentEl.innerHTML =
+        '<p class="standalone-frame-note">' + esc(t.common.standaloneNote) + "</p>" +
+        '<iframe class="standalone-frame" src="' + entry.path + '" title="' + esc(entry.title) + '" loading="lazy"></iframe>';
+      return;
+    }
+
     contentEl.innerHTML = '<div class="skeleton" style="height:18px;width:60%;margin-bottom:12px;"></div><div class="skeleton" style="height:14px;width:90%;margin-bottom:8px;"></div><div class="skeleton" style="height:14px;width:80%;"></div>';
 
     fetch(entry.path).then(function (r) {

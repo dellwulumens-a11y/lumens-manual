@@ -250,18 +250,24 @@
   function saveManualContent(data) {
     var found = findProductEntry(data.productId);
     if (!found) return Promise.reject(new Error("找不到產品: " + data.productId));
+    var format = data.format === "standalone" ? "standalone" : "fragment";
     var path = "manuals/" + found.category.id + "/" + data.productId + "/" + data.typeId + "/" + data.lang + ".html";
     return ghGet(path).then(function () {
       return ghPut(path, data.content.trim() + "\n", "更新手冊內容: " + path);
     }).then(function () {
       var today = todayStr();
       var idx = state.manualsIndex.findIndex(function (m) { return m.productId === data.productId && m.typeId === data.typeId && m.lang === data.lang; });
-      var entry = { productId: data.productId, categoryId: found.category.id, typeId: data.typeId, lang: data.lang, title: data.title, path: path, updatedAt: today };
+      var entry = { productId: data.productId, categoryId: found.category.id, typeId: data.typeId, lang: data.lang, title: data.title, path: path, format: format, updatedAt: today };
       if (idx === -1) state.manualsIndex.push(entry); else state.manualsIndex[idx] = entry;
       return saveManualsIndex("更新手冊索引: " + path);
     }).then(function () {
       var sIdx = state.searchIndex.findIndex(function (m) { return m.productId === data.productId && m.typeId === data.typeId && m.lang === data.lang; });
-      var sEntry = { productId: data.productId, categoryId: found.category.id, typeId: data.typeId, lang: data.lang, title: data.title, path: path, text: stripHtml(data.content).slice(0, 8000) };
+      // A "standalone" document's real content lives inside its own <script>
+      // (not in the visible markup), so stripHtml() on it would strip that
+      // whole block away and yield nothing useful — skip full-text indexing
+      // for it and let search still match on the title.
+      var text = format === "standalone" ? "" : stripHtml(data.content).slice(0, 8000);
+      var sEntry = { productId: data.productId, categoryId: found.category.id, typeId: data.typeId, lang: data.lang, title: data.title, path: path, text: text };
       if (sIdx === -1) state.searchIndex.push(sEntry); else state.searchIndex[sIdx] = sEntry;
       return saveSearchIndex("更新搜尋索引: " + path);
     }).then(function () {
@@ -653,9 +659,10 @@
       var cells = LANGS.map(function (lang) {
         var entry = state.manualsIndex.filter(function (m) { return m.productId === productId && m.typeId === t.id && m.lang === lang; })[0];
         if (entry) {
+          var formatChip = entry.format === "standalone" ? ' <span class="chip-sm warn">完整頁面</span>' : "";
           return (
             '<td><div class="cell-exists">' +
-              '<span class="chip-sm">已建立</span>' +
+              '<span class="chip-sm">已建立</span>' + formatChip +
               '<div class="muted">' + esc(entry.updatedAt || "") + "</div>" +
               '<div class="row-actions"><button class="btn small" data-edit-manual="' + t.id + "|" + lang + '">編輯</button>' +
               '<button class="btn small danger" data-del-manual="' + t.id + "|" + lang + '">刪除</button></div>' +
@@ -703,10 +710,18 @@
 
     loadContent.then(function (content) {
       var defaultTitle = existingEntry ? existingEntry.title : (findProductEntry(productId).product.model + " " + (type.name["zh-TW"] || type.name.en));
+      var currentFormat = existingEntry && existingEntry.format === "standalone" ? "standalone" : "fragment";
       var fields =
         '<div class="field"><label>標題</label><input name="title" type="text" value="' + esc(defaultTitle) + '" required></div>' +
-        '<div class="field"><label>內容 (HTML) — 開頭用 &lt;h2 id="..."&gt; 分段，會自動變成本頁目錄</label>' +
-        '<textarea name="content" rows="16">' + esc(content) + "</textarea></div>";
+        '<div class="field"><label>內容格式</label>' +
+        '<select name="format" id="manualFormatSelect">' +
+          '<option value="fragment"' + (currentFormat === "fragment" ? " selected" : "") + '>內容片段（套用本站樣式與目錄，適合大多數文件）</option>' +
+          '<option value="standalone"' + (currentFormat === "standalone" ? " selected" : "") + '>完整獨立頁面（保留原始設計不轉換，例如既有的互動式簡報／PDF 轉出的完整網頁）</option>' +
+        "</select></div>" +
+        '<div class="field"><label id="manualContentLabel">內容 (HTML) — 開頭用 &lt;h2 id="..."&gt; 分段，會自動變成本頁目錄</label>' +
+        '<textarea name="content" rows="16">' + esc(content) + "</textarea>" +
+        '<div class="field-help" id="manualContentHelp" hidden>選擇「完整獨立頁面」時，直接貼上完整的原始 HTML 檔案內容即可，不需要調整成 &lt;h2&gt; 分段格式；本站不會嘗試解析或改寫這份內容，會原封不動存檔並以獨立畫面（iframe）顯示，本頁的目錄／列印按鈕會自動關閉，改提供「在新分頁開啟」按鈕。</div>' +
+        "</div>";
 
       openDialog({
         title: (isNew ? "新增" : "編輯") + "手冊內容：" + productId + " / " + typeId + " / " + LANG_LABELS[lang],
@@ -715,7 +730,8 @@
           var data = {
             productId: productId, typeId: typeId, lang: lang,
             title: (form.elements.title.value || "").trim(),
-            content: form.elements.content.value
+            content: form.elements.content.value,
+            format: form.elements.format.value
           };
           if (!data.title) return Promise.reject(new Error("請輸入標題"));
           if (!data.content.trim()) return Promise.reject(new Error("請輸入內容"));
@@ -723,6 +739,19 @@
             .then(function () { renderManualGrid(productId); renderProducts(); });
         }
       });
+
+      var formatSelect = $("#manualFormatSelect");
+      var contentHelp = $("#manualContentHelp");
+      var contentLabel = $("#manualContentLabel");
+      function syncFormatHint() {
+        var isStandalone = formatSelect.value === "standalone";
+        contentHelp.hidden = !isStandalone;
+        contentLabel.innerHTML = isStandalone
+          ? '內容 (完整 HTML 原始碼) — 直接貼上整份原始檔案內容'
+          : '內容 (HTML) — 開頭用 &lt;h2 id="..."&gt; 分段，會自動變成本頁目錄';
+      }
+      formatSelect.addEventListener("change", syncFormatHint);
+      syncFormatHint();
     }).catch(function (err) { showStatus("err", "載入內容失敗：" + err.message); });
   }
 

@@ -6,6 +6,15 @@
   var I18N = global.LumensI18n;
   var DATA = global.LumensData;
 
+  // Cyclic color-coding for category/type cards — position-based (1st, 2nd, ...)
+  // rather than tied to a specific id or name, so newly added product lines
+  // or manual types automatically pick up a color with no code changes.
+  var TAG_COLOR_COUNT = 7;
+  function tagColorStyle(index) {
+    var n = (index % TAG_COLOR_COUNT) + 1;
+    return "--cat-color:var(--tag-" + n + ");--cat-color-soft:var(--tag-" + n + "-soft);";
+  }
+
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -124,5 +133,5 @@
     });
   }
 
-  global.LumensCommon = { init: init, esc: esc };
+  global.LumensCommon = { init: init, esc: esc, tagColorStyle: tagColorStyle };
 })(window);

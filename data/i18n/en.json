@@ -1,7 +1,15 @@
 {
   "lang": "en",
-  "site": { "name": "Lumens Manual Center", "tagline": "Product manuals, installation guides & command sets" },
-  "nav": { "byProduct": "By Product", "byType": "By Document Type", "search": "Search", "home": "Home" },
+  "site": {
+    "name": "Lumens Manual Center",
+    "tagline": "Product manuals, installation guides & command sets"
+  },
+  "nav": {
+    "byProduct": "By Product",
+    "byType": "By Document Type",
+    "search": "Search",
+    "home": "Home"
+  },
   "home": {
     "heroTitle": "Find the manual for your Lumens product",
     "heroSubtitle": "Browse by product line, or jump straight to a document type. All manuals are available in English, Simplified Chinese and Traditional Chinese.",
@@ -33,9 +41,16 @@
     "onThisPage": "On this page",
     "lastUpdated": "Last updated",
     "loading": "Loading…",
-    "loadError": "This content could not be loaded. Please try again later."
+    "loadError": "This content could not be loaded. Please try again later.",
+    "openOriginal": "Open original document in a new tab",
+    "standaloneNote": "This document keeps its original design and is shown below exactly as provided. Use the button above to open it in its own tab (e.g. to print)."
   },
-  "breadcrumb": { "home": "Home", "products": "Products", "manualTypes": "Document Types", "search": "Search" },
+  "breadcrumb": {
+    "home": "Home",
+    "products": "Products",
+    "manualTypes": "Document Types",
+    "search": "Search"
+  },
   "search": {
     "title": "Search results",
     "resultsFor": "Results for",
@@ -43,5 +58,9 @@
     "resultCount": "results",
     "inputLabel": "Search all manuals"
   },
-  "footer": { "note": "Lumens Digital Optics Inc. — Internal manual center, draft build.", "productLine": "Product Lines", "documentType": "Document Types" }
+  "footer": {
+    "note": "Lumens Digital Optics Inc. — Internal manual center, draft build.",
+    "productLine": "Product Lines",
+    "documentType": "Document Types"
+  }
 }

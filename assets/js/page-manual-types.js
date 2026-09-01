@@ -17,7 +17,7 @@
       var href = I18N.urlFor("manual-type-detail.html", lang, { type: ty.id });
       var countLabel = docCount ? (docCount + " " + t.common.documentsAvailable) : t.common.noDocumentsYet;
       return (
-        '<a class="type-card" href="' + href + '">' +
+        '<a class="type-card" href="' + href + '" style="' + window.LumensCommon.tagColorStyle(i) + '">' +
           '<div class="num">' + String(i + 1).padStart(2, "0") + "</div>" +
           "<h3>" + esc(I18N.pickLocale(ty.name, lang)) + "</h3>" +
           "<p>" + esc(countLabel) + "</p>" +

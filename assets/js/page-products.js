@@ -12,7 +12,7 @@
     document.getElementById("switchViewLink").href = I18N.urlFor("manual-types.html", lang);
 
     var grid = document.getElementById("categoryGrid");
-    grid.innerHTML = ctx.categories.map(function (cat) {
+    grid.innerHTML = ctx.categories.map(function (cat, i) {
       var products = (cat.products || []).map(function (p) {
         var href = I18N.urlFor("product-detail.html", lang, { id: p.id });
         return (
@@ -23,7 +23,8 @@
         );
       }).join("");
       return (
-        '<div class="category-card">' +
+        '<div class="category-card" style="' + window.LumensCommon.tagColorStyle(i) + '">' +
+          '<span class="cat-badge">' + esc(t.footer.productLine) + "</span>" +
           '<div class="count">' + (cat.products || []).length + " " + esc(t.common.documentsAvailable).replace(/^ */, "") + "</div>" +
           "<h3>" + esc(I18N.pickLocale(cat.name, lang)) + "</h3>" +
           '<p class="desc">' + esc(I18N.pickLocale(cat.description, lang)) + "</p>" +

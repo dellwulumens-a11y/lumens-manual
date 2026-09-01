@@ -68,6 +68,31 @@ admin/index.html, admin.js, admin.css   管理後台（新增／修改／刪除�
 2. 在 `data/manuals-index.json` 加入對應的一筆紀錄（`productId`、`categoryId`、`typeId`、`lang`、`title`、`path`、`updatedAt`）。
 3. 執行 `node tools/build-search-index.js` 重新產生搜尋索引，讓新內容可以被搜尋到。
 
+### 手冊內容的兩種格式：`format` 欄位
+
+`data/manuals-index.json` 每一筆紀錄可以加上 `"format"` 欄位，決定這份手冊怎麼呈現：
+
+- **不填，或 `"format": "fragment"`（預設）**：內容片段，套用本站的排版樣式，`<h2 id="...">` 會自動變成頁面左側目錄，也支援本站的「列印／另存 PDF」按鈕。適合大多數手冊。
+- **`"format": "standalone"`**：完整獨立頁面。當某份手冊本身是一份完整的、有自己排版與互動效果的網頁（例如既有的簡報型手冊、外部工具產出的完整 HTML），可以**原封不動**存成一個檔案，不需要轉換成 `<h2>` 分段格式。手冊頁會用 `<iframe>` 把這個檔案原樣嵌入頁面中間，不套用本站樣式、也不產生頁面目錄（因為目錄需要讀取同一份文件的標題，跨 iframe 讀不到），改在右上角顯示「在新分頁開啟原始頁面」按鈕。全文搜尋只會比對到手冊標題，不會索引到 iframe 裡的內文（因為那些內容通常是用 JavaScript 動態產生的，不是網頁上看得到的純文字）。
+
+範例：
+```json
+{
+  "productId": "tp-200",
+  "categoryId": "touch-panel",
+  "typeId": "user-guide",
+  "lang": "zh-TW",
+  "title": "TP-200 上手指南",
+  "path": "manuals/touch-panel/tp-200/user-guide/zh-TW.html",
+  "format": "standalone",
+  "updatedAt": "2026-09-01"
+}
+```
+
+透過管理後台的「手冊文件」分頁新增／編輯手冊時，對話框裡也有「內容格式」的下拉選單可以直接選，不需要手動編輯這個欄位。
+
+**注意**：如果原始檔案開頭沒有 `<meta charset="UTF-8">`，某些瀏覽器／伺服器組合可能會誤判編碼，讓中文顯示成亂碼。上傳前建議先確認檔案第一行有這一行（沒有的話，在檔案最前面加上這一行即可，不會影響原本的版面或內容）。
+
 ## 管理後台（admin/）
 
 部署到 GitHub Pages 後，可以透過 `你的網址/admin/` 開啟管理後台，用網頁介面管理產品線、產品、文件類型與手冊內容，不需要手動編輯 JSON 或用 git 指令。

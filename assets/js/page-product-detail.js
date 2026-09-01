@@ -26,6 +26,8 @@
     var catLink = document.getElementById("productCatLink");
     catLink.textContent = I18N.pickLocale(category.name, lang);
     catLink.href = I18N.urlFor("products.html", lang, { category: category.id });
+    var catIndex = ctx.categories.findIndex(function (c) { return c.id === category.id; });
+    catLink.setAttribute("style", window.LumensCommon.tagColorStyle(catIndex < 0 ? 0 : catIndex));
 
     var body = document.getElementById("productBody");
     var declaredTypes = product.manuals || [];

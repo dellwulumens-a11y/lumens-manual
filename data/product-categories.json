@@ -2,11 +2,7 @@
   "categories": [
     {
       "id": "oip-bridge",
-      "name": {
-        "en": "OIP Bridge",
-        "zh-CN": "OIP Bridge",
-        "zh-TW": "OIP Bridge"
-      },
+      "name": { "en": "OIP Bridge", "zh-CN": "OIP Bridge", "zh-TW": "OIP Bridge" },
       "description": {
         "en": "AV-over-IP encoders/decoders and NDI systems",
         "zh-CN": "AV over IP 编解码器与 NDI 系统",
@@ -16,36 +12,21 @@
         {
           "id": "oip-n60d-nd",
           "model": "OIP-N60D-ND",
-          "name": {
-            "en": "4K NDI & Dante Decoder",
-            "zh-CN": "4K NDI & Dante 解码器",
-            "zh-TW": "4K NDI & Dante 解碼器"
-          },
+          "name": { "en": "4K NDI & Dante Decoder", "zh-CN": "4K NDI & Dante 解码器", "zh-TW": "4K NDI & Dante 解碼器" },
           "image": "assets/images/products/placeholder-box.svg",
           "manuals": []
         },
         {
           "id": "oip-n60d",
           "model": "OIP-N60D",
-          "name": {
-            "en": "4K NDI Decoder",
-            "zh-CN": "4K NDI 解码器",
-            "zh-TW": "4K NDI 解碼器"
-          },
+          "name": { "en": "4K NDI Decoder", "zh-CN": "4K NDI 解码器", "zh-TW": "4K NDI 解碼器" },
           "image": "assets/images/products/placeholder-box.svg",
-          "manuals": [
-            "installation-guide",
-            "other"
-          ]
+          "manuals": ["installation-guide", "other"]
         },
         {
           "id": "oip-n40e",
           "model": "OIP-N40E",
-          "name": {
-            "en": "Dante-Ready Encoder",
-            "zh-CN": "Dante 就绪型编码器",
-            "zh-TW": "Dante 就緒型編碼器"
-          },
+          "name": { "en": "Dante-Ready Encoder", "zh-CN": "Dante 就绪型编码器", "zh-TW": "Dante 就緒型編碼器" },
           "image": "assets/images/products/placeholder-box.svg",
           "manuals": []
         }
@@ -53,11 +34,7 @@
     },
     {
       "id": "camconnect",
-      "name": {
-        "en": "CamConnect",
-        "zh-CN": "CamConnect",
-        "zh-TW": "CamConnect"
-      },
+      "name": { "en": "CamConnect", "zh-CN": "CamConnect", "zh-TW": "CamConnect" },
       "description": {
         "en": "AI voice-tracking processors and room analytics cameras",
         "zh-CN": "AI 语音追踪处理器与房间分析摄像机",
@@ -67,33 +44,21 @@
         {
           "id": "ai-box1",
           "model": "AI-Box1",
-          "name": {
-            "en": "AI Voice-Tracking Processor",
-            "zh-CN": "AI语音追踪处理器",
-            "zh-TW": "AI語音追蹤處理器"
-          },
+          "name": { "en": "AI Voice-Tracking Processor", "zh-CN": "AI语音追踪处理器", "zh-TW": "AI語音追蹤處理器" },
           "image": "assets/images/products/placeholder-box.svg",
           "manuals": []
         },
         {
           "id": "bc-200",
           "model": "BC-200",
-          "name": {
-            "en": "Room Analytics Camera",
-            "zh-CN": "房间分析摄像机",
-            "zh-TW": "房間分析攝影機"
-          },
+          "name": { "en": "Room Analytics Camera", "zh-CN": "房间分析摄像机", "zh-TW": "房間分析攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         },
         {
           "id": "camconnect-200",
           "model": "CamConnect 200",
-          "name": {
-            "en": "Full-Motion Auto Voice-Tracking System",
-            "zh-CN": "全动态自动语音追踪系统",
-            "zh-TW": "全動態自動語音追蹤系統"
-          },
+          "name": { "en": "Full-Motion Auto Voice-Tracking System", "zh-CN": "全动态自动语音追踪系统", "zh-TW": "全動態自動語音追蹤系統" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         }
@@ -101,11 +66,7 @@
     },
     {
       "id": "media-processor",
-      "name": {
-        "en": "Media Processor",
-        "zh-CN": "Media Processor",
-        "zh-TW": "Media Processor"
-      },
+      "name": { "en": "Media Processor", "zh-CN": "Media Processor", "zh-TW": "Media Processor" },
       "description": {
         "en": "4K/HD capture and streaming processors",
         "zh-CN": "4K/HD 撷取与串流处理器",
@@ -115,33 +76,21 @@
         {
           "id": "lc300s",
           "model": "LC300S",
-          "name": {
-            "en": "4K 12G-SDI Quad-Channel Media Processor",
-            "zh-CN": "4K 12G-SDI 四通道媒体处理器",
-            "zh-TW": "4K 12G-SDI 四通道媒體處理器"
-          },
+          "name": { "en": "4K 12G-SDI Quad-Channel Media Processor", "zh-CN": "4K 12G-SDI 四通道媒体处理器", "zh-TW": "4K 12G-SDI 四通道媒體處理器" },
           "image": "assets/images/products/placeholder-box.svg",
           "manuals": []
         },
         {
           "id": "lc300",
           "model": "LC300",
-          "name": {
-            "en": "4K Quad-Channel Capture Processor",
-            "zh-CN": "4K 四通道撷取处理器",
-            "zh-TW": "4K 四通道擷取處理器"
-          },
+          "name": { "en": "4K Quad-Channel Capture Processor", "zh-CN": "4K 四通道撷取处理器", "zh-TW": "4K 四通道擷取處理器" },
           "image": "assets/images/products/placeholder-box.svg",
           "manuals": []
         },
         {
           "id": "lc200",
           "model": "LC200",
-          "name": {
-            "en": "HD Quad-Channel Media Processor",
-            "zh-CN": "HD 四通道媒体处理器",
-            "zh-TW": "HD 四通道媒體處理器"
-          },
+          "name": { "en": "HD Quad-Channel Media Processor", "zh-CN": "HD 四通道媒体处理器", "zh-TW": "HD 四通道媒體處理器" },
           "image": "assets/images/products/placeholder-box.svg",
           "manuals": []
         }
@@ -149,11 +98,7 @@
     },
     {
       "id": "auto-tracking-ptz",
-      "name": {
-        "en": "Auto-Tracking PTZ Cameras",
-        "zh-CN": "自动追踪 PTZ 摄像机",
-        "zh-TW": "自動追蹤 PTZ 攝影機"
-      },
+      "name": { "en": "Auto-Tracking PTZ Cameras", "zh-CN": "自动追踪 PTZ 摄像机", "zh-TW": "自動追蹤 PTZ 攝影機" },
       "description": {
         "en": "PTZ cameras with voice and motion auto-tracking",
         "zh-CN": "具语音与动作自动追踪功能的 PTZ 摄像机",
@@ -163,36 +108,21 @@
         {
           "id": "vc-tr60a",
           "model": "VC-TR60A",
-          "name": {
-            "en": "4K 12x AI Auto-Tracking Camera (Teams Certified)",
-            "zh-CN": "4K 12x AI自动追踪摄像机（Teams认证）",
-            "zh-TW": "4K 12x AI自動追蹤攝影機（Teams認證）"
-          },
+          "name": { "en": "4K 12x AI Auto-Tracking Camera (Teams Certified)", "zh-CN": "4K 12x AI自动追踪摄像机（Teams认证）", "zh-TW": "4K 12x AI自動追蹤攝影機（Teams認證）" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         },
         {
           "id": "vc-tr61",
           "model": "VC-TR61",
-          "name": {
-            "en": "4K 30x AI Auto-Tracking Camera",
-            "zh-CN": "4K 30x AI自动追踪摄像机",
-            "zh-TW": "4K 30x AI自動追蹤攝影機"
-          },
+          "name": { "en": "4K 30x AI Auto-Tracking Camera", "zh-CN": "4K 30x AI自动追踪摄像机", "zh-TW": "4K 30x AI自動追蹤攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": [
-            "user-guide",
-            "command-set"
-          ]
+          "manuals": ["user-guide", "command-set"]
         },
         {
           "id": "vc-tr40",
           "model": "VC-TR40",
-          "name": {
-            "en": "HD 20x AI Auto-Tracking Camera",
-            "zh-CN": "HD 20x AI自动追踪摄像机",
-            "zh-TW": "HD 20x AI自動追蹤攝影機"
-          },
+          "name": { "en": "HD 20x AI Auto-Tracking Camera", "zh-CN": "HD 20x AI自动追踪摄像机", "zh-TW": "HD 20x AI自動追蹤攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         }
@@ -200,11 +130,7 @@
     },
     {
       "id": "ptz-camera",
-      "name": {
-        "en": "PTZ Cameras",
-        "zh-CN": "PTZ摄像机",
-        "zh-TW": "PTZ攝影機"
-      },
+      "name": { "en": "PTZ Cameras", "zh-CN": "PTZ摄像机", "zh-TW": "PTZ攝影機" },
       "description": {
         "en": "Standard pan-tilt-zoom cameras, 4K and HD models",
         "zh-CN": "标准云台摄像机，含4K与HD型号",
@@ -214,37 +140,21 @@
         {
           "id": "vc-a71p",
           "model": "VC-A71P",
-          "name": {
-            "en": "4K 30x PTZ Camera",
-            "zh-CN": "4K 30x PTZ摄像机",
-            "zh-TW": "4K 30x PTZ攝影機"
-          },
+          "name": { "en": "4K 30x PTZ Camera", "zh-CN": "4K 30x PTZ摄像机", "zh-TW": "4K 30x PTZ攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": [
-            "user-guide",
-            "installation-guide",
-            "command-set"
-          ]
+          "manuals": ["user-guide", "installation-guide", "command-set"]
         },
         {
           "id": "vc-a53",
           "model": "VC-A53",
-          "name": {
-            "en": "Full HD 20x PTZ Camera",
-            "zh-CN": "Full HD 20x PTZ摄像机",
-            "zh-TW": "Full HD 20x PTZ攝影機"
-          },
+          "name": { "en": "Full HD 20x PTZ Camera", "zh-CN": "Full HD 20x PTZ摄像机", "zh-TW": "Full HD 20x PTZ攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         },
         {
           "id": "vc-r32",
           "model": "VC-R32",
-          "name": {
-            "en": "HD 12x PTZ Camera",
-            "zh-CN": "HD 12x PTZ摄像机",
-            "zh-TW": "HD 12x PTZ攝影機"
-          },
+          "name": { "en": "HD 12x PTZ Camera", "zh-CN": "HD 12x PTZ摄像机", "zh-TW": "HD 12x PTZ攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         }
@@ -252,11 +162,7 @@
     },
     {
       "id": "fixed-camera",
-      "name": {
-        "en": "Fixed Cameras",
-        "zh-CN": "固定式摄像机",
-        "zh-TW": "固定式攝影機"
-      },
+      "name": { "en": "Fixed Cameras", "zh-CN": "固定式摄像机", "zh-TW": "固定式攝影機" },
       "description": {
         "en": "Fixed box-style cameras",
         "zh-CN": "固定式盒型摄像机",
@@ -266,33 +172,21 @@
         {
           "id": "vc-bc301p",
           "model": "VC-BC301P",
-          "name": {
-            "en": "4K Box Camera",
-            "zh-CN": "4K 箱型摄像机",
-            "zh-TW": "4K 箱型攝影機"
-          },
+          "name": { "en": "4K Box Camera", "zh-CN": "4K 箱型摄像机", "zh-TW": "4K 箱型攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         },
         {
           "id": "bc-602",
           "model": "BC-602",
-          "name": {
-            "en": "HD 30x Box Camera",
-            "zh-CN": "HD 30x 箱型摄像机",
-            "zh-TW": "HD 30x 箱型攝影機"
-          },
+          "name": { "en": "HD 30x Box Camera", "zh-CN": "HD 30x 箱型摄像机", "zh-TW": "HD 30x 箱型攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         },
         {
           "id": "vc-b11u",
           "model": "VC-B11U",
-          "name": {
-            "en": "4K USB/Network Camera",
-            "zh-CN": "4K 网络摄像机",
-            "zh-TW": "4K 網路攝影機"
-          },
+          "name": { "en": "4K USB/Network Camera", "zh-CN": "4K 网络摄像机", "zh-TW": "4K 網路攝影機" },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
         }
@@ -300,11 +194,7 @@
     },
     {
       "id": "visualizer",
-      "name": {
-        "en": "Document Cameras / Visualizers",
-        "zh-CN": "文件摄像机／实物投影机",
-        "zh-TW": "文件攝影機／實物投影機"
-      },
+      "name": { "en": "Document Cameras / Visualizers", "zh-CN": "文件摄像机／实物投影机", "zh-TW": "文件攝影機／實物投影機" },
       "description": {
         "en": "Visualizers and classroom document cameras",
         "zh-CN": "实物投影机与教室文件摄像机",
@@ -314,66 +204,23 @@
         {
           "id": "ps753",
           "model": "PS753",
-          "name": {
-            "en": "4K Desktop Document Camera",
-            "zh-CN": "4K 桌上型文件摄像机",
-            "zh-TW": "4K 桌上型文件攝影機"
-          },
+          "name": { "en": "4K Desktop Document Camera", "zh-CN": "4K 桌上型文件摄像机", "zh-TW": "4K 桌上型文件攝影機" },
           "image": "assets/images/products/placeholder-doc-camera.svg",
-          "manuals": [
-            "user-guide",
-            "installation-guide"
-          ]
+          "manuals": ["user-guide", "installation-guide"]
         },
         {
           "id": "dc172",
           "model": "DC172",
-          "name": {
-            "en": "4K Gooseneck HDMI Document Camera",
-            "zh-CN": "4K 鹅颈式HDMI文件摄像机",
-            "zh-TW": "4K 鵝頸式HDMI文件攝影機"
-          },
+          "name": { "en": "4K Gooseneck HDMI Document Camera", "zh-CN": "4K 鹅颈式HDMI文件摄像机", "zh-TW": "4K 鵝頸式HDMI文件攝影機" },
           "image": "assets/images/products/placeholder-doc-camera.svg",
           "manuals": []
         },
         {
           "id": "cl511",
           "model": "CL511",
-          "name": {
-            "en": "4K Ceiling-Mount Document Camera",
-            "zh-CN": "4K 悬吊式文件摄像机",
-            "zh-TW": "4K 懸吊式文件攝影機"
-          },
+          "name": { "en": "4K Ceiling-Mount Document Camera", "zh-CN": "4K 悬吊式文件摄像机", "zh-TW": "4K 懸吊式文件攝影機" },
           "image": "assets/images/products/placeholder-doc-camera.svg",
           "manuals": []
-        }
-      ]
-    },
-    {
-      "id": "control-panel",
-      "name": {
-        "en": "Touch Control Panel",
-        "zh-CN": "触控控制面板",
-        "zh-TW": "觸控控制面板"
-      },
-      "description": {
-        "en": "",
-        "zh-CN": "",
-        "zh-TW": ""
-      },
-      "products": [
-        {
-          "id": "tp-200",
-          "model": "TP-200",
-          "name": {
-            "en": "Touch Control Panel 10 inch",
-            "zh-CN": "触控控制面板10吋",
-            "zh-TW": "觸控控制面板10吋"
-          },
-          "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": [
-            "user-guide"
-          ]
         }
       ]
     }

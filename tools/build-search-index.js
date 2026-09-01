@@ -43,8 +43,14 @@ function main() {
       missing++;
       return;
     }
+    // A "standalone" manual (format: "standalone") keeps its own original,
+    // self-contained page — its real content usually lives inside its own
+    // <script> block rather than in visible markup, so stripHtml() on it
+    // would strip that whole block away and yield nothing useful. Skip
+    // full-text extraction for those and let search still match on title.
+    const isStandalone = entry.format === "standalone";
     const html = fs.readFileSync(filePath, "utf8");
-    const text = stripHtml(html).slice(0, 8000);
+    const text = isStandalone ? "" : stripHtml(html).slice(0, 8000);
     out.push({
       productId: entry.productId,
       categoryId: entry.categoryId,

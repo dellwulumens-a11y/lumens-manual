@@ -1,7 +1,15 @@
 {
   "lang": "zh-TW",
-  "site": { "name": "Lumens 手冊中心", "tagline": "產品使用手冊、安裝手冊與 Command Set" },
-  "nav": { "byProduct": "依產品瀏覽", "byType": "依文件類型瀏覽", "search": "搜尋", "home": "首頁" },
+  "site": {
+    "name": "Lumens 手冊中心",
+    "tagline": "產品使用手冊、安裝手冊與 Command Set"
+  },
+  "nav": {
+    "byProduct": "依產品瀏覽",
+    "byType": "依文件類型瀏覽",
+    "search": "搜尋",
+    "home": "首頁"
+  },
   "home": {
     "heroTitle": "找到您 Lumens 產品的手冊",
     "heroSubtitle": "依產品線瀏覽，或直接跳到您需要的文件類型。所有手冊皆提供英文、簡體中文、繁體中文版本。",
@@ -33,9 +41,16 @@
     "onThisPage": "本頁目錄",
     "lastUpdated": "最後更新",
     "loading": "載入中…",
-    "loadError": "內容載入失敗，請稍後再試。"
+    "loadError": "內容載入失敗，請稍後再試。",
+    "openOriginal": "在新分頁開啟原始頁面",
+    "standaloneNote": "這份文件維持原始設計與版面，以下直接嵌入顯示。如需列印或另存 PDF，請用上方按鈕在新分頁開啟後再操作。"
   },
-  "breadcrumb": { "home": "首頁", "products": "產品", "manualTypes": "文件類型", "search": "搜尋" },
+  "breadcrumb": {
+    "home": "首頁",
+    "products": "產品",
+    "manualTypes": "文件類型",
+    "search": "搜尋"
+  },
   "search": {
     "title": "搜尋結果",
     "resultsFor": "搜尋關鍵字",
@@ -43,5 +58,9 @@
     "resultCount": "筆結果",
     "inputLabel": "搜尋所有手冊"
   },
-  "footer": { "note": "Lumens Digital Optics Inc. — 內部手冊中心，測試建置版本。", "productLine": "產品線", "documentType": "文件類型" }
+  "footer": {
+    "note": "Lumens Digital Optics Inc. — 內部手冊中心，測試建置版本。",
+    "productLine": "產品線",
+    "documentType": "文件類型"
+  }
 }

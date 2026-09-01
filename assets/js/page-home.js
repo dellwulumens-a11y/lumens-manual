@@ -14,8 +14,12 @@
     var input = document.getElementById("heroSearchInput");
     input.placeholder = t.common.searchPlaceholder;
 
+    var iconProduct = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="11" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>';
+    var iconType = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>';
+
     document.getElementById("entryProduct").innerHTML =
-      '<a class="entry-card" href="' + I18N.urlFor("products.html", lang) + '">' +
+      '<a class="entry-card highlight" href="' + I18N.urlFor("products.html", lang) + '">' +
+        '<span class="icon-box">' + iconProduct + "</span>" +
         '<span class="tag">' + esc(t.nav.byProduct) + "</span>" +
         "<h3>" + esc(t.home.enterByProductTitle) + "</h3>" +
         "<p>" + esc(t.home.enterByProductDesc) + "</p>" +
@@ -24,6 +28,7 @@
 
     document.getElementById("entryType").innerHTML =
       '<a class="entry-card alt" href="' + I18N.urlFor("manual-types.html", lang) + '">' +
+        '<span class="icon-box">' + iconType + "</span>" +
         '<span class="tag">' + esc(t.nav.byType) + "</span>" +
         "<h3>" + esc(t.home.enterByTypeTitle) + "</h3>" +
         "<p>" + esc(t.home.enterByTypeDesc) + "</p>" +
