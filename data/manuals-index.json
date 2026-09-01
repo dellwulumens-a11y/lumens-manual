@@ -142,5 +142,14 @@
     "title": "TP-200 使用手冊",
     "path": "manuals/control-panel/tp-200/user-guide/en.html",
     "updatedAt": "2026-09-01"
+  },
+  {
+    "productId": "tp-200",
+    "categoryId": "control-panel",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "TP-200 使用手冊",
+    "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
+    "updatedAt": "2026-09-01"
   }
 ]
