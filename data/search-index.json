@@ -142,5 +142,14 @@
     "title": "TP-200 使用手冊",
     "path": "manuals/control-panel/tp-200/user-guide/en.html",
     "text": "TP-200 上手指南 Lumens · TP-200 產品培訓手冊 Lumens Digital Optics Inc. TP-200 內部培訓資料 · v1.0 00 / 13 封面"
+  },
+  {
+    "productId": "tp-200",
+    "categoryId": "control-panel",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "TP-200 使用手冊",
+    "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
+    "text": "TP-200 上手指南 Lumens · TP-200 產品培訓手冊 Lumens Digital Optics Inc. TP-200 內部培訓資料 · v1.0 00 / 13 封面"
   }
 ]
