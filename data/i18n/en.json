@@ -1,0 +1,47 @@
+{
+  "lang": "en",
+  "site": { "name": "Lumens Manual Center", "tagline": "Product manuals, installation guides & command sets" },
+  "nav": { "byProduct": "By Product", "byType": "By Document Type", "search": "Search", "home": "Home" },
+  "home": {
+    "heroTitle": "Find the manual for your Lumens product",
+    "heroSubtitle": "Browse by product line, or jump straight to a document type. All manuals are available in English, Simplified Chinese and Traditional Chinese.",
+    "enterByProductTitle": "Browse by Product",
+    "enterByProductDesc": "Find your product model, then see every manual available for it.",
+    "enterByTypeTitle": "Browse by Document Type",
+    "enterByTypeDesc": "Looking for a specific kind of document across all products? Start here.",
+    "searchTitle": "Or search directly",
+    "quickLinksTitle": "Recently updated"
+  },
+  "common": {
+    "searchPlaceholder": "Search manuals, models, commands…",
+    "searchButton": "Search",
+    "language": "Language",
+    "print": "Print",
+    "downloadPdf": "Save as PDF",
+    "relatedManuals": "Other documents for this product",
+    "noManualsYet": "No manuals published for this product yet.",
+    "backToHome": "Back to home",
+    "allCategories": "All product lines",
+    "allTypes": "All document types",
+    "viewProduct": "View product",
+    "viewAllDocuments": "View all documents",
+    "documentsAvailable": "documents available",
+    "noDocumentsYet": "No documents yet",
+    "availableIn": "Available in",
+    "switchView": "Prefer to browse by document type instead?",
+    "switchViewByProduct": "Prefer to browse by product instead?",
+    "onThisPage": "On this page",
+    "lastUpdated": "Last updated",
+    "loading": "Loading…",
+    "loadError": "This content could not be loaded. Please try again later."
+  },
+  "breadcrumb": { "home": "Home", "products": "Products", "manualTypes": "Document Types", "search": "Search" },
+  "search": {
+    "title": "Search results",
+    "resultsFor": "Results for",
+    "noResults": "No matching documents found. Try a different keyword.",
+    "resultCount": "results",
+    "inputLabel": "Search all manuals"
+  },
+  "footer": { "note": "Lumens Digital Optics Inc. — Internal manual center, draft build.", "productLine": "Product Lines", "documentType": "Document Types" }
+}

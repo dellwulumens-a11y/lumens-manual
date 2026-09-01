@@ -1,0 +1,39 @@
+<div class="callout warn"><strong>Sample content.</strong> Replace with the official VC-A71P VISCA command reference before publishing.</div>
+
+<p>The VC-A71P accepts standard VISCA commands over RS-232/RS-422 (9600–38400 bps) and VISCA-over-IP (UDP port 52381).</p>
+
+<h2 id="connection">Connection</h2>
+<table>
+  <thead><tr><th>Interface</th><th>Default Setting</th></tr></thead>
+  <tbody>
+    <tr><td>RS-232 / RS-422</td><td>9600 bps, 8N1</td></tr>
+    <tr><td>VISCA-over-IP</td><td>UDP 52381</td></tr>
+  </tbody>
+</table>
+
+<h2 id="command-format">Command Format</h2>
+<p>All commands begin with an address byte and end with the terminator <code>FF</code>. Example — camera address 1, power on:</p>
+<pre><code>8x 01 04 00 02 FF</code></pre>
+
+<h2 id="ptz-commands">PTZ Commands</h2>
+<table>
+  <thead><tr><th>Function</th><th>Command</th></tr></thead>
+  <tbody>
+    <tr><td>Power On</td><td><code>8x 01 04 00 02 FF</code></td></tr>
+    <tr><td>Power Off (standby)</td><td><code>8x 01 04 00 03 FF</code></td></tr>
+    <tr><td>Pan/Tilt Stop</td><td><code>8x 01 06 01 VV WW 03 03 FF</code></td></tr>
+    <tr><td>Zoom Tele (Standard)</td><td><code>8x 01 04 07 02 FF</code></td></tr>
+    <tr><td>Zoom Wide (Standard)</td><td><code>8x 01 04 07 03 FF</code></td></tr>
+    <tr><td>Preset Recall</td><td><code>8x 01 04 3F 02 pp FF</code></td></tr>
+  </tbody>
+</table>
+
+<h2 id="inquiry-commands">Inquiry Commands</h2>
+<table>
+  <thead><tr><th>Function</th><th>Command</th></tr></thead>
+  <tbody>
+    <tr><td>Power Inquiry</td><td><code>8x 09 04 00 FF</code></td></tr>
+    <tr><td>Pan/Tilt Position Inquiry</td><td><code>8x 09 06 12 FF</code></td></tr>
+    <tr><td>Zoom Position Inquiry</td><td><code>8x 09 04 47 FF</code></td></tr>
+  </tbody>
+</table>

@@ -1,0 +1,137 @@
+[
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A71P User Manual",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/en.html",
+    "text": "Sample content. This page demonstrates the manual template. Replace with the official VC-A71P documentation before publishing. The VC-A71P is a 4K 30x PTZ camera designed for lecture capture, conference rooms and broadcast-grade production. This manual covers unboxing, basic operation and everyday settings. Overview VC-A71P outputs up to 4K/30p over HDMI, 3G-SDI and IP simultaneously, with 30x optical zoom and a 90° wide-angle mode. It supports PTZ presets, tally indicators, and remote control via IR, RS-232/RS-422 and network. Package Contents VC-A71P camera unit IR remote control Power adapter and regional power cord Wall-mount bracket and screws Quick start card Setup & Connections Connect video output (HDMI / 3G-SDI / LAN) to your switcher, capture device or network, then connect power last. The status LED blinks blue while the camera initializes and turns solid white once ready. Port Use HDMI OUT Direct display or capture card connection 3G-SDI OUT Long-distance or broadcast switcher connection LAN IP streaming, NDI|HX (license required), web control RS-232 / RS-422 Serial control from a VISCA-compatible controller Basic Operation Use the IR remote or a joystick controller to pan, tilt and zoom. Press PRESET + a number key to save a camera position, and press the number key alone to recall it. Up to 255 presets can be stored when controlling the camera over IP with VISCA-over-IP. Specifications Item Value Sensor 1/2.5\" 4K CMOS Optical zoom 30x Max resolution 3840×2160 @ 30p Pan / Tilt range ±170° / -30° to 90° Control IR, RS-232, RS-422, IP (VISCA-over-IP) Troubleshooting If the camera does not respond to the remote, confirm the camera ID on the remote matches the camera's DIP-switch setting. If there is no video signal, verify the output format selected on the camera matches what your downstream device expects."
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A71P 使用手册",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-CN.html",
+    "text": "此为示例内容。 本页仅用于展示手册模板，正式上线前请替换为 VC-A71P 官方文件。 VC-A71P 是一款 4K 30 倍光学变焦 PTZ 摄像机，适用于课程录制、会议室与专业级影像制作。本手册涵盖开箱、基本操作与常用设置。 产品概览 VC-A71P 可同时通过 HDMI、3G-SDI 与网络输出最高 4K/30p 影像，具备 30 倍光学变焦与 90° 广角模式，支持 PTZ 预设点、Tally 指示灯，并可通过红外线、RS-232/RS-422 及网络远程控制。 包装内容 VC-A71P 摄像机主机 红外线遥控器 电源适配器与对应地区电源线 壁挂支架与螺丝 快速安装卡 安装与连接 请先连接视频输出（HDMI／3G-SDI／网线）至切换台、采集卡或网络，最后再接通电源。开机时状态灯会闪烁蓝灯，初始化完成后转为常亮白灯。 接口 用途 HDMI OUT 直接连接显示器或采集卡 3G-SDI OUT 长距离传输或连接广播级切换台 LAN IP 流媒体、NDI|HX（需授权）、网页控制 RS-232／RS-422 通过兼容 VISCA 协议的控制器进行串行控制 基本操作 可使用红外线遥控器或摇杆控制器进行水平／垂直移动与变焦。按下 PRESET + 数字键可保存摄像机位置，单独按下数字键即可回到该预设点。 通过 VISCA-over-IP 以网络控制摄像机时，最多可保存 255 组预设点。 规格 项目 数值 感光元件 1/2.5\" 4K CMOS 光学变焦 30 倍 最高分辨率 3840×2160 @ 30p 水平／垂直范围 ±170°／-30° 至 90° 控制方式 红外线、RS-232、RS-422、IP（VISCA-over-IP） 疑难排解 若遥控器无法控制摄像机，请确认遥控器上设置的摄像机编号是否与机身 DIP 开关设置一致。若无视频信号，请确认摄像机所选输出格式是否与下游设备相符。"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71P 使用手冊",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-TW.html",
+    "text": "此為示範內容。 本頁僅用於展示手冊樣板，正式上線前請替換為 VC-A71P 官方文件。 VC-A71P 是一款 4K 30 倍光學變焦 PTZ 攝影機，適用於課程錄製、會議室與專業級影像製作。本手冊涵蓋開箱、基本操作與常用設定。 產品概觀 VC-A71P 可同時透過 HDMI、3G-SDI 與網路輸出最高 4K/30p 影像，具備 30 倍光學變焦與 90° 廣角模式，支援 PTZ 預設點、Tally 指示燈，並可透過紅外線、RS-232/RS-422 及網路遠端控制。 包裝內容 VC-A71P 攝影機主機 紅外線遙控器 電源供應器與對應地區電源線 壁掛支架與螺絲 快速安裝卡 安裝與連接 請先連接視訊輸出（HDMI／3G-SDI／網路線）至切換器、擷取卡或網路，最後再接上電源。開機時狀態燈會閃爍藍燈，初始化完成後轉為恆亮白燈。 連接埠 用途 HDMI OUT 直接連接顯示器或擷取卡 3G-SDI OUT 長距離傳輸或連接廣播級切換器 LAN IP 串流、NDI|HX（需授權）、網頁控制 RS-232／RS-422 透過相容 VISCA 協定的控制器進行序列控制 基本操作 可使用紅外線遙控器或搖桿控制器進行水平／垂直移動與變焦。按下 PRESET + 數字鍵可儲存攝影機位置，單獨按下數字鍵即可回到該預設點。 透過 VISCA-over-IP 以網路控制攝影機時，最多可儲存 255 組預設點。 規格 項目 數值 感光元件 1/2.5\" 4K CMOS 光學變焦 30 倍 最高解析度 3840×2160 @ 30p 水平／垂直範圍 ±170°／-30° 至 90° 控制方式 紅外線、RS-232、RS-422、IP（VISCA-over-IP） 疑難排解 若遙控器無法控制攝影機，請確認遙控器上設定的攝影機編號是否與機身 DIP 開關設定一致。若無視訊訊號，請確認攝影機所選輸出格式是否與下游裝置相符。"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A71P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71p/installation-guide/en.html",
+    "text": "Sample content. Replace with the official VC-A71P installation guide before publishing. This guide covers permanent mounting and system wiring for the VC-A71P. It is intended for installers, not end users. Before You Start Confirm the mounting surface can support at least 5x the camera's weight. Plan cable runs for power, video and control before drilling any holes. Record the camera's serial number and MAC address for your site documentation. Mounting The VC-A71P can be installed ceiling-up or desktop-standing using the supplied bracket. When mounting to a ceiling, use the included template to mark screw positions, and torque mounting screws to the bracket's rated value only — overtightening can deform the base plate. Wiring Cable Recommendation Power Use the supplied 12V adapter, or PoE++ via the LAN port where supported Video HDMI runs under 10m; use 3G-SDI or an HDMI extender for longer distances Control Shielded twisted pair for RS-232/RS-422, terminated at both ends Network Setup By default the camera obtains an address via DHCP. To assign a static IP, open the web control page at the camera's current address, go to Network Settings , and disable DHCP before entering a static address, subnet mask and gateway. Installation Verification After installation, confirm: video output matches the expected resolution and frame rate, pan/tilt movement is unobstructed across its full range, and all cable connections are strain-relieved."
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71P 安裝手冊",
+    "path": "manuals/ptz-camera/vc-a71p/installation-guide/zh-TW.html",
+    "text": "此為示範內容。 正式上線前請替換為 VC-A71P 官方安裝手冊。 本指南說明 VC-A71P 的固定安裝與系統接線方式，適用對象為安裝人員，非一般使用者。 開始之前 確認安裝面能承受至少攝影機重量 5 倍以上的負荷。 在鑽孔前先規劃好電源、視訊與控制線的走線路徑。 記錄攝影機序號與 MAC 位址，作為現場文件留存。 安裝方式 VC-A71P 可透過隨附支架進行天吊或桌面直立安裝。若採天吊安裝，請使用隨附的定位紙標示螺絲孔位，鎖固螺絲時請依支架標示扭力值鎖緊，避免過度鎖緊導致底座變形。 接線 線材 建議 電源 使用隨附 12V 電源供應器，或於支援機種使用 LAN 埠 PoE++ 供電 視訊 HDMI 建議 10 公尺內；較長距離請改用 3G-SDI 或 HDMI 延長器 控制 RS-232／RS-422 請使用屏蔽雙絞線，並於兩端做好端接 網路設定 攝影機預設透過 DHCP 取得位址。如需設定固定 IP，請於瀏覽器開啟攝影機目前位址的網頁控制介面，進入「網路設定」，關閉 DHCP 後輸入固定 IP、子網路遮罩與閘道位址。 安裝確認 安裝完成後請確認：視訊輸出解析度與畫面更新率符合預期、水平／垂直移動於全範圍內無阻礙、所有纜線連接處皆有適當的應力消除固定。"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "command-set",
+    "lang": "en",
+    "title": "VC-A71P Command Set",
+    "path": "manuals/ptz-camera/vc-a71p/command-set/en.html",
+    "text": "Sample content. Replace with the official VC-A71P VISCA command reference before publishing. The VC-A71P accepts standard VISCA commands over RS-232/RS-422 (9600–38400 bps) and VISCA-over-IP (UDP port 52381). Connection Interface Default Setting RS-232 / RS-422 9600 bps, 8N1 VISCA-over-IP UDP 52381 Command Format All commands begin with an address byte and end with the terminator FF . Example — camera address 1, power on: 8x 01 04 00 02 FF PTZ Commands Function Command Power On 8x 01 04 00 02 FF Power Off (standby) 8x 01 04 00 03 FF Pan/Tilt Stop 8x 01 06 01 VV WW 03 03 FF Zoom Tele (Standard) 8x 01 04 07 02 FF Zoom Wide (Standard) 8x 01 04 07 03 FF Preset Recall 8x 01 04 3F 02 pp FF Inquiry Commands Function Command Power Inquiry 8x 09 04 00 FF Pan/Tilt Position Inquiry 8x 09 06 12 FF Zoom Position Inquiry 8x 09 04 47 FF"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR61 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/en.html",
+    "text": "Sample content. Replace with the official VC-TR61 documentation before publishing. The VC-TR61 is a 4K 30x auto-tracking PTZ camera that follows a presenter automatically using onboard AI, so a room can run camera-free. Overview VC-TR61 combines a 30x optical zoom block with an AI tracking engine. It can track a single presenter, hand off between multiple presets, or stay locked to a defined zone. Package Contents VC-TR61 camera unit IR remote control Power adapter Ceiling/wall mount bracket Setup & Connections Connect HDMI, 3G-SDI or LAN as needed, then power on. Tracking mode is disabled by default on first boot and must be enabled from the OSD menu or web control page. Basic Operation Press the TRACK button on the remote to toggle auto-tracking on or off. While tracking is active, manual pan/tilt/zoom commands temporarily pause tracking for 5 seconds before it resumes. Tracking accuracy depends on room lighting and the configured tracking zone — see the Installation Guide for placement recommendations. Specifications Item Value Optical zoom 30x Max resolution 3840×2160 @ 30p Tracking modes Single presenter, zone lock, preset hand-off Control IR, RS-232, IP Troubleshooting If tracking drifts to the wrong person, reduce the tracking zone width in the web control page's Tracking Settings tab, and re-run the calibration wizard."
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR61 使用手冊",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/zh-TW.html",
+    "text": "此為示範內容。 正式上線前請替換為 VC-TR61 官方文件。 VC-TR61 是一款 4K 30 倍光學變焦自動追蹤 PTZ 攝影機，透過內建 AI 自動跟隨講者，讓教室或會議室不需專人操作攝影機。 產品概觀 VC-TR61 結合 30 倍光學變焦鏡頭模組與 AI 追蹤引擎，可追蹤單一講者、於多個預設點之間切換，或鎖定於指定區域內。 包裝內容 VC-TR61 攝影機主機 紅外線遙控器 電源供應器 天吊／壁掛支架 安裝與連接 依需求連接 HDMI、3G-SDI 或網路線後開機。首次開機時自動追蹤功能預設為關閉，需於 OSD 選單或網頁控制介面中手動啟用。 基本操作 按下遙控器上的 TRACK 鍵可切換自動追蹤開／關。追蹤啟用中若手動操作水平／垂直／變焦，追蹤會暫停 5 秒後自動恢復。 追蹤準確度會受現場光線與追蹤區域設定影響，建議安裝位置請參考安裝手冊。 規格 項目 數值 光學變焦 30 倍 最高解析度 3840×2160 @ 30p 追蹤模式 單一講者、區域鎖定、預設點切換 控制方式 紅外線、RS-232、IP 疑難排解 若追蹤鎖定到錯誤對象，請於網頁控制介面的追蹤設定頁面縮小追蹤區域寬度，並重新執行校正精靈。"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "command-set",
+    "lang": "en",
+    "title": "VC-TR61 Command Set",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/command-set/en.html",
+    "text": "Sample content. Replace with the official VC-TR61 command reference before publishing. In addition to standard VISCA PTZ commands, the VC-TR61 exposes a set of tracking-specific commands over RS-232/RS-422 and VISCA-over-IP (UDP port 52381). Connection Interface Default Setting RS-232 / RS-422 9600 bps, 8N1 VISCA-over-IP UDP 52381 Command Format Tracking commands use the vendor-specific command block, terminated with FF : 8x 01 7E 01 6D 0p FF Tracking Commands Function Command Tracking On 8x 01 7E 01 6D 02 FF Tracking Off 8x 01 7E 01 6D 03 FF Set Tracking Zone (full frame) 8x 01 7E 01 6E 00 FF Inquiry Commands Function Command Tracking Status Inquiry 8x 09 7E 01 6D FF"
+  },
+  {
+    "productId": "ps753",
+    "categoryId": "visualizer",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "PS753 User Manual",
+    "path": "manuals/visualizer/ps753/user-guide/en.html",
+    "text": "Sample content. Replace with the official PS753 documentation before publishing. The PS753 is a 4K desktop document camera for classrooms and meeting rooms, capturing documents, 3D objects and whiteboards with a single arm-mounted camera head. Overview PS753 offers a large capture area, adjustable-height camera arm, and built-in LED lighting for even document illumination. Output is available over HDMI and USB simultaneously. Package Contents PS753 document camera USB cable and HDMI cable Power adapter Remote control Setup & Connections Unfold the camera arm fully before powering on, and connect HDMI to a projector/display or USB to a computer for use as a webcam-style capture device. Basic Operation Press AUTO FOCUS after repositioning a document. Use the zoom rocker on the base to frame the capture area, and the LED button to toggle the built-in lighting. Specifications Item Value Max resolution 3840×2160 (4K) Output HDMI, USB 3.0 Lighting Built-in adjustable LED Troubleshooting If the image is soft, confirm autofocus is enabled and the document is flat within the capture area. If the computer does not detect the camera over USB, try a different USB port or cable."
+  },
+  {
+    "productId": "ps753",
+    "categoryId": "visualizer",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "PS753 使用手冊",
+    "path": "manuals/visualizer/ps753/user-guide/zh-TW.html",
+    "text": "此為示範內容。 正式上線前請替換為 PS753 官方文件。 PS753 是一款 4K 桌上型實物投影機，適用於教室與會議室，透過懸臂式攝影機頭即可拍攝文件、立體物件與白板內容。 產品概觀 PS753 提供大範圍拍攝區域、可調整高度的攝影機懸臂，並內建 LED 補光燈，確保文件光線均勻。可同時透過 HDMI 與 USB 輸出影像。 包裝內容 PS753 實物投影機主機 USB 傳輸線與 HDMI 傳輸線 電源供應器 遙控器 安裝與連接 開機前請先將攝影機懸臂完全展開，並依需求連接 HDMI 至投影機／顯示器，或連接 USB 至電腦作為視訊擷取裝置使用。 基本操作 更換文件位置後請按下 AUTO FOCUS 自動對焦。可使用機身上的變焦搖桿調整拍攝範圍，並以 LED 按鍵切換內建補光燈。 規格 項目 數值 最高解析度 3840×2160（4K） 輸出 HDMI、USB 3.0 補光 內建可調式 LED 疑難排解 若畫面模糊，請確認自動對焦已啟用，且文件平整放置於拍攝範圍內。若電腦無法透過 USB 偵測到攝影機，請嘗試更換 USB 連接埠或傳輸線。"
+  },
+  {
+    "productId": "ps753",
+    "categoryId": "visualizer",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "PS753 Installation Guide",
+    "path": "manuals/visualizer/ps753/installation-guide/en.html",
+    "text": "Sample content. Replace with the official PS753 installation guide before publishing. This guide covers fixed desktop placement and AV system integration for the PS753. Before You Start Choose a stable, vibration-free surface for the base. Allow enough overhead clearance for the arm to unfold fully. Mounting The PS753 is designed for desktop placement only. Do not clamp or mount the base to a moving surface, as this affects autofocus stability. Wiring Cable Recommendation Power Use the supplied adapter only Video HDMI to display/projector, or USB to a PC Installation Verification After setup, confirm autofocus locks within 2 seconds when a document is placed, and that LED lighting is even across the capture area."
+  },
+  {
+    "productId": "oip-n60d",
+    "categoryId": "oip-bridge",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "OIP-N60D Installation Guide",
+    "path": "manuals/oip-bridge/oip-n60d/installation-guide/en.html",
+    "text": "Sample content. Replace with the official OIP-N60D installation guide before publishing. This guide covers rack installation and network configuration for the OIP-N60D 4K NDI decoder. Before You Start Confirm your NDI source and decoder are on the same subnet, or that routing between subnets is configured. Reserve a static IP address for the decoder in your network plan. Mounting The OIP-N60D mounts in a standard 1U rack shelf, or can sit freestanding near the display it feeds. Ensure at least 2cm clearance around the ventilation openings. Wiring Cable Recommendation Network Cat6 or better, gigabit switch recommended Video out HDMI to display; use an active HDMI extender beyond 10m Network Setup Access the decoder's web interface at its DHCP-assigned address to select the NDI source to decode, or assign a static address under Network > IP Settings . Installation Verification Confirm the decoder locks onto the intended NDI source within a few seconds of power-up, and that video output resolution matches the display's native resolution."
+  },
+  {
+    "productId": "oip-n60d",
+    "categoryId": "oip-bridge",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "OIP-N60D 安裝手冊",
+    "path": "manuals/oip-bridge/oip-n60d/installation-guide/zh-TW.html",
+    "text": "此為示範內容。 正式上線前請替換為 OIP-N60D 官方安裝手冊。 本指南說明 OIP-N60D 4K NDI 解碼器的機架安裝與網路設定方式。 開始之前 請確認 NDI 訊號來源與解碼器位於同一網段，或已設定好跨網段路由。 建議於網路規劃中為解碼器保留固定 IP 位址。 安裝方式 OIP-N60D 可安裝於標準 1U 機架層板，亦可直接擺放於顯示器附近使用。請確保散熱孔周圍保留至少 2 公分淨空間。 接線 線材 建議 網路 建議使用 Cat6 以上等級網路線與 Gigabit 交換器 視訊輸出 HDMI 連接顯示器；超過 10 公尺請使用主動式 HDMI 延長器 網路設定 開機後可透過瀏覽器存取解碼器的 DHCP 位址進入網頁控制介面，選擇要解碼的 NDI 來源，或於「網路 > IP 設定」中指定固定 IP。 安裝確認 請確認開機後數秒內解碼器能鎖定指定的 NDI 訊號來源，且視訊輸出解析度與顯示器原生解析度相符。"
+  },
+  {
+    "productId": "oip-n60d",
+    "categoryId": "oip-bridge",
+    "typeId": "other",
+    "lang": "en",
+    "title": "OIP-N60D Regulatory & Compliance Notice",
+    "path": "manuals/oip-bridge/oip-n60d/other/en.html",
+    "text": "Sample content. Replace with the official OIP-N60D regulatory and warranty documentation before publishing. This document collects regulatory notices and warranty information for the OIP-N60D that do not belong in the user or installation guides. Regulatory Notices This device should be installed and operated in accordance with local electrical and radio-frequency emission regulations applicable in the country of use. Refer to the product label for applicable certification marks. Warranty Information Standard hardware warranty terms apply as stated in the sales contract or regional distributor agreement. Contact your regional Lumens support contact for warranty claims."
+  }
+]

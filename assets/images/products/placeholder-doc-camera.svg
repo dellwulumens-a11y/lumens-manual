@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="Document camera product placeholder image">
+  <rect width="160" height="120" fill="none"/>
+  <rect x="34" y="82" width="92" height="10" rx="2" fill="none" stroke="#0b5fae" stroke-width="3"/>
+  <path d="M60 88 V56 Q60 48 68 46 L84 40" fill="none" stroke="#0b5fae" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="90" cy="37" r="10" fill="none" stroke="#0b5fae" stroke-width="3"/>
+  <rect x="40" y="60" width="34" height="24" rx="2" fill="none" stroke="#0b5fae" stroke-width="2.5"/>
+</svg>
