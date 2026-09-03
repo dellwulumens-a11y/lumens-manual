@@ -362,6 +362,20 @@
           "manuals": []
         }
       ]
+    },
+    {
+      "id": "control-panel",
+      "name": {
+        "en": "Touch Control Panel",
+        "zh-CN": "触控控制面板",
+        "zh-TW": "觸控控制面板"
+      },
+      "description": {
+        "en": "",
+        "zh-CN": "",
+        "zh-TW": ""
+      },
+      "products": []
     }
   ]
 }
