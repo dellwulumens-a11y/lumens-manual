@@ -402,14 +402,14 @@ ul{margin:0; padding:0;}
 .lang-tabs a.disabled{opacity:.4; pointer-events:none;}
 
 .manual-content{font-size:15.5px; color:var(--ink); max-width:72ch;}
-.manual-content.is-pdf{max-width:none;}
+.manual-content.is-pdf{width:100%; max-width:none;}
 .manual-content.is-standalone{max-width:none;}
 .standalone-frame-note{font-size:13px; color:var(--ink-faint); margin-bottom:12px;}
 .standalone-frame{
   display:block; width:100%; height:82vh; min-height:560px; max-height:1100px;
   border:1px solid var(--line); border-radius:var(--radius); background:#fff;
 }
-.pdf-frame{display:block; width:100%; height:82vh; min-height:680px; border:1px solid var(--line); border-radius:var(--radius); background:#eef1f4;}
+.manual-content.is-pdf .pdf-frame{display:block; width:100%; max-width:none; height:82vh; min-height:680px; border:1px solid var(--line); border-radius:var(--radius); background:#eef1f4;}
 @media (max-width:640px){ .standalone-frame{height:75vh;} }
 @media (max-width:640px){ .pdf-frame{height:75vh; min-height:520px;} }
 @media print{ .standalone-frame-note{display:none;} }
