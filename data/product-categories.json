@@ -121,7 +121,9 @@
             "zh-TW": "4K 12G-SDI 四通道媒體處理器"
           },
           "image": "assets/images/products/placeholder-box.svg",
-          "manuals": []
+          "manuals": [
+            "user-guide"
+          ]
         },
         {
           "id": "lc300",
