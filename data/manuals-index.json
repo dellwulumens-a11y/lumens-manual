@@ -173,5 +173,15 @@
     "path": "manuals/media-processor/lc300s/user-guide/zh-TW.pdf",
     "format": "pdf",
     "updatedAt": "2026-09-03"
+  },
+  {
+    "productId": "bc-601p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "BC-601P 使用手冊",
+    "path": "manuals/fixed-camera/bc-601p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-03"
   }
 ]
