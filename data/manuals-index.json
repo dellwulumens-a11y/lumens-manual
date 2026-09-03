@@ -133,5 +133,15 @@
     "title": "OIP-N60D Regulatory & Compliance Notice",
     "path": "manuals/oip-bridge/oip-n60d/other/en.html",
     "updatedAt": "2026-05-15"
+  },
+  {
+    "productId": "lc300",
+    "categoryId": "media-processor",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "LC300 使用手冊",
+    "path": "manuals/media-processor/lc300/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-03"
   }
 ]
