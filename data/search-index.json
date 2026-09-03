@@ -178,5 +178,14 @@
     "title": "BC-601P 使用手冊",
     "path": "manuals/fixed-camera/bc-601p/user-guide/en.pdf",
     "text": ""
+  },
+  {
+    "productId": "bc-601p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "BC-601P 使用手冊",
+    "path": "manuals/fixed-camera/bc-601p/user-guide/zh-TW.pdf",
+    "text": ""
   }
 ]
