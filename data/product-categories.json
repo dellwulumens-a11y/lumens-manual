@@ -375,7 +375,17 @@
         "zh-CN": "",
         "zh-TW": ""
       },
-      "products": []
+      "products": [
+        {
+          "id": "tp-200",
+          "model": "TP-200",
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "user-guide",
+            "installation-guide"
+          ]
+        }
+      ]
     }
   ]
 }
