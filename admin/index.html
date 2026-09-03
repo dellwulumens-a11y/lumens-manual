@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumens 手冊管理後台</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<header class="admin-topbar">
+  <div class="admin-topbar-inner">
+    <div class="logo"><span class="mark">L</span><span>Lumens<small>手冊管理後台</small></span></div>
+    <div id="connStatus" class="conn-status">尚未連接</div>
+    <div class="admin-topbar-actions" id="topbarActions" hidden>
+      <button class="btn" id="refreshBtn" type="button">重新整理資料</button>
+      <button class="btn" id="logoutBtn" type="button">登出</button>
+    </div>
+  </div>
+</header>
+
+<main class="container admin-main">
+
+  <!-- Login panel -->
+  <section id="loginPanel" class="admin-card login-card">
+    <h1>連接到 GitHub Repository</h1>
+    <p class="admin-help">這個後台不會另外儲存帳號密碼——每次的新增／修改／刪除都是直接透過 GitHub API 對你的 repository 送出 commit，網站會沿用現有的 GitHub Pages 自動重新部署。</p>
+
+    <form id="loginForm" class="admin-form">
+      <div class="field">
+        <label for="fOwner">GitHub 帳號 / 組織名稱</label>
+        <input id="fOwner" name="owner" type="text" placeholder="例如 dellwulumens-a11y" required>
+      </div>
+      <div class="field">
+        <label for="fRepo">Repository 名稱</label>
+        <input id="fRepo" name="repo" type="text" placeholder="例如 lumens-manual" required>
+      </div>
+      <div class="field">
+        <label for="fBranch">分支</label>
+        <input id="fBranch" name="branch" type="text" value="main" required>
+      </div>
+      <div class="field">
+        <label for="fToken">Personal Access Token</label>
+        <input id="fToken" name="token" type="password" placeholder="github_pat_..." required autocomplete="off">
+        <p class="field-help">Token 只會存在<strong>這台電腦、這個瀏覽器</strong>的本機儲存空間，不會上傳到任何地方。請使用「Fine-grained personal access token」，只授權這一個 repository、Contents 權限設為 Read and write。</p>
+      </div>
+      <div class="field checkbox-field">
+        <label><input type="checkbox" id="fRemember" checked> 記住這台電腦上的連線設定（含 Token）</label>
+      </div>
+      <button class="btn primary" type="submit">連接</button>
+      <p id="loginError" class="admin-error" hidden></p>
+    </form>
+
+    <details class="admin-help-details">
+      <summary>不知道怎麼申請 Token？點這裡看步驟</summary>
+      <ol>
+        <li>登入 GitHub，右上角頭像 → <strong>Settings</strong></li>
+        <li>左側選單最下方 <strong>Developer settings</strong></li>
+        <li><strong>Personal access tokens</strong> → <strong>Fine-grained tokens</strong> → <strong>Generate new token</strong></li>
+        <li>Resource owner 選擇這個 repository 所屬的帳號／組織</li>
+        <li>Repository access 選 <strong>Only select repositories</strong>，選擇這個手冊網站的 repository</li>
+        <li>Permissions → Repository permissions → <strong>Contents</strong> 設為 <strong>Read and write</strong></li>
+        <li>設定好期限後點 Generate token，複製產生的 token（只會顯示這一次）貼到上面欄位</li>
+      </ol>
+    </details>
+  </section>
+
+  <!-- Main admin panel -->
+  <section id="adminPanel" hidden>
+    <nav class="admin-tabs" id="adminTabs">
+      <button class="admin-tab active" data-tab="categories">產品線</button>
+      <button class="admin-tab" data-tab="products">產品</button>
+      <button class="admin-tab" data-tab="types">文件類型</button>
+      <button class="admin-tab" data-tab="manuals">手冊文件</button>
+    </nav>
+
+    <div id="statusBanner" class="status-banner" hidden></div>
+
+    <div class="admin-tab-panel" id="panel-categories"></div>
+    <div class="admin-tab-panel" id="panel-products" hidden></div>
+    <div class="admin-tab-panel" id="panel-types" hidden></div>
+    <div class="admin-tab-panel" id="panel-manuals" hidden></div>
+  </section>
+
+</main>
+
+<dialog id="formDialog" class="admin-dialog">
+  <form method="dialog" id="formDialogForm">
+    <h2 id="formDialogTitle">標題</h2>
+    <div id="formDialogBody"></div>
+    <p id="formDialogError" class="admin-error" hidden></p>
+    <div class="dialog-actions">
+      <button type="button" class="btn" id="formDialogCancel">取消</button>
+      <button type="submit" class="btn primary" id="formDialogSubmit">儲存</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="admin.js"></script>
+</body>
+</html>

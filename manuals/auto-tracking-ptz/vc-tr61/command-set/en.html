@@ -1,0 +1,34 @@
+<div class="callout warn"><strong>Sample content.</strong> Replace with the official VC-TR61 command reference before publishing.</div>
+
+<p>In addition to standard VISCA PTZ commands, the VC-TR61 exposes a set of tracking-specific commands over RS-232/RS-422 and VISCA-over-IP (UDP port 52381).</p>
+
+<h2 id="connection">Connection</h2>
+<table>
+  <thead><tr><th>Interface</th><th>Default Setting</th></tr></thead>
+  <tbody>
+    <tr><td>RS-232 / RS-422</td><td>9600 bps, 8N1</td></tr>
+    <tr><td>VISCA-over-IP</td><td>UDP 52381</td></tr>
+  </tbody>
+</table>
+
+<h2 id="command-format">Command Format</h2>
+<p>Tracking commands use the vendor-specific command block, terminated with <code>FF</code>:</p>
+<pre><code>8x 01 7E 01 6D 0p FF</code></pre>
+
+<h2 id="ptz-commands">Tracking Commands</h2>
+<table>
+  <thead><tr><th>Function</th><th>Command</th></tr></thead>
+  <tbody>
+    <tr><td>Tracking On</td><td><code>8x 01 7E 01 6D 02 FF</code></td></tr>
+    <tr><td>Tracking Off</td><td><code>8x 01 7E 01 6D 03 FF</code></td></tr>
+    <tr><td>Set Tracking Zone (full frame)</td><td><code>8x 01 7E 01 6E 00 FF</code></td></tr>
+  </tbody>
+</table>
+
+<h2 id="inquiry-commands">Inquiry Commands</h2>
+<table>
+  <thead><tr><th>Function</th><th>Command</th></tr></thead>
+  <tbody>
+    <tr><td>Tracking Status Inquiry</td><td><code>8x 09 7E 01 6D FF</code></td></tr>
+  </tbody>
+</table>

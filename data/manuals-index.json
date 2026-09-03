@@ -1,0 +1,137 @@
+[
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A71P User Manual",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/en.html",
+    "updatedAt": "2026-08-01"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A71P 使用手册",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-CN.html",
+    "updatedAt": "2026-08-01"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71P 使用手冊",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-TW.html",
+    "updatedAt": "2026-08-01"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A71P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71p/installation-guide/en.html",
+    "updatedAt": "2026-08-01"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71P 安裝手冊",
+    "path": "manuals/ptz-camera/vc-a71p/installation-guide/zh-TW.html",
+    "updatedAt": "2026-08-01"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "command-set",
+    "lang": "en",
+    "title": "VC-A71P Command Set",
+    "path": "manuals/ptz-camera/vc-a71p/command-set/en.html",
+    "updatedAt": "2026-08-01"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR61 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/en.html",
+    "updatedAt": "2026-07-20"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR61 使用手冊",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/zh-TW.html",
+    "updatedAt": "2026-07-20"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "command-set",
+    "lang": "en",
+    "title": "VC-TR61 Command Set",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/command-set/en.html",
+    "updatedAt": "2026-07-20"
+  },
+  {
+    "productId": "ps753",
+    "categoryId": "visualizer",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "PS753 User Manual",
+    "path": "manuals/visualizer/ps753/user-guide/en.html",
+    "updatedAt": "2026-06-10"
+  },
+  {
+    "productId": "ps753",
+    "categoryId": "visualizer",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "PS753 使用手冊",
+    "path": "manuals/visualizer/ps753/user-guide/zh-TW.html",
+    "updatedAt": "2026-06-10"
+  },
+  {
+    "productId": "ps753",
+    "categoryId": "visualizer",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "PS753 Installation Guide",
+    "path": "manuals/visualizer/ps753/installation-guide/en.html",
+    "updatedAt": "2026-06-10"
+  },
+  {
+    "productId": "oip-n60d",
+    "categoryId": "oip-bridge",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "OIP-N60D Installation Guide",
+    "path": "manuals/oip-bridge/oip-n60d/installation-guide/en.html",
+    "updatedAt": "2026-05-15"
+  },
+  {
+    "productId": "oip-n60d",
+    "categoryId": "oip-bridge",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "OIP-N60D 安裝手冊",
+    "path": "manuals/oip-bridge/oip-n60d/installation-guide/zh-TW.html",
+    "updatedAt": "2026-05-15"
+  },
+  {
+    "productId": "oip-n60d",
+    "categoryId": "oip-bridge",
+    "typeId": "other",
+    "lang": "en",
+    "title": "OIP-N60D Regulatory & Compliance Notice",
+    "path": "manuals/oip-bridge/oip-n60d/other/en.html",
+    "updatedAt": "2026-05-15"
+  }
+]

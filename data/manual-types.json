@@ -1,0 +1,29 @@
+{
+  "types": [
+    {
+      "id": "user-guide",
+      "order": 1,
+      "name": { "en": "User Manual", "zh-CN": "使用手册", "zh-TW": "使用手冊" }
+    },
+    {
+      "id": "installation-guide",
+      "order": 2,
+      "name": { "en": "Installation Guide", "zh-CN": "安装手册", "zh-TW": "安裝手冊" }
+    },
+    {
+      "id": "command-set",
+      "order": 3,
+      "name": { "en": "Command Set", "zh-CN": "Command Set", "zh-TW": "Command Set" }
+    },
+    {
+      "id": "quick-start",
+      "order": 4,
+      "name": { "en": "Quick Start Guide", "zh-CN": "快速安装指南", "zh-TW": "快速安裝指南" }
+    },
+    {
+      "id": "other",
+      "order": 5,
+      "name": { "en": "Other Documents", "zh-CN": "其他文件", "zh-TW": "其他文件" }
+    }
+  ]
+}
