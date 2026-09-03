@@ -116,6 +116,11 @@ body:has(.admin-topbar){background:#f2f6f9;}
 .checkbox-grid label{display:flex; align-items:center; gap:8px; font-weight:600; font-size:13px; color:var(--ink-soft); border:1px solid var(--line-strong); padding:8px 12px; border-radius:9px; background:#fff; transition:border-color .15s ease, background .15s ease;}
 .checkbox-grid label:hover{border-color:var(--brand); background:var(--brand-soft);}
 .checkbox-grid input{accent-color:var(--brand);}
+.product-image-picker{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:10px;}
+.product-image-option{display:flex; flex-direction:column; align-items:center; gap:6px; padding:8px; border:1px solid var(--line-strong); border-radius:9px; background:#fff; color:var(--ink-soft); cursor:pointer; text-align:center; font-size:11.5px; font-weight:600;}
+.product-image-option:has(input:checked){border-color:var(--brand); background:var(--brand-soft); color:var(--brand); box-shadow:0 0 0 2px rgba(11,95,174,.12);}
+.product-image-option input{position:absolute; opacity:0; pointer-events:none;}
+.product-image-option img{width:100%; height:70px; object-fit:contain;}
 
 @media (max-width:640px){
   .admin-topbar-inner{padding:12px 16px; gap:10px; flex-wrap:wrap;}
@@ -125,6 +130,7 @@ body:has(.admin-topbar){background:#f2f6f9;}
   .admin-card{padding:22px 18px;}
   .admin-dialog form{padding:24px 18px;}
   .lang-field-group .field{grid-template-columns:72px 1fr;}
+  .product-image-picker{grid-template-columns:repeat(2,1fr);}
 }
 
 .empty-state{padding:40px; text-align:center; color:var(--ink-faint); font-size:14px;}

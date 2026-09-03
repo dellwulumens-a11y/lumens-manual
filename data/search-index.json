@@ -197,4 +197,22 @@
     "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
     "text": ""
   }
+  ,{
+    "productId": "tp-200",
+    "categoryId": "control-panel",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "TP-200 User Manual",
+    "path": "manuals/control-panel/tp-200/user-guide/en.html",
+    "text": ""
+  },
+  {
+    "productId": "tp-200",
+    "categoryId": "control-panel",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "TP-200 使用手冊",
+    "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
+    "text": ""
+  }
 ]

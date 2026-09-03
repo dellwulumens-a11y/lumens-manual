@@ -371,19 +371,21 @@
         "zh-TW": "觸控控制面板"
       },
       "description": {
-        "en": "",
-        "zh-CN": "",
-        "zh-TW": ""
+        "en": "Touch control panels for AV systems",
+        "zh-CN": "影音系统触控控制面板",
+        "zh-TW": "影音系統觸控控制面板"
       },
       "products": [
         {
           "id": "tp-200",
           "model": "TP-200",
-          "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": [
-            "user-guide",
-            "installation-guide"
-          ]
+          "name": {
+            "en": "Touch Control Panel 10 inch",
+            "zh-CN": "10 吋触控控制面板",
+            "zh-TW": "10 吋觸控控制面板"
+          },
+          "image": "assets/images/products/placeholder-touch-panel.svg",
+          "manuals": ["user-guide"]
         }
       ]
     }

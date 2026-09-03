@@ -28,6 +28,13 @@
     "default": '<h2 id="section-1">Section title</h2>\n<p></p>'
   };
 
+  var PRODUCT_IMAGE_OPTIONS = [
+    { path: "assets/images/products/placeholder-camera.svg", label: "PTZ／固定攝影機" },
+    { path: "assets/images/products/placeholder-box.svg", label: "編解碼器／處理器" },
+    { path: "assets/images/products/placeholder-doc-camera.svg", label: "文件攝影機／Visualizer" },
+    { path: "assets/images/products/placeholder-touch-panel.svg", label: "觸控面板" }
+  ];
+
   // ---------------------------------------------------------------- utils --
 
   function $(sel, root) { return (root || document).querySelector(sel); }
@@ -176,6 +183,16 @@
     var out = [];
     state.categories.forEach(function (c) { (c.products || []).forEach(function (p) { out.push({ product: p, category: c }); }); });
     return out;
+  }
+  function groupedProductOptions() {
+    return state.categories.map(function (category) {
+      var products = (category.products || []).slice().sort(function (first, second) {
+        return String(first.model || "").localeCompare(String(second.model || ""), "en", { numeric: true, sensitivity: "base" });
+      });
+      return '<optgroup label="' + esc(category.name.en || category.id) + '">' + products.map(function (product) {
+        return '<option value="' + esc(product.id) + '">' + esc(product.model) + " — " + esc(productLabel(product)) + "</option>";
+      }).join("") + "</optgroup>";
+    }).join("");
   }
   function productLabel(product) {
     var name = product && product.name;
@@ -578,7 +595,10 @@
       '<div class="field"><label>型號 (model)</label><input name="model" type="text" value="' + esc(product ? product.model : "") + '" placeholder="例如 VC-A99" required></div>' +
       "</div>" +
       '<div class="field"><label>產品線</label><select name="categoryId">' + catOptions + "</select></div>" +
-      '<div class="field"><label>縮圖路徑</label><input name="image" type="text" value="' + esc(product ? product.image : "assets/images/products/placeholder-camera.svg") + '"></div>' +
+      '<div class="field"><label>產品縮圖</label><div class="product-image-picker">' + PRODUCT_IMAGE_OPTIONS.map(function (option) {
+        var selected = (product ? product.image : "assets/images/products/placeholder-camera.svg") === option.path ? " checked" : "";
+        return '<label class="product-image-option"><input type="radio" name="imageChoice" value="' + esc(option.path) + '"' + selected + '><img src="../' + esc(option.path) + '" alt="' + esc(option.label) + '"><span>' + esc(option.label) + '</span></label>';
+      }).join("") + '</div><input name="image" type="text" value="' + esc(product ? product.image : "assets/images/products/placeholder-camera.svg") + '" placeholder="或輸入自訂圖片路徑"><div class="field-help">選取上方常見 ProAV 縮圖，或保留／輸入自訂路徑。</div></div>' +
       '<div class="field"><label>已宣告的文件類型（勾選代表這個產品「將會有」這些手冊，之後在「手冊文件」分頁補上實際內容）</label><div class="checkbox-grid">' + (typeChecks || '<span class="muted">尚未建立任何文件類型</span>') + "</div></div>";
 
     openDialog({
@@ -595,6 +615,8 @@
           image: (form.elements.image.value || "").trim() || "assets/images/products/placeholder-camera.svg",
           manuals: manuals
         };
+        var selectedImage = form.querySelector('input[name="imageChoice"]:checked');
+        data.image = selectedImage ? selectedImage.value : data.image;
         if (!data.model) return Promise.reject(new Error("請輸入型號"));
         var prevCat = existing ? existing.category.id : null;
         return withBusy(isNew ? "新增產品" : "更新產品", function () { return upsertProduct(data, isNew, prevCat); })
@@ -681,9 +703,7 @@
 
   function renderManuals() {
     var panel = $("#panel-manuals");
-    var options = allProducts().map(function (e) {
-      return '<option value="' + esc(e.product.id) + '">' + esc(e.product.model) + " — " + esc(productLabel(e.product)) + "</option>";
-    }).join("");
+    var options = groupedProductOptions();
 
     panel.innerHTML =
       '<div class="admin-toolbar"><label style="font-weight:700; font-size:13.5px;">選擇產品：</label>' +
@@ -711,9 +731,7 @@
   }
 
   function openBatchUploadForm() {
-    var catOptions = allProducts().map(function (e) {
-      return '<option value="' + esc(e.product.id) + '">' + esc(e.product.model) + " — " + esc(productLabel(e.product)) + "</option>";
-    }).join("");
+    var catOptions = groupedProductOptions();
     var typeOptions = sortedTypes().map(function (t) {
       return '<option value="' + esc(t.id) + '">' + esc(t.name["zh-TW"] || t.name.en) + "</option>";
     }).join("");
