@@ -190,13 +190,9 @@
         return String(first.model || "").localeCompare(String(second.model || ""), "en", { numeric: true, sensitivity: "base" });
       });
       return '<optgroup label="' + esc(category.name.en || category.id) + '">' + products.map(function (product) {
-        return '<option value="' + esc(product.id) + '">' + esc(product.model) + " — " + esc(productLabel(product)) + "</option>";
+        return '<option value="' + esc(product.id) + '">' + esc(product.model) + "</option>";
       }).join("") + "</optgroup>";
     }).join("");
-  }
-  function productLabel(product) {
-    var name = product && product.name;
-    return name && (name["zh-TW"] || name.en || name["zh-CN"]) || product.model;
   }
 
   // ---------------------------------------------------------- write operations --
@@ -535,7 +531,7 @@
         '<select id="prodCatFilter">' + catOptions + "</select>" +
         '<div class="spacer"></div><button class="btn primary" id="addProdBtn">+ 新增產品</button>' +
       "</div>" +
-      '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>型號</th><th>名稱</th><th>產品線</th><th>已宣告的文件類型</th><th></th></tr></thead><tbody id="prodTbody"></tbody></table></div>';
+      '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>型號</th><th>產品線</th><th>已宣告的文件類型</th><th></th></tr></thead><tbody id="prodTbody"></tbody></table></div>';
 
     function renderRows() {
       var filterCat = $("#prodCatFilter").value;
@@ -551,7 +547,6 @@
         return (
           "<tr>" +
             "<td><code>" + esc(p.model) + "</code></td>" +
-            "<td>" + esc(productLabel(p)) + "</td>" +
             "<td>" + esc(e.category.name["zh-TW"] || e.category.name.en) + "</td>" +
             '<td><div class="chip-row">' + chips + "</div></td>" +
             '<td class="row-actions">' +
@@ -560,7 +555,7 @@
             "</td>" +
           "</tr>"
         );
-      }).join("") || '<tr><td colspan="5" class="empty-state">沒有符合的產品</td></tr>';
+      }).join("") || '<tr><td colspan="4" class="empty-state">沒有符合的產品</td></tr>';
 
       $all("[data-edit-prod]", panel).forEach(function (b) { b.onclick = function () { openProductForm(findProductEntry(b.dataset.editProd)); }; });
       $all("[data-del-prod]", panel).forEach(function (b) {

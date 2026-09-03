@@ -15,10 +15,8 @@
     grid.innerHTML = ctx.categories.map(function (cat, i) {
       var products = (cat.products || []).map(function (p) {
         var href = I18N.urlFor("product-detail.html", lang, { id: p.id });
-        var productName = p.name && I18N.pickLocale(p.name, lang) || p.model;
         return (
           '<a href="' + href + '">' +
-            "<span>" + esc(productName) + "</span>" +
             '<span class="model-name">' + esc(p.model) + "</span>" +
           "</a>"
         );

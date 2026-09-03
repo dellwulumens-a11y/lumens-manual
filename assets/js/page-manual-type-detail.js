@@ -53,7 +53,7 @@
         return (
           '<div class="manual-row">' +
             "<div>" +
-              '<div class="title"><a href="' + href + '">' + esc(p.model) + " — " + esc(p.name && I18N.pickLocale(p.name, lang) || p.model) + "</a></div>" +
+              '<div class="title"><a href="' + href + '">' + esc(p.model) + "</a></div>" +
             "</div>" +
             '<div class="langs">' + langPills + "</div>" +
           "</div>"
