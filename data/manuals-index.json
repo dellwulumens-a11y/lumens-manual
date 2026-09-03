@@ -193,5 +193,15 @@
     "path": "manuals/fixed-camera/bc-601p/user-guide/zh-TW.pdf",
     "format": "pdf",
     "updatedAt": "2026-09-03"
+  },
+  {
+    "productId": "tp-200",
+    "categoryId": "control-panel",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "TP-200 使用手冊",
+    "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
+    "format": "standalone",
+    "updatedAt": "2026-09-03"
   }
 ]
