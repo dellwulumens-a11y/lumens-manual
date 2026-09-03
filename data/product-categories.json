@@ -299,6 +299,16 @@
           },
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": []
+        },
+        {
+          "id": "bc-601p",
+          "model": "BC-601P",
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "user-guide",
+            "installation-guide",
+            "command-set"
+          ]
         }
       ]
     },
