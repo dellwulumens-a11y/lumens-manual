@@ -153,5 +153,15 @@
     "path": "manuals/media-processor/lc300/user-guide/zh-TW.pdf",
     "format": "pdf",
     "updatedAt": "2026-09-03"
+  },
+  {
+    "productId": "lc300s",
+    "categoryId": "media-processor",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "LC300S 使用手冊",
+    "path": "manuals/media-processor/lc300s/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-03"
   }
 ]
