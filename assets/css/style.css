@@ -402,6 +402,7 @@ ul{margin:0; padding:0;}
 .lang-tabs a.disabled{opacity:.4; pointer-events:none;}
 
 .manual-content{font-size:15.5px; color:var(--ink); max-width:72ch;}
+.manual-content.is-pdf{max-width:none;}
 .manual-content.is-standalone{max-width:none;}
 .standalone-frame-note{font-size:13px; color:var(--ink-faint); margin-bottom:12px;}
 .standalone-frame{

@@ -310,7 +310,16 @@
 
   function batchFileLanguage(file) {
     var base = file.name.replace(/\.[^.]+$/, "");
-    return LANGS.indexOf(base) !== -1 ? base : null;
+    for (var i = 0; i < LANGS.length; i++) {
+      var lang = LANGS[i];
+      if (new RegExp("(?:^|[^a-z])" + lang.replace("-", "\\-") + "(?:$|[^a-z])", "i").test(base)) return lang;
+    }
+    return null;
+  }
+
+  function batchFileName(file) {
+    var name = String(file.name || "").trim();
+    return name && name !== "." && name !== ".." && name.indexOf("/") === -1 && name.indexOf("\\") === -1 ? name : null;
   }
 
   function saveBatchManuals(productId, typeId, files) {
@@ -320,11 +329,13 @@
 
     var jobs = Array.prototype.map.call(files, function (file) {
       var lang = batchFileLanguage(file);
+      var fileName = batchFileName(file);
       var ext = file.name.split(".").pop().toLowerCase();
-      if (!lang) return function () { return Promise.reject(new Error(file.name + "：檔名必須是 en、zh-CN 或 zh-TW")); };
+      if (!lang) return function () { return Promise.reject(new Error(file.name + "：檔名必須包含 en、zh-CN 或 zh-TW")); };
+      if (!fileName) return function () { return Promise.reject(new Error(file.name + "：檔名無效")); };
       if (["pdf", "html", "htm"].indexOf(ext) === -1) return function () { return Promise.reject(new Error(file.name + "：只支援 PDF 或 HTML")); };
       var format = ext === "pdf" ? "pdf" : "fragment";
-      var path = "manuals/" + found.category.id + "/" + productId + "/" + typeId + "/" + lang + "." + (format === "pdf" ? "pdf" : "html");
+      var path = "manuals/" + found.category.id + "/" + productId + "/" + typeId + "/" + fileName;
       var title = found.product.model + " " + (type.name[lang] || type.name.en);
       return function () {
         return readFile(file, format === "pdf").then(function (content) {
@@ -710,7 +721,7 @@
       '<div class="field"><label>產品</label><select name="productId" required><option value="">— 請選擇 —</option>' + catOptions + "</select></div>" +
       '<div class="field"><label>文件類型</label><select name="typeId" required><option value="">— 請選擇 —</option>' + typeOptions + "</select></div>" +
       '<div class="field"><label>選擇文件</label><input name="files" type="file" accept=".pdf,.html,.htm,application/pdf,text/html" multiple required>' +
-      '<div class="field-help">檔名請使用 <strong>en.pdf</strong>、<strong>zh-CN.pdf</strong> 或 <strong>zh-TW.html</strong>。副檔名決定格式，PDF 與 HTML 可混合選取。</div></div>';
+      '<div class="field-help">可保留原始檔名，但檔名必須包含 <strong>en</strong>、<strong>zh-CN</strong> 或 <strong>zh-TW</strong> 語言標記，例如 <strong>OIP-N60D_User-Manual_en.pdf</strong>。副檔名決定格式，PDF 與 HTML 可混合選取。</div></div>';
 
     openDialog({
       title: "批次上傳手冊文件",
@@ -722,7 +733,7 @@
         var languages = {};
         for (var i = 0; i < files.length; i++) {
           var lang = batchFileLanguage(files[i]);
-          if (!lang) return Promise.reject(new Error(files[i].name + "：檔名必須是 en、zh-CN 或 zh-TW"));
+          if (!lang) return Promise.reject(new Error(files[i].name + "：檔名必須包含 en、zh-CN 或 zh-TW"));
           if (languages[lang]) return Promise.reject(new Error("同一批次不可重複上傳 " + lang + " 文件"));
           languages[lang] = true;
         }
