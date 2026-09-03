@@ -134,7 +134,6 @@ ul{margin:0; padding:0;}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23ffffff'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:right 10px center;
 }
-.lang-switch select option{color:var(--ink); background:#fff;}
 
 .nav-toggle{display:none; color:#fff;}
 
@@ -161,12 +160,12 @@ ul{margin:0; padding:0;}
 
 /* ---------------------------------- hero ---------------------------------- */
 .hero{
-  padding:64px 0 104px;
+  padding:56px 0 92px;
   background:linear-gradient(135deg,var(--header-blue),var(--brand-dark) 120%);
   color:#fff;
 }
-.hero h1{font-size:42px; margin-bottom:14px; color:#fff; font-weight:800; letter-spacing:0;}
-.hero p.lede{color:rgba(255,255,255,.9); font-size:16px; max-width:620px; margin-bottom:30px;}
+.hero h1{font-size:clamp(28px,4vw,42px); margin-bottom:14px; color:#fff; font-weight:800;}
+.hero p.lede{color:rgba(255,255,255,.88); font-size:16.5px; max-width:620px; margin-bottom:28px;}
 
 .hero-search{max-width:560px;}
 .hero-search form{display:flex; gap:8px;}
@@ -182,29 +181,28 @@ ul{margin:0; padding:0;}
 
 /* ---------------------------------- entry cards ---------------------------- */
 .entry-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:22px;
-  margin:-70px 0 44px; position:relative; z-index:2;
+  display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  margin:-64px 0 40px; position:relative; z-index:2;
 }
 @media (max-width:720px){ .entry-grid{grid-template-columns:1fr;} }
 .entry-card{
-  display:block; min-height:252px; background:#fff; border:1px solid #d7e0e8; border-top:4px solid var(--brand); border-radius:14px;
-  padding:28px; box-shadow:0 8px 14px rgba(18,24,31,.06),0 22px 38px -20px rgba(11,24,40,.28);
-  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  display:block; background:var(--bg-raised); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:26px; box-shadow:0 4px 6px rgba(18,24,31,.05),0 20px 36px -18px rgba(11,24,40,.35);
+  transition:transform .15s ease, box-shadow .15s ease;
   text-decoration:none;
 }
-.entry-card:hover{transform:translateY(-3px); box-shadow:0 10px 18px rgba(18,24,31,.08),0 20px 36px -18px rgba(18,24,31,.3); text-decoration:none;}
+.entry-card:hover{transform:translateY(-2px); box-shadow:0 4px 6px rgba(18,24,31,.05),0 16px 32px -16px rgba(18,24,31,.28); text-decoration:none;}
 .entry-card .icon-box{
-  width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
-  margin-bottom:18px; background:var(--brand-soft); color:var(--brand);
+  width:42px; height:42px; border-radius:11px; display:flex; align-items:center; justify-content:center;
+  margin-bottom:16px; background:var(--brand-soft); color:var(--brand);
 }
 .entry-card .icon-box svg{width:22px; height:22px;}
 .entry-card .tag{
   display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--brand-dark); background:var(--brand-soft); padding:4px 10px; border-radius:6px; margin-bottom:14px;
+  color:var(--brand); background:var(--brand-soft); padding:4px 10px; border-radius:100px; margin-bottom:14px;
 }
-.entry-card.alt{border-top-color:var(--accent);}
-.entry-card.alt .tag{color:#a53b08; background:var(--accent-soft);}
-.entry-card.alt .icon-box{background:var(--accent-soft); color:#c9490a;}
+.entry-card.alt .tag{color:var(--accent); background:var(--accent-soft);}
+.entry-card.alt .icon-box{background:var(--accent-soft); color:var(--accent);}
 .entry-card h3{font-size:19px; color:var(--ink); margin-bottom:8px;}
 .entry-card p{color:var(--ink-soft); font-size:14px;}
 .entry-card .go{display:inline-flex; align-items:center; gap:5px; margin-top:16px; font-weight:700; font-size:13.5px; color:var(--brand);}
@@ -212,23 +210,13 @@ ul{margin:0; padding:0;}
 /* .entry-card.highlight — solid-color "primary path" card, echoing the
    filled blue quick-action card pattern from mylumens.com's Support page. */
 .entry-card.highlight{
-  background:#fff; border-color:#d7e0e8; border-top-color:var(--brand); color:var(--ink);
+  background:linear-gradient(135deg,var(--brand),var(--brand-dark)); border-color:transparent; color:#fff;
 }
-.entry-card.highlight .icon-box{background:var(--brand-soft); color:var(--brand);}
-.entry-card.highlight .tag{background:var(--brand-soft); color:var(--brand-dark);}
-.entry-card.highlight h3{color:var(--ink);}
-.entry-card.highlight p{color:var(--ink-soft);}
-.entry-card.highlight .go{color:var(--brand);}
-
-@media (max-width:640px){
-  .site-header .bar{gap:8px;}
-  .header-tools{gap:6px;}
-  .header-search input{width:100px;}
-  .lang-switch select{padding-left:8px; padding-right:22px;}
-  .hero{padding:44px 0 86px;}
-  .hero h1{font-size:32px;}
-  .entry-card{min-height:0; padding:24px;}
-}
+.entry-card.highlight .icon-box{background:rgba(255,255,255,.18); color:#fff;}
+.entry-card.highlight .tag{background:rgba(255,255,255,.2); color:#fff;}
+.entry-card.highlight h3{color:#fff;}
+.entry-card.highlight p{color:rgba(255,255,255,.85);}
+.entry-card.highlight .go{color:#fff;}
 
 /* ---------------------------------- section headers ------------------------ */
 .page-section{padding:44px 0;}
@@ -408,9 +396,7 @@ ul{margin:0; padding:0;}
   display:block; width:100%; height:82vh; min-height:560px; max-height:1100px;
   border:1px solid var(--line); border-radius:var(--radius); background:#fff;
 }
-.pdf-frame{display:block; width:100%; height:82vh; min-height:680px; border:1px solid var(--line); border-radius:var(--radius); background:#eef1f4;}
 @media (max-width:640px){ .standalone-frame{height:75vh;} }
-@media (max-width:640px){ .pdf-frame{height:75vh; min-height:520px;} }
 @media print{ .standalone-frame-note{display:none;} }
 .manual-content h2{font-size:20px; margin:32px 0 12px; scroll-margin-top:90px;}
 .manual-content h3{font-size:16.5px; margin:24px 0 10px; scroll-margin-top:90px;}

@@ -65,12 +65,9 @@
     }).join("");
 
     // actions
-    var isPdf = entry.format === "pdf" || /\.pdf(?:$|\?)/i.test(entry.path || "");
     var isStandalone = entry.format === "standalone";
     var actionsEl = document.querySelector(".doc-actions");
-    if (isPdf) {
-      actionsEl.innerHTML = '<a class="btn primary" target="_blank" rel="noopener" href="' + entry.path + '">' + esc(t.common.openOriginal) + "</a>";
-    } else if (isStandalone) {
+    if (isStandalone) {
       // A full standalone document has its own layout/behavior; printing the
       // shared page shell around an iframe is unreliable across browsers, so
       // offer a plain link to the original file instead of Print/Save-as-PDF.
@@ -105,17 +102,6 @@
     var layoutEl = document.querySelector(".viewer-layout");
     var tocDesktopEl = document.getElementById("tocDesktop");
     var tocMobileEl = document.getElementById("tocMobile");
-
-    if (isPdf) {
-      contentEl.classList.add("is-pdf");
-      if (layoutEl) layoutEl.classList.add("no-toc");
-      if (tocDesktopEl) tocDesktopEl.style.display = "none";
-      if (tocMobileEl) tocMobileEl.style.display = "none";
-      contentEl.innerHTML =
-        '<p class="standalone-frame-note">' + esc(t.common.standaloneNote) + "</p>" +
-        '<iframe class="pdf-frame" src="' + entry.path + '" title="' + esc(entry.title) + '" loading="lazy"></iframe>';
-      return;
-    }
 
     if (isStandalone) {
       // This manual is kept in its own original, fully self-contained design

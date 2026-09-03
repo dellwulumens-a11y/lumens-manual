@@ -133,5 +133,25 @@
     "title": "OIP-N60D Regulatory & Compliance Notice",
     "path": "manuals/oip-bridge/oip-n60d/other/en.html",
     "updatedAt": "2026-05-15"
+  },
+  {
+    "productId": "tp-200",
+    "categoryId": "control-panel",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "TP-200 使用手冊",
+    "path": "manuals/control-panel/tp-200/user-guide/en.html",
+    "format": "standalone",
+    "updatedAt": "2026-09-01"
+  },
+  {
+    "productId": "tp-200",
+    "categoryId": "control-panel",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "TP-200 使用手冊",
+    "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
+    "format": "standalone",
+    "updatedAt": "2026-09-01"
   }
 ]

@@ -61,7 +61,7 @@
   }
 
   function renderFooter(t, lang, categories, types) {
-    var catLinks = (categories || []).map(function (c) {
+    var catLinks = (categories || []).slice(0, 7).map(function (c) {
       return '<li><a href="' + I18N.urlFor("products.html", lang, { category: c.id }) + '">' + esc(I18N.pickLocale(c.name, lang)) + "</a></li>";
     }).join("");
     var typeLinks = (types || []).map(function (ty) {

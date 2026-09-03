@@ -52,11 +52,10 @@ admin/index.html, admin.js, admin.css   管理後台（新增／修改／刪除�
 
 1. 打開 `data/product-categories.json`，在對應分類的 `products` 陣列裡新增一筆，例如：
    ```json
-  { "id": "vc-xx99", "model": "VC-XX99", "image": "assets/images/products/placeholder-camera.svg", "manuals": ["user-guide"] }
+   { "id": "vc-xx99", "model": "VC-XX99", "name": {"en": "...", "zh-CN": "...", "zh-TW": "..."}, "image": "assets/images/products/placeholder-camera.svg", "manuals": ["user-guide"] }
    ```
-2. 客戶以型號搜尋，因此產品名稱不需要填寫；既有資料中的 `name` 欄位仍可保留，沒有名稱時網站會以型號顯示。
-3. `manuals` 陣列列出這個產品「將會有」哪些類型的手冊（即使檔案還沒寫好也可以先列出，頁面會顯示「尚無文件」）。
-4. 不需要新增任何頁面檔案。
+2. `manuals` 陣列列出這個產品「將會有」哪些類型的手冊（即使檔案還沒寫好也可以先列出，頁面會顯示「尚無文件」）。
+3. 不需要新增任何頁面檔案。
 
 ### 新增一種手冊分類（例如「保固說明」）
 
@@ -75,23 +74,6 @@ admin/index.html, admin.js, admin.css   管理後台（新增／修改／刪除�
 
 - **不填，或 `"format": "fragment"`（預設）**：內容片段，套用本站的排版樣式，`<h2 id="...">` 會自動變成頁面左側目錄，也支援本站的「列印／另存 PDF」按鈕。適合大多數手冊。
 - **`"format": "standalone"`**：完整獨立頁面。當某份手冊本身是一份完整的、有自己排版與互動效果的網頁（例如既有的簡報型手冊、外部工具產出的完整 HTML），可以**原封不動**存成一個檔案，不需要轉換成 `<h2>` 分段格式。手冊頁會用 `<iframe>` 把這個檔案原樣嵌入頁面中間，不套用本站樣式、也不產生頁面目錄（因為目錄需要讀取同一份文件的標題，跨 iframe 讀不到），改在右上角顯示「在新分頁開啟原始頁面」按鈕。全文搜尋只會比對到手冊標題，不會索引到 iframe 裡的內文（因為那些內容通常是用 JavaScript 動態產生的，不是網頁上看得到的純文字）。
-- **`"format": "pdf"`**：PDF 文件。將 PDF 放在 `manuals/` 底下，索引的 `path` 填入 `.pdf` 檔案路徑；手冊頁會使用瀏覽器內建 PDF 閱讀器嵌入顯示，並提供開啟原始 PDF 的連結。PDF 內容不會加入全文搜尋索引，但標題仍可被搜尋到。
-
-PDF 索引範例：
-```json
-{
-  "productId": "vc-a71p",
-  "categoryId": "ptz-camera",
-  "typeId": "user-guide",
-  "lang": "zh-TW",
-  "title": "VC-A71P 使用手冊",
-  "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-TW.pdf",
-  "format": "pdf",
-  "updatedAt": "2026-09-03"
-}
-```
-
-管理後台的「手冊文件」分頁可直接選擇 PDF 並上傳；HTML 手冊仍可使用原本的內容編輯方式。
 
 範例：
 ```json

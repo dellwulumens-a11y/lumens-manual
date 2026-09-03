@@ -111,18 +111,6 @@
         });
       });
   }
-  function ghPutBase64(path, content, message) {
-    var body = { message: message, content: content, branch: cfg.branch };
-    if (shas[path]) body.sha = shas[path];
-    return fetch(apiUrl(path), { method: "PUT", headers: apiHeaders({ "Content-Type": "application/json" }), body: JSON.stringify(body) })
-      .then(function (res) {
-        if (!res.ok) return ghError(res).then(function (e) { throw e; });
-        return res.json().then(function (data) {
-          shas[path] = data.content.sha;
-          return data;
-        });
-      });
-  }
   function ghDelete(path, message) {
     var run = function () {
       return fetch(apiUrl(path), {
@@ -177,10 +165,6 @@
     state.categories.forEach(function (c) { (c.products || []).forEach(function (p) { out.push({ product: p, category: c }); }); });
     return out;
   }
-  function productLabel(product) {
-    var name = product && product.name;
-    return name && (name["zh-TW"] || name.en || name["zh-CN"]) || product.model;
-  }
 
   // ---------------------------------------------------------- write operations --
 
@@ -221,7 +205,7 @@
         newCat.products = newCat.products || [];
         newCat.products.push({ id: data.id, model: data.model, name: data.name, image: data.image, manuals: data.manuals || [] });
       } else {
-        found.product.model = data.model;
+        found.product.model = data.model; found.product.name = data.name;
         found.product.image = data.image; found.product.manuals = data.manuals || [];
       }
     }
@@ -267,12 +251,10 @@
     var found = findProductEntry(data.productId);
     if (!found) return Promise.reject(new Error("找不到產品: " + data.productId));
     var format = data.format === "standalone" ? "standalone" : "fragment";
-    if (data.format === "pdf") format = "pdf";
-    var path = data.path || ("manuals/" + found.category.id + "/" + data.productId + "/" + data.typeId + "/" + data.lang + (format === "pdf" ? ".pdf" : ".html"));
-    var writeFile = format === "pdf"
-      ? (data.fileBase64 ? ghPutBase64(path, data.fileBase64, "更新 PDF 手冊: " + path) : Promise.resolve())
-      : ghGet(path).then(function () { return ghPut(path, data.content.trim() + "\n", "更新手冊內容: " + path); });
-    return writeFile.then(function () {
+    var path = "manuals/" + found.category.id + "/" + data.productId + "/" + data.typeId + "/" + data.lang + ".html";
+    return ghGet(path).then(function () {
+      return ghPut(path, data.content.trim() + "\n", "更新手冊內容: " + path);
+    }).then(function () {
       var today = todayStr();
       var idx = state.manualsIndex.findIndex(function (m) { return m.productId === data.productId && m.typeId === data.typeId && m.lang === data.lang; });
       var entry = { productId: data.productId, categoryId: found.category.id, typeId: data.typeId, lang: data.lang, title: data.title, path: path, format: format, updatedAt: today };
@@ -284,7 +266,7 @@
       // (not in the visible markup), so stripHtml() on it would strip that
       // whole block away and yield nothing useful — skip full-text indexing
       // for it and let search still match on the title.
-      var text = format === "standalone" || format === "pdf" ? "" : stripHtml(data.content).slice(0, 8000);
+      var text = format === "standalone" ? "" : stripHtml(data.content).slice(0, 8000);
       var sEntry = { productId: data.productId, categoryId: found.category.id, typeId: data.typeId, lang: data.lang, title: data.title, path: path, text: text };
       if (sIdx === -1) state.searchIndex.push(sEntry); else state.searchIndex[sIdx] = sEntry;
       return saveSearchIndex("更新搜尋索引: " + path);
@@ -294,49 +276,6 @@
         return saveCategories("將「" + data.typeId + "」加入產品 " + data.productId + " 的手冊清單");
       }
     });
-  }
-
-  function readFile(file, asBase64) {
-    return new Promise(function (resolve, reject) {
-      var reader = new FileReader();
-      reader.onload = function () {
-        var result = String(reader.result || "");
-        resolve(asBase64 ? result.split(",")[1] || "" : result);
-      };
-      reader.onerror = reject;
-      if (asBase64) reader.readAsDataURL(file); else reader.readAsText(file, "UTF-8");
-    });
-  }
-
-  function batchFileLanguage(file) {
-    var base = file.name.replace(/\.[^.]+$/, "");
-    return LANGS.indexOf(base) !== -1 ? base : null;
-  }
-
-  function saveBatchManuals(productId, typeId, files) {
-    var found = findProductEntry(productId);
-    var type = findType(typeId);
-    if (!found || !type) return Promise.reject(new Error("找不到產品或文件類型"));
-
-    var jobs = Array.prototype.map.call(files, function (file) {
-      var lang = batchFileLanguage(file);
-      var ext = file.name.split(".").pop().toLowerCase();
-      if (!lang) return function () { return Promise.reject(new Error(file.name + "：檔名必須是 en、zh-CN 或 zh-TW")); };
-      if (["pdf", "html", "htm"].indexOf(ext) === -1) return function () { return Promise.reject(new Error(file.name + "：只支援 PDF 或 HTML")); };
-      var format = ext === "pdf" ? "pdf" : "fragment";
-      var path = "manuals/" + found.category.id + "/" + productId + "/" + typeId + "/" + lang + "." + (format === "pdf" ? "pdf" : "html");
-      var title = found.product.model + " " + (type.name[lang] || type.name.en);
-      return function () {
-        return readFile(file, format === "pdf").then(function (content) {
-          return saveManualContent({
-            productId: productId, typeId: typeId, lang: lang, title: title,
-            content: format === "pdf" ? "" : content, format: format,
-            path: path, fileBase64: format === "pdf" ? content : null
-          });
-        });
-      };
-    });
-    return jobs.reduce(function (promise, job) { return promise.then(job); }, Promise.resolve());
   }
 
   function deleteManualContent(productId, typeId, lang) {
@@ -523,7 +462,7 @@
         return (
           "<tr>" +
             "<td><code>" + esc(p.model) + "</code></td>" +
-            "<td>" + esc(productLabel(p)) + "</td>" +
+            "<td>" + esc(p.name["zh-TW"] || p.name.en) + "</td>" +
             "<td>" + esc(e.category.name["zh-TW"] || e.category.name.en) + "</td>" +
             '<td><div class="chip-row">' + chips + "</div></td>" +
             '<td class="row-actions">' +
@@ -567,6 +506,7 @@
       '<div class="field"><label>型號 (model)</label><input name="model" type="text" value="' + esc(product ? product.model : "") + '" placeholder="例如 VC-A99" required></div>' +
       "</div>" +
       '<div class="field"><label>產品線</label><select name="categoryId">' + catOptions + "</select></div>" +
+      langFieldGroup("name", "產品名稱", product ? product.name : {}) +
       '<div class="field"><label>縮圖路徑</label><input name="image" type="text" value="' + esc(product ? product.image : "assets/images/products/placeholder-camera.svg") + '"></div>' +
       '<div class="field"><label>已宣告的文件類型（勾選代表這個產品「將會有」這些手冊，之後在「手冊文件」分頁補上實際內容）</label><div class="checkbox-grid">' + (typeChecks || '<span class="muted">尚未建立任何文件類型</span>') + "</div></div>";
 
@@ -581,10 +521,12 @@
           id: id,
           model: (form.elements.model.value || "").trim(),
           categoryId: form.elements.categoryId.value,
+          name: readLangField(form, "name"),
           image: (form.elements.image.value || "").trim() || "assets/images/products/placeholder-camera.svg",
           manuals: manuals
         };
         if (!data.model) return Promise.reject(new Error("請輸入型號"));
+        if (!data.name.en) return Promise.reject(new Error("請至少填寫英文名稱"));
         var prevCat = existing ? existing.category.id : null;
         return withBusy(isNew ? "新增產品" : "更新產品", function () { return upsertProduct(data, isNew, prevCat); })
           .then(function () { renderProducts(); renderCategories(); renderManuals(); });
@@ -671,7 +613,7 @@
   function renderManuals() {
     var panel = $("#panel-manuals");
     var options = allProducts().map(function (e) {
-      return '<option value="' + esc(e.product.id) + '">' + esc(e.product.model) + " — " + esc(productLabel(e.product)) + "</option>";
+      return '<option value="' + esc(e.product.id) + '">' + esc(e.product.model) + " — " + esc(e.product.name["zh-TW"] || e.product.name.en) + "</option>";
     }).join("");
 
     panel.innerHTML =
@@ -680,7 +622,6 @@
       '<div class="spacer"></div>' +
       '<select id="manualAddTypeSelect" style="min-width:160px;"></select>' +
       '<button class="btn small" id="manualAddTypeBtn">加入這個文件類型</button>' +
-      '<button class="btn small primary" id="batchUploadBtn">批次上傳文件</button>' +
       "</div>" +
       '<div id="manualGridWrap"></div>';
 
@@ -695,44 +636,7 @@
       withBusy("加入文件類型", function () { return saveCategories("將 " + tid + " 加入產品 " + pid); })
         .then(function () { renderManualGrid(pid); renderProducts(); }).catch(function () {});
     };
-    $("#batchUploadBtn").onclick = function () { openBatchUploadForm(); };
     renderManualGrid("");
-  }
-
-  function openBatchUploadForm() {
-    var catOptions = allProducts().map(function (e) {
-      return '<option value="' + esc(e.product.id) + '">' + esc(e.product.model) + " — " + esc(productLabel(e.product)) + "</option>";
-    }).join("");
-    var typeOptions = sortedTypes().map(function (t) {
-      return '<option value="' + esc(t.id) + '">' + esc(t.name["zh-TW"] || t.name.en) + "</option>";
-    }).join("");
-    var fields =
-      '<div class="field"><label>產品</label><select name="productId" required><option value="">— 請選擇 —</option>' + catOptions + "</select></div>" +
-      '<div class="field"><label>文件類型</label><select name="typeId" required><option value="">— 請選擇 —</option>' + typeOptions + "</select></div>" +
-      '<div class="field"><label>選擇文件</label><input name="files" type="file" accept=".pdf,.html,.htm,application/pdf,text/html" multiple required>' +
-      '<div class="field-help">檔名請使用 <strong>en.pdf</strong>、<strong>zh-CN.pdf</strong> 或 <strong>zh-TW.html</strong>。副檔名決定格式，PDF 與 HTML 可混合選取。</div></div>';
-
-    openDialog({
-      title: "批次上傳手冊文件",
-      fieldsHtml: fields,
-      onSubmit: function (form) {
-        var files = form.elements.files.files;
-        if (!form.elements.productId.value || !form.elements.typeId.value) return Promise.reject(new Error("請選擇產品與文件類型"));
-        if (!files.length) return Promise.reject(new Error("請選擇至少一個文件"));
-        var languages = {};
-        for (var i = 0; i < files.length; i++) {
-          var lang = batchFileLanguage(files[i]);
-          if (!lang) return Promise.reject(new Error(files[i].name + "：檔名必須是 en、zh-CN 或 zh-TW"));
-          if (languages[lang]) return Promise.reject(new Error("同一批次不可重複上傳 " + lang + " 文件"));
-          languages[lang] = true;
-        }
-        return withBusy("批次上傳手冊文件", function () {
-          return saveBatchManuals(form.elements.productId.value, form.elements.typeId.value, files);
-        }).then(function () {
-          renderManualGrid(form.elements.productId.value); renderProducts(); renderManuals();
-        });
-      }
-    });
   }
 
   function renderManualGrid(productId) {
@@ -800,24 +704,20 @@
   function openManualForm(productId, typeId, lang, existingEntry) {
     var type = findType(typeId);
     var isNew = !existingEntry;
-    var currentFormat = existingEntry && existingEntry.format === "pdf" ? "pdf" : (existingEntry && existingEntry.format === "standalone" ? "standalone" : "fragment");
-    var loadContent = currentFormat === "pdf"
-      ? Promise.resolve("")
-      : isNew
+    var loadContent = isNew
       ? Promise.resolve(SECTION_TEMPLATES[typeId] || SECTION_TEMPLATES["default"])
       : ghGet(existingEntry.path).then(function (r) { return r ? r.text : ""; });
 
     loadContent.then(function (content) {
       var defaultTitle = existingEntry ? existingEntry.title : (findProductEntry(productId).product.model + " " + (type.name["zh-TW"] || type.name.en));
+      var currentFormat = existingEntry && existingEntry.format === "standalone" ? "standalone" : "fragment";
       var fields =
         '<div class="field"><label>標題</label><input name="title" type="text" value="' + esc(defaultTitle) + '" required></div>' +
         '<div class="field"><label>內容格式</label>' +
         '<select name="format" id="manualFormatSelect">' +
           '<option value="fragment"' + (currentFormat === "fragment" ? " selected" : "") + '>內容片段（套用本站樣式與目錄，適合大多數文件）</option>' +
           '<option value="standalone"' + (currentFormat === "standalone" ? " selected" : "") + '>完整獨立頁面（保留原始設計不轉換，例如既有的互動式簡報／PDF 轉出的完整網頁）</option>' +
-          '<option value="pdf"' + (currentFormat === "pdf" ? " selected" : "") + '>PDF 文件（使用瀏覽器內建 PDF 閱讀器顯示）</option>' +
         "</select></div>" +
-        '<div class="field" id="manualFileField" hidden><label>PDF 檔案</label><input name="file" type="file" accept="application/pdf"><div class="field-help">新增 PDF 必須選擇檔案；編輯既有 PDF 時可留空，只更新標題。</div></div>' +
         '<div class="field"><label id="manualContentLabel">內容 (HTML) — 開頭用 &lt;h2 id="..."&gt; 分段，會自動變成本頁目錄</label>' +
         '<textarea name="content" rows="16">' + esc(content) + "</textarea>" +
         '<div class="field-help" id="manualContentHelp" hidden>選擇「完整獨立頁面」時，直接貼上完整的原始 HTML 檔案內容即可，不需要調整成 &lt;h2&gt; 分段格式；本站不會嘗試解析或改寫這份內容，會原封不動存檔並以獨立畫面（iframe）顯示，本頁的目錄／列印按鈕會自動關閉，改提供「在新分頁開啟」按鈕。</div>' +
@@ -831,20 +731,11 @@
             productId: productId, typeId: typeId, lang: lang,
             title: (form.elements.title.value || "").trim(),
             content: form.elements.content.value,
-            format: form.elements.format.value,
-            path: existingEntry && existingEntry.format === form.elements.format.value ? existingEntry.path : undefined,
-            file: form.elements.file && form.elements.file.files[0]
+            format: form.elements.format.value
           };
           if (!data.title) return Promise.reject(new Error("請輸入標題"));
-          if (data.format === "pdf" && isNew && !data.file) return Promise.reject(new Error("請選擇 PDF 檔案"));
-          if (data.format !== "pdf" && !data.content.trim()) return Promise.reject(new Error("請輸入內容"));
-          var save = data.file ? new Promise(function (resolve, reject) {
-            var reader = new FileReader();
-            reader.onload = function () { resolve(String(reader.result).split(",")[1] || ""); };
-            reader.onerror = reject;
-            reader.readAsDataURL(data.file);
-          }).then(function (base64) { data.fileBase64 = base64; }) : Promise.resolve();
-          return withBusy(isNew ? "新增手冊內容" : "更新手冊內容", function () { return save.then(function () { return saveManualContent(data); }); })
+          if (!data.content.trim()) return Promise.reject(new Error("請輸入內容"));
+          return withBusy(isNew ? "新增手冊內容" : "更新手冊內容", function () { return saveManualContent(data); })
             .then(function () { renderManualGrid(productId); renderProducts(); });
         }
       });
@@ -854,15 +745,10 @@
       var contentLabel = $("#manualContentLabel");
       function syncFormatHint() {
         var isStandalone = formatSelect.value === "standalone";
-        var isPdf = formatSelect.value === "pdf";
-        var fileField = $("#manualFileField");
-        fileField.hidden = !isPdf;
         contentHelp.hidden = !isStandalone;
-        $("textarea[name=content]").parentElement.hidden = isPdf;
         contentLabel.innerHTML = isStandalone
           ? '內容 (完整 HTML 原始碼) — 直接貼上整份原始檔案內容'
           : '內容 (HTML) — 開頭用 &lt;h2 id="..."&gt; 分段，會自動變成本頁目錄';
-        if (isPdf) contentLabel.textContent = "PDF 不需要填寫 HTML 內容";
       }
       formatSelect.addEventListener("change", syncFormatHint);
       syncFormatHint();
