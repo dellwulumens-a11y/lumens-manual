@@ -22,7 +22,7 @@
 
     document.getElementById("productThumb").innerHTML = '<img src="' + product.image + '" alt="' + esc(product.model) + '">';
     document.getElementById("productModelTag").textContent = product.model;
-    document.getElementById("productName").textContent = I18N.pickLocale(product.name, lang);
+    document.getElementById("productName").textContent = product.name && I18N.pickLocale(product.name, lang) || product.model;
     var catLink = document.getElementById("productCatLink");
     catLink.textContent = I18N.pickLocale(category.name, lang);
     catLink.href = I18N.urlFor("products.html", lang, { category: category.id });

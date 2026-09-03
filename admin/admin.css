@@ -1,10 +1,13 @@
 /* Lumens 手冊管理後台 — admin-only styles (loaded after shared style.css) */
 
+[hidden]{display:none !important;}
+
 .admin-topbar{
-  background:var(--ink); color:#fff; position:sticky; top:0; z-index:40;
+  background:linear-gradient(110deg,#0b3d6d 0%,#0b5fae 58%,#087ea8 100%); color:#fff; position:sticky; top:0; z-index:40;
+  box-shadow:0 4px 18px rgba(8,54,96,.18);
 }
 .admin-topbar-inner{
-  max-width:1180px; margin:0 auto; padding:12px 24px; display:flex; align-items:center; gap:16px;
+  max-width:1180px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:18px;
 }
 .admin-topbar .logo{color:#fff;}
 .admin-topbar .logo small{color:#aab3bd;}
@@ -17,22 +20,26 @@
 .admin-topbar-actions .btn:hover{background:rgba(255,255,255,.16); color:#fff;}
 
 .admin-main{padding:32px 24px 80px;}
+body:has(.admin-topbar){background:#f2f6f9;}
 
 .admin-card{
-  background:var(--bg-raised); border:1px solid var(--line); border-radius:var(--radius); padding:28px;
-  box-shadow:var(--shadow);
+  background:var(--bg-raised); border:1px solid #dbe4eb; border-radius:14px; padding:30px;
+  box-shadow:0 12px 34px rgba(21,55,80,.08);
 }
 .login-card{max-width:560px; margin:24px auto;}
 .login-card h1{font-size:20px; margin-bottom:10px;}
 .admin-help{color:var(--ink-soft); font-size:13.5px; margin-bottom:22px;}
 
-.admin-form .field{margin-bottom:16px;}
-.admin-form label{display:block; font-weight:700; font-size:13.5px; margin-bottom:6px;}
+.admin-form .field, .admin-dialog .field{margin-bottom:18px;}
+.admin-form label, .admin-dialog .field > label{display:block; font-weight:700; font-size:13px; margin-bottom:7px; color:var(--ink-soft);}
 .admin-form input[type="text"], .admin-form input[type="password"], .admin-form input[type="number"],
-.admin-form select, .admin-form textarea{
+.admin-form select, .admin-form textarea,
+.admin-dialog input[type="text"], .admin-dialog input[type="number"], .admin-dialog select, .admin-dialog textarea{
   width:100%; padding:9px 12px; border:1px solid var(--line-strong); border-radius:8px; font-size:14px; font-family:inherit; background:#fff; color:var(--ink);
 }
-.admin-form textarea{font-family:var(--font-mono); font-size:12.5px; line-height:1.6;}
+.admin-form input:focus, .admin-form select:focus, .admin-form textarea:focus,
+.admin-dialog input:focus, .admin-dialog select:focus, .admin-dialog textarea:focus{border-color:var(--brand); outline:3px solid rgba(11,95,174,.14);}
+.admin-form textarea, .admin-dialog textarea{font-family:var(--font-mono); font-size:12.5px; line-height:1.6;}
 .field-help{font-size:12px; color:var(--ink-faint); margin-top:6px;}
 .checkbox-field label{display:flex; align-items:center; gap:8px; font-weight:400;}
 .admin-error{color:#b3261e; background:#fdecea; border:1px solid #f3c6c2; padding:10px 12px; border-radius:8px; font-size:13px; margin-top:12px;}
@@ -43,10 +50,10 @@
 
 .admin-tabs{display:flex; gap:4px; border-bottom:1px solid var(--line); margin-bottom:22px; flex-wrap:wrap;}
 .admin-tab{
-  background:none; border:none; padding:10px 16px; font-size:14px; font-weight:700; color:var(--ink-soft);
+  background:transparent; border:1px solid transparent; border-radius:8px 8px 0 0; padding:11px 18px; font-size:14px; font-weight:700; color:var(--ink-soft);
   border-bottom:2px solid transparent; margin-bottom:-1px;
 }
-.admin-tab.active{color:var(--brand); border-bottom-color:var(--brand);}
+.admin-tab.active{color:var(--brand); background:#fff; border-color:var(--line); border-bottom-color:var(--brand);}
 .admin-tab:hover{color:var(--ink);}
 
 .status-banner{padding:12px 16px; border-radius:8px; font-size:13.5px; margin-bottom:18px;}
@@ -56,7 +63,7 @@
 
 .admin-toolbar{display:flex; gap:10px; align-items:center; margin-bottom:16px; flex-wrap:wrap;}
 .admin-toolbar select, .admin-toolbar input[type="search"]{
-  padding:8px 12px; border:1px solid var(--line-strong); border-radius:8px; font-size:13.5px;
+  padding:9px 12px; border:1px solid var(--line-strong); border-radius:8px; font-size:13.5px; background:#fff; color:var(--ink);
 }
 .admin-toolbar .spacer{flex:1;}
 
@@ -91,20 +98,33 @@
 .cell-empty a{font-size:12.5px; font-weight:700;}
 
 .admin-dialog{
-  border:none; border-radius:14px; padding:0; width:min(640px, 92vw); box-shadow:0 20px 60px -20px rgba(0,0,0,.4);
+  border:1px solid #d7e1e8; border-radius:16px; padding:0; width:min(680px, 92vw); max-height:90vh; box-shadow:0 24px 70px -24px rgba(0,25,50,.42);
 }
 .admin-dialog::backdrop{background:rgba(18,24,31,.55);}
-.admin-dialog form{padding:26px 28px;}
-.admin-dialog h2{font-size:18px; margin-bottom:16px;}
+.admin-dialog form{padding:28px 30px; overflow:auto;}
+.admin-dialog h2{font-size:20px; margin-bottom:22px; color:var(--ink);}
 .dialog-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:20px; padding-top:16px; border-top:1px solid var(--line);}
 .form-grid-2{display:grid; grid-template-columns:1fr 1fr; gap:0 16px;}
 @media (max-width:520px){ .form-grid-2{grid-template-columns:1fr;} }
-.lang-field-group{border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin-bottom:16px; background:var(--bg-soft);}
-.lang-field-group > .lbl{font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); font-weight:700; margin-bottom:8px;}
+.lang-field-group{border:1px solid #dbe4eb; border-radius:10px; padding:16px 16px 14px; margin-bottom:18px; background:#f6f8fa;}
+.lang-field-group > .lbl{font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--brand); font-weight:800; margin-bottom:12px;}
 .lang-field-group .field{margin-bottom:8px;}
 .lang-field-group .field:last-child{margin-bottom:0;}
-.lang-field-group .field label{font-weight:400; font-size:12px; color:var(--ink-soft);}
-.checkbox-grid{display:flex; flex-wrap:wrap; gap:10px;}
-.checkbox-grid label{display:flex; align-items:center; gap:6px; font-weight:400; font-size:13.5px; border:1px solid var(--line-strong); padding:6px 10px; border-radius:100px;}
+.lang-field-group .field{display:grid; grid-template-columns:82px 1fr; gap:10px; align-items:center;}
+.lang-field-group .field label{font-weight:600; font-size:12px; color:var(--ink-soft); margin:0;}
+.checkbox-grid{display:flex; flex-wrap:wrap; gap:8px;}
+.checkbox-grid label{display:flex; align-items:center; gap:8px; font-weight:600; font-size:13px; color:var(--ink-soft); border:1px solid var(--line-strong); padding:8px 12px; border-radius:9px; background:#fff; transition:border-color .15s ease, background .15s ease;}
+.checkbox-grid label:hover{border-color:var(--brand); background:var(--brand-soft);}
+.checkbox-grid input{accent-color:var(--brand);}
+
+@media (max-width:640px){
+  .admin-topbar-inner{padding:12px 16px; gap:10px; flex-wrap:wrap;}
+  .admin-topbar .conn-status{order:3; width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .admin-topbar-actions{margin-left:auto;}
+  .admin-main{padding:20px 16px 56px;}
+  .admin-card{padding:22px 18px;}
+  .admin-dialog form{padding:24px 18px;}
+  .lang-field-group .field{grid-template-columns:72px 1fr;}
+}
 
 .empty-state{padding:40px; text-align:center; color:var(--ink-faint); font-size:14px;}
