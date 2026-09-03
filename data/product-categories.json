@@ -385,7 +385,10 @@
             "zh-TW": "10 吋觸控控制面板"
           },
           "image": "assets/images/products/placeholder-touch-panel.svg",
-          "manuals": ["user-guide"]
+          "manuals": [
+            "user-guide",
+            "installation-guide"
+          ]
         }
       ]
     }
