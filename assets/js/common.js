@@ -23,13 +23,13 @@
 
   function renderHeader(t, lang, pageKey) {
     var socialLinks = [
-      { label: "Facebook", shortLabel: "f", href: "https://www.facebook.com/Lumensinc/" },
-      { label: "Twitter", shortLabel: "t", href: "https://twitter.com/LumensLadibug" },
-      { label: "LinkedIn", shortLabel: "in", href: "https://www.linkedin.com/company/lumens-digital-optics/" },
-      { label: "YouTube", shortLabel: "yt", href: "https://www.youtube.com/channel/UCOckQhSUhLgaAi0Jnsre6wA?sub_confirmation=1" }
+      { label: "Facebook", href: "https://www.facebook.com/Lumensinc/", icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/></svg>' },
+      { label: "Twitter", href: "https://twitter.com/LumensLadibug", icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.95 4.57a9.8 9.8 0 0 1-2.83.78 4.94 4.94 0 0 0 2.17-2.72 9.86 9.86 0 0 1-3.13 1.2 4.92 4.92 0 0 0-8.39 4.48A13.97 13.97 0 0 1 1.67 3.15a4.9 4.9 0 0 0 1.52 6.57 4.9 4.9 0 0 1-2.23-.62v.06a4.92 4.92 0 0 0 3.95 4.83 4.93 4.93 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.88 9.88 0 0 1 0 19.54a13.94 13.94 0 0 0 7.55 2.21c9.06 0 14.01-7.5 14.01-14.01 0-.21 0-.42-.01-.63a10 10 0 0 0 2.4-2.54z"/></svg>' },
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/lumens-digital-optics/", icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.1 8.5H1.7V22h3.4V8.5zM3.4 3A2 2 0 1 0 3.4 7a2 2 0 0 0 0-4zM8.8 8.5h3.3v1.85h.05c.46-.87 1.58-2.25 3.88-2.25 4.15 0 4.92 2.73 4.92 6.28V22h-3.4v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.6 1.76-2.6 3.56V22H8.8V8.5z"/></svg>' },
+      { label: "YouTube", href: "https://www.youtube.com/channel/UCOckQhSUhLgaAi0Jnsre6wA?sub_confirmation=1", icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.7V8.3l6.3 3.7-6.3 3.7z"/></svg>' }
     ];
     var socialHtml = socialLinks.map(function (social) {
-      return '<a href="' + social.href + '" aria-label="' + social.label + '" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">' + social.shortLabel + '</span></a>';
+      return '<a href="' + social.href + '" aria-label="' + social.label + '" target="_blank" rel="noopener noreferrer">' + social.icon + '</a>';
     }).join("");
     var nav = [
       { key: "home", href: "index.html", label: t.nav.home },
