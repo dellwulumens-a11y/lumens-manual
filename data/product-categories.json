@@ -391,6 +391,79 @@
           ]
         }
       ]
+    },
+    {
+      "id": "software",
+      "name": {
+        "en": "Software",
+        "zh-CN": "软件",
+        "zh-TW": "軟體"
+      },
+      "description": {
+        "en": "Lumens software, camera controllers and visual presentation tools",
+        "zh-CN": "Lumens 软件、摄像机控制器与视觉演示工具",
+        "zh-TW": "Lumens 軟體、攝影機控制器與視覺簡報工具"
+      },
+      "products": [
+        {
+          "id": "lumens-software",
+          "model": "Lumens Software",
+          "name": {
+            "en": "Lumens Software",
+            "zh-CN": "Lumens 软件",
+            "zh-TW": "Lumens 軟體"
+          },
+          "image": "assets/images/products/placeholder-box.svg",
+          "manuals": []
+        },
+        {
+          "id": "ladibug-software",
+          "model": "Ladibug Software",
+          "name": {
+            "en": "Ladibug Software",
+            "zh-CN": "Ladibug 软件",
+            "zh-TW": "Ladibug 軟體"
+          },
+          "image": "assets/images/products/placeholder-box.svg",
+          "manuals": []
+        },
+        {
+          "id": "usb-ptz-camera-controller",
+          "model": "USB PTZ Camera Controller",
+          "name": {
+            "en": "USB PTZ Camera Controller",
+            "zh-CN": "USB PTZ 摄像机控制器",
+            "zh-TW": "USB PTZ 攝影機控制器"
+          },
+          "image": "assets/images/products/placeholder-box.svg",
+          "manuals": []
+        },
+        {
+          "id": "vms-software",
+          "model": "VMS Software",
+          "name": {
+            "en": "VMS Software",
+            "zh-CN": "VMS 软件",
+            "zh-TW": "VMS 軟體"
+          },
+          "image": "assets/images/products/placeholder-box.svg",
+          "manuals": []
+        }
+      ]
+    },
+    {
+      "id": "accessories",
+      "name": {
+        "en": "Accessories",
+        "zh-CN": "配件",
+        "zh-TW": "配件"
+      },
+      "description": {
+        "en": "Accessories and optional equipment for Lumens systems",
+        "zh-CN": "Lumens 系统的配件与选购设备",
+        "zh-TW": "Lumens 系統的配件與選購設備"
+      },
+      "products": []
     }
   ]
 }

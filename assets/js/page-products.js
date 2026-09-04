@@ -34,7 +34,7 @@
       return (
         '<div class="category-card" style="' + window.LumensCommon.tagColorStyle(i) + '">' +
           '<span class="cat-badge">' + esc(t.footer.productLine) + "</span>" +
-          '<div class="count">' + (cat.products || []).length + " " + esc(t.common.documentsAvailable).replace(/^ */, "") + "</div>" +
+          '<div class="count">' + (cat.products || []).length + " " + esc(t.common.modelsAvailable) + "</div>" +
           "<h3>" + esc(I18N.pickLocale(cat.name, lang)) + "</h3>" +
           '<p class="desc">' + esc(I18N.pickLocale(cat.description, lang)) + "</p>" +
           '<div class="product-list' + (hasMore ? ' is-collapsed' : '') + '" id="products-' + cat.id + '">' + products + "</div>" +

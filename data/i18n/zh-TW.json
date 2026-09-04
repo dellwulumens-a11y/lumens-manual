@@ -45,7 +45,8 @@
     "openOriginal": "在新分頁開啟原始頁面",
     "standaloneNote": "這份文件維持原始設計與版面，以下直接嵌入顯示。如需列印或另存 PDF，請用上方按鈕在新分頁開啟後再操作。",
     "showAllProducts": "顯示全部機種",
-    "showFewerProducts": "收合機種"
+    "showFewerProducts": "收合機種",
+    "modelsAvailable": "個機種"
   },
   "breadcrumb": {
     "home": "首頁",

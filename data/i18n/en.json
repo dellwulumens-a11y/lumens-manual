@@ -45,7 +45,8 @@
     "openOriginal": "Open original document in a new tab",
     "standaloneNote": "This document keeps its original design and is shown below exactly as provided. Use the button above to open it in its own tab (e.g. to print).",
     "showAllProducts": "Show all models",
-    "showFewerProducts": "Show fewer models"
+    "showFewerProducts": "Show fewer models",
+    "modelsAvailable": "models"
   },
   "breadcrumb": {
     "home": "Home",

@@ -45,7 +45,8 @@
     "openOriginal": "在新分页开启原始页面",
     "standaloneNote": "这份文件维持原始设计与版面，以下直接嵌入显示。如需列印或另存 PDF，请用上方按钮在新分页开启后再操作。",
     "showAllProducts": "显示全部机种",
-    "showFewerProducts": "收合机种"
+    "showFewerProducts": "收合机种",
+    "modelsAvailable": "个机种"
   },
   "breadcrumb": {
     "home": "首页",
