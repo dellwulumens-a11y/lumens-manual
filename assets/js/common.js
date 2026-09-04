@@ -22,6 +22,15 @@
   }
 
   function renderHeader(t, lang, pageKey) {
+    var socialLinks = [
+      { label: "Facebook", shortLabel: "f", href: "https://www.facebook.com/Lumensinc/" },
+      { label: "Twitter", shortLabel: "t", href: "https://twitter.com/LumensLadibug" },
+      { label: "LinkedIn", shortLabel: "in", href: "https://www.linkedin.com/company/lumens-digital-optics/" },
+      { label: "YouTube", shortLabel: "yt", href: "https://www.youtube.com/channel/UCOckQhSUhLgaAi0Jnsre6wA?sub_confirmation=1" }
+    ];
+    var socialHtml = socialLinks.map(function (social) {
+      return '<a href="' + social.href + '" aria-label="' + social.label + '" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">' + social.shortLabel + '</span></a>';
+    }).join("");
     var nav = [
       { key: "home", href: "index.html", label: t.nav.home },
       { key: "products", href: "products.html", label: t.nav.byProduct },
@@ -38,10 +47,13 @@
     }).join("");
 
     return (
+      '<div class="header-top container">' +
+        '<div class="social-links">' + socialHtml + '</div>' +
+        '<div class="header-utility"><a href="https://www.mylumens.com/en/ContactSales">Contact Sales</a><a href="https://www.mylumens.com/en/WheretoBuy">Where to Buy</a></div>' +
+      '</div>' +
       '<div class="bar container">' +
-        '<a class="logo" href="' + I18N.urlFor("index.html", lang) + '">' +
-          '<span class="mark">L</span>' +
-          '<span>Lumens<small>' + esc(t.site.tagline) + "</small></span>" +
+        '<a class="logo" href="' + I18N.urlFor("index.html", lang) + '" aria-label="Lumens Manual Center">' +
+          '<img src="https://www.mylumens.com/frontdesk/img/logo.png?s=1" alt="Lumens">' +
         "</a>" +
         '<nav class="main-nav" id="mainNav">' + navHtml + "</nav>" +
         '<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">' +
@@ -73,7 +85,6 @@
         '<div class="footer-grid">' +
           "<div>" +
             '<h5>' + esc(t.site.name) + "</h5>" +
-            '<p style="color:var(--ink-soft); font-size:13.5px; max-width:36ch;">' + esc(t.site.tagline) + "</p>" +
           "</div>" +
           "<div><h5>" + esc(t.footer.productLine) + '</h5><ul>' + catLinks + "</ul></div>" +
           "<div><h5>" + esc(t.footer.documentType) + '</h5><ul>' + typeLinks + "</ul></div>" +

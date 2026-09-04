@@ -2,7 +2,7 @@
   "lang": "zh-CN",
   "site": {
     "name": "Lumens 手册中心",
-    "tagline": "产品使用手册、安装手册与 Command Set"
+    "tagline": ""
   },
   "nav": {
     "byProduct": "按产品浏览",
@@ -43,7 +43,9 @@
     "loading": "加载中…",
     "loadError": "内容加载失败，请稍后再试。",
     "openOriginal": "在新分页开启原始页面",
-    "standaloneNote": "这份文件维持原始设计与版面，以下直接嵌入显示。如需列印或另存 PDF，请用上方按钮在新分页开启后再操作。"
+    "standaloneNote": "这份文件维持原始设计与版面，以下直接嵌入显示。如需列印或另存 PDF，请用上方按钮在新分页开启后再操作。",
+    "showAllProducts": "显示全部机种",
+    "showFewerProducts": "收合机种"
   },
   "breadcrumb": {
     "home": "首页",

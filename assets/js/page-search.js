@@ -9,11 +9,14 @@
   var DATA = window.LumensData;
 
   function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+  function normalizeSearchText(s) {
+    return String(s || "").toLowerCase().replace(/[\s\-_./\\]+/g, "");
+  }
 
   function score(query, entry) {
-    var q = query.toLowerCase();
-    var title = (entry.title || "").toLowerCase();
-    var text = (entry.text || "").toLowerCase();
+    var q = normalizeSearchText(query);
+    var title = normalizeSearchText(entry.title);
+    var text = normalizeSearchText(entry.text);
     var s = 0;
     if (title.indexOf(q) !== -1) s += 60;
     var re = new RegExp(escRe(q), "g");

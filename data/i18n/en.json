@@ -2,7 +2,7 @@
   "lang": "en",
   "site": {
     "name": "Lumens Manual Center",
-    "tagline": "Product manuals, installation guides & command sets"
+    "tagline": ""
   },
   "nav": {
     "byProduct": "By Product",
@@ -43,7 +43,9 @@
     "loading": "Loading…",
     "loadError": "This content could not be loaded. Please try again later.",
     "openOriginal": "Open original document in a new tab",
-    "standaloneNote": "This document keeps its original design and is shown below exactly as provided. Use the button above to open it in its own tab (e.g. to print)."
+    "standaloneNote": "This document keeps its original design and is shown below exactly as provided. Use the button above to open it in its own tab (e.g. to print).",
+    "showAllProducts": "Show all models",
+    "showFewerProducts": "Show fewer models"
   },
   "breadcrumb": {
     "home": "Home",
