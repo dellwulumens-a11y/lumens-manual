@@ -77,6 +77,9 @@
   function apiUrl(path) {
     return "https://api.github.com/repos/" + cfg.owner + "/" + cfg.repo + "/contents/" + path;
   }
+  function repoApiUrl() {
+    return "https://api.github.com/repos/" + cfg.owner + "/" + cfg.repo;
+  }
   function apiHeaders(extra) {
     var h = {
       "Authorization": "Bearer " + cfg.token,
@@ -101,6 +104,9 @@
         if (res.status === 404) return null;
         if (!res.ok) return ghError(res).then(function (e) { throw e; });
         return res.json().then(function (data) {
+          if (!data || typeof data.content !== "string") {
+            throw new Error("GitHub API 沒有回傳「" + path + "」的檔案內容，請確認 repository、分支與 Token 權限。");
+          }
           shas[path] = data.sha;
           return { sha: data.sha, text: b64ToUtf8(data.content) };
         });
@@ -154,10 +160,39 @@
       ghGet(PATHS.categories), ghGet(PATHS.types), ghGet(PATHS.manualsIndex), ghGet(PATHS.searchIndex)
     ]).then(function (res) {
       if (!res[0] || !res[1] || !res[2]) throw new Error("找不到 data/product-categories.json、manual-types.json 或 manuals-index.json，請確認 repo 與分支是否正確。");
-      state.categories = JSON.parse(res[0].text).categories || [];
-      state.types = JSON.parse(res[1].text).types || [];
-      state.manualsIndex = JSON.parse(res[2].text) || [];
-      state.searchIndex = res[3] ? (JSON.parse(res[3].text) || []) : [];
+      try {
+        state.categories = JSON.parse(res[0].text).categories || [];
+      } catch (e) {
+        throw new Error("無法解析 data/product-categories.json：" + e.message);
+      }
+      try {
+        state.types = JSON.parse(res[1].text).types || [];
+      } catch (e) {
+        throw new Error("無法解析 data/manual-types.json：" + e.message);
+      }
+      try {
+        state.manualsIndex = JSON.parse(res[2].text) || [];
+      } catch (e) {
+        throw new Error("無法解析 data/manuals-index.json：" + e.message);
+      }
+      try {
+        state.searchIndex = res[3] ? (JSON.parse(res[3].text) || []) : [];
+      } catch (e) {
+        throw new Error("無法解析 data/search-index.json：" + e.message);
+      }
+    });
+  }
+
+  function verifyRepository() {
+    return fetch(repoApiUrl(), { headers: apiHeaders() }).then(function (res) {
+      if (!res.ok) return ghError(res).then(function (e) { throw e; });
+      return res.json().then(function (repo) {
+        if (repo.default_branch && cfg.branch !== repo.default_branch) {
+          return fetch(repoApiUrl() + "/branches/" + encodeURIComponent(cfg.branch), { headers: apiHeaders() }).then(function (branchRes) {
+            if (!branchRes.ok) return ghError(branchRes).then(function (e) { throw e; });
+          });
+        }
+      });
     });
   }
 
@@ -920,7 +955,7 @@
   function connect(newCfg, remember) {
     cfg = newCfg;
     shas = {};
-    return loadAll().then(function () {
+    return verifyRepository().then(loadAll).then(function () {
       if (remember) { try { localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); } catch (e) {} }
       setConnected(true);
       renderAll();
