@@ -104,11 +104,17 @@
         if (res.status === 404) return null;
         if (!res.ok) return ghError(res).then(function (e) { throw e; });
         return res.json().then(function (data) {
-          if (!data || typeof data.content !== "string") {
-            throw new Error("GitHub API 沒有回傳「" + path + "」的檔案內容，請確認 repository、分支與 Token 權限。");
-          }
           shas[path] = data.sha;
-          return { sha: data.sha, text: b64ToUtf8(data.content) };
+          if (data && typeof data.content === "string") {
+            return { sha: data.sha, text: b64ToUtf8(data.content) };
+          }
+          if (data && data.download_url) {
+            return fetch(data.download_url, { headers: apiHeaders() }).then(function (fileRes) {
+              if (!fileRes.ok) return ghError(fileRes).then(function (e) { throw e; });
+              return fileRes.text().then(function (text) { return { sha: data.sha, text: text }; });
+            });
+          }
+          throw new Error("GitHub API 沒有回傳「" + path + "」的檔案內容，請確認 repository、分支與 Token 權限。");
         });
       });
   }
