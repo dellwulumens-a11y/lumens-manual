@@ -13,6 +13,7 @@
   var cfg = null; // { owner, repo, branch, token }
   var shas = {};  // path -> sha
   var state = { categories: [], types: [], manualsIndex: [], searchIndex: [] };
+  var searchIndexWarning = "";
 
   var PATHS = {
     categories: "data/product-categories.json",
@@ -165,6 +166,7 @@
   // -------------------------------------------------------------- loading --
 
   function loadAll() {
+    searchIndexWarning = "";
     return Promise.all([
       ghGet(PATHS.categories), ghGet(PATHS.types), ghGet(PATHS.manualsIndex), ghGet(PATHS.searchIndex)
     ]).then(function (res) {
@@ -187,7 +189,8 @@
       try {
         state.searchIndex = res[3] ? (JSON.parse(res[3].text) || []) : [];
       } catch (e) {
-        throw new Error("無法解析 data/search-index.json：" + e.message);
+        state.searchIndex = [];
+        searchIndexWarning = "搜尋索引格式錯誤，後台已連線但搜尋索引暫時停用。請先執行 tools/build-search-index.js 重建 data/search-index.json，再重新整理資料。";
       }
     });
   }
@@ -968,6 +971,7 @@
       if (remember) { try { localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); } catch (e) {} }
       setConnected(true);
       renderAll();
+      if (searchIndexWarning) showStatus("err", searchIndexWarning);
     });
   }
 
