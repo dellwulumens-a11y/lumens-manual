@@ -109,9 +109,12 @@
             return { sha: data.sha, text: b64ToUtf8(data.content) };
           }
           if (data && data.download_url) {
-            return fetch(data.download_url, { headers: apiHeaders() }).then(function (fileRes) {
-              if (!fileRes.ok) return ghError(fileRes).then(function (e) { throw e; });
-              return fileRes.text().then(function (text) { return { sha: data.sha, text: text }; });
+            return fetch(data.download_url).then(function (fileRes) {
+              if (!fileRes.ok) throw new Error("無法下載大型檔案「" + path + "」：HTTP " + fileRes.status + "。");
+              return fileRes.text().then(function (text) {
+                if (!text) throw new Error("GitHub 回傳的「" + path + "」內容是空的。");
+                return { sha: data.sha, text: text };
+              });
             });
           }
           throw new Error("GitHub API 沒有回傳「" + path + "」的檔案內容，請確認 repository、分支與 Token 權限。");
