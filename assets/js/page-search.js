@@ -13,12 +13,19 @@
     return String(s || "").toLowerCase().replace(/[\s\-_./\\]+/g, "");
   }
 
-  function score(query, entry) {
+  function score(query, entry, product, category, type, lang) {
     var q = normalizeSearchText(query);
     var title = normalizeSearchText(entry.title);
     var text = normalizeSearchText(entry.text);
+    var model = normalizeSearchText(product && product.model);
+    var productName = normalizeSearchText(product && I18N.pickLocale(product.name, lang));
+    var categoryName = normalizeSearchText(category && I18N.pickLocale(category.name, lang));
+    var typeName = normalizeSearchText(type && I18N.pickLocale(type.name, lang));
     var s = 0;
+    if (model.indexOf(q) !== -1) s += 120;
+    if (productName.indexOf(q) !== -1) s += 70;
     if (title.indexOf(q) !== -1) s += 60;
+    if (categoryName.indexOf(q) !== -1 || typeName.indexOf(q) !== -1) s += 20;
     var re = new RegExp(escRe(q), "g");
     var matches = text.match(re);
     if (matches) s += Math.min(matches.length, 8) * 6;
@@ -40,44 +47,80 @@
     var t = ctx.t, lang = ctx.lang, esc = ctx.esc;
     var params = new URL(location.href).searchParams;
     var q = (params.get("q") || "").trim();
+    var categoryId = params.get("category") || "";
+    var typeId = params.get("type") || "";
+    var docLang = params.get("docLang") || "";
 
     document.getElementById("searchTitle").textContent = t.search.title;
     var input = document.getElementById("searchInput");
     input.value = q;
     input.placeholder = t.common.searchPlaceholder;
-    document.getElementById("searchForm").addEventListener("submit", function (e) {
-      // allow normal GET submit (keeps ?lang= via hidden field set below)
-    });
+    input.setAttribute("aria-label", t.search.inputLabel);
+    document.querySelector("#searchForm button").textContent = t.common.searchButton;
     var langField = document.getElementById("searchLangField");
     if (langField) langField.value = lang;
+
+    var categoryFilter = document.getElementById("categoryFilter");
+    var typeFilter = document.getElementById("typeFilter");
+    var docLangFilter = document.getElementById("docLangFilter");
+    var option = function (value, label, selected) {
+      return '<option value="' + esc(value) + '"' + (selected ? " selected" : "") + ">" + esc(label) + "</option>";
+    };
+    categoryFilter.innerHTML = option("", t.common.allCategories, !categoryId) + ctx.categories.map(function (category) {
+      return option(category.id, I18N.pickLocale(category.name, lang), category.id === categoryId);
+    }).join("");
+    typeFilter.innerHTML = option("", t.common.allTypes, !typeId) + ctx.types.map(function (type) {
+      return option(type.id, I18N.pickLocale(type.name, lang), type.id === typeId);
+    }).join("");
+    docLangFilter.innerHTML = option("", t.search.allLanguages, !docLang) + option("en", "English", docLang === "en") + option("zh-CN", "简体中文", docLang === "zh-CN") + option("zh-TW", "繁體中文", docLang === "zh-TW");
+    document.getElementById("categoryFilterLabel").textContent = t.search.productLine;
+    document.getElementById("typeFilterLabel").textContent = t.search.documentType;
+    document.getElementById("docLangFilterLabel").textContent = t.search.documentLanguage;
+    document.getElementById("searchFilters").setAttribute("aria-label", t.search.filtersLabel);
+    document.getElementById("clearFilters").textContent = t.search.clearFilters;
+    document.getElementById("clearFilters").addEventListener("click", function () {
+      categoryFilter.value = "";
+      typeFilter.value = "";
+      docLangFilter.value = "";
+      document.getElementById("searchForm").submit();
+    });
 
     var resultsEl = document.getElementById("searchResults");
     var countEl = document.getElementById("resultCount");
 
     if (!q) {
       countEl.textContent = "";
-      resultsEl.innerHTML = "";
+      resultsEl.innerHTML = '<p class="state-msg">' + esc(t.search.searchPrompt) + "</p>";
       return;
     }
 
-    fetch("data/search-index.json").then(function (r) { return r.json(); }).then(function (all) {
-      var inLang = all.filter(function (e) { return e.lang === lang; });
-      var pool = inLang.length ? inLang : all;
+    fetch("data/search-index.json").then(function (r) {
+      if (!r.ok) throw new Error("search index unavailable");
+      return r.json();
+    }).then(function (all) {
+      var catMap = {}, typeMap = {}, productMap = {};
+      ctx.categories.forEach(function (c) {
+        catMap[c.id] = c;
+        (c.products || []).forEach(function (p) { productMap[p.id] = p; });
+      });
+      ctx.types.forEach(function (ty) { typeMap[ty.id] = ty; });
+      var filtered = all.filter(function (e) {
+        return (!categoryId || e.categoryId === categoryId) && (!typeId || e.typeId === typeId) &&
+          (!docLang || e.lang === docLang);
+      });
+      var preferred = docLang ? filtered : filtered.filter(function (e) { return e.lang === lang; });
+      var pool = preferred.length ? preferred : filtered;
       var scored = pool
-        .map(function (e) { return { entry: e, s: score(q, e) }; })
+        .map(function (e) { return { entry: e, s: score(q, e, productMap[e.productId], catMap[e.categoryId], typeMap[e.typeId], lang) }; })
         .filter(function (x) { return x.s > 0; })
         .sort(function (a, b) { return b.s - a.s; });
 
-      countEl.textContent = scored.length + " " + t.search.resultCount + (inLang.length === 0 && all.length ? "" : "");
+      countEl.textContent = scored.length + " " + t.search.resultCount;
 
       if (!scored.length) {
         resultsEl.innerHTML = '<p class="state-msg">' + esc(t.search.noResults) + "</p>";
         return;
       }
-
-      var catMap = {}, typeMap = {};
-      ctx.categories.forEach(function (c) { catMap[c.id] = c; });
-      ctx.types.forEach(function (ty) { typeMap[ty.id] = ty; });
 
       resultsEl.innerHTML = scored.map(function (x) {
         var e = x.entry;
@@ -95,6 +138,9 @@
           "</div>"
         );
       }).join("");
+    }).catch(function () {
+      countEl.textContent = "";
+      resultsEl.innerHTML = '<p class="state-msg">' + esc(t.common.loadError) + "</p>";
     });
   }
 

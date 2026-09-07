@@ -20,6 +20,12 @@
         <input type="hidden" name="lang" id="searchLangField">
         <button type="submit">Search</button>
       </form>
+      <div class="search-filters" id="searchFilters">
+        <label><span id="categoryFilterLabel">Product line</span><select id="categoryFilter" name="category"></select></label>
+        <label><span id="typeFilterLabel">Document type</span><select id="typeFilter" name="type"></select></label>
+        <label><span id="docLangFilterLabel">Document language</span><select id="docLangFilter" name="docLang"></select></label>
+        <button class="filter-clear" id="clearFilters" type="button">Clear filters</button>
+      </div>
       <p class="result-count" id="resultCount"></p>
     </div>
   </section>

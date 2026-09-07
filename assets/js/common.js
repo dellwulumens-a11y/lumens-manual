@@ -55,8 +55,8 @@
         '<a class="logo" href="' + I18N.urlFor("index.html", lang) + '" aria-label="Lumens Manual Center">' +
           '<img src="https://www.mylumens.com/frontdesk/img/logo.png?s=1" alt="Lumens">' +
         "</a>" +
-        '<nav class="main-nav" id="mainNav">' + navHtml + "</nav>" +
-        '<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">' +
+        '<nav class="main-nav" id="mainNav" aria-label="' + esc(t.nav.navigation) + '">' + navHtml + "</nav>" +
+        '<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="mainNav">' +
           '<svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.6"/></svg>' +
         "</button>" +
         '<div class="header-tools">' +
@@ -98,9 +98,28 @@
     var toggle = document.getElementById("navToggle");
     var nav = document.getElementById("mainNav");
     if (toggle && nav) {
+      var closeMenu = function () {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      };
       toggle.addEventListener("click", function () {
         var open = nav.classList.toggle("open");
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        if (open) {
+          var firstLink = nav.querySelector("a");
+          if (firstLink) firstLink.focus();
+        } else {
+          toggle.focus();
+        }
+      });
+      nav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) closeMenu();
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && nav.classList.contains("open")) {
+          closeMenu();
+          toggle.focus();
+        }
       });
     }
     var select = document.getElementById("langSelect");

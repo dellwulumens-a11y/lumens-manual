@@ -67,7 +67,10 @@ admin/index.html, admin.js, admin.css   管理後台（新增／修改／刪除�
 
 1. 在 `manuals/{分類代碼}/{產品代碼}/{類型代碼}/` 底下新增對應語言的 `.html`（例如 `zh-CN.html`），內容只需要乾淨的 HTML（`<h2 id="...">`、`<p>`、`<table>`、`<ul>` 等），不需要 `<html>`/`<head>`/`<body>`。
 2. 在 `data/manuals-index.json` 加入對應的一筆紀錄（`productId`、`categoryId`、`typeId`、`lang`、`title`、`path`、`updatedAt`）。
-3. 執行 `node tools/build-search-index.js` 重新產生搜尋索引，讓新內容可以被搜尋到。
+3. 執行 `node tools/validate-data.js` 檢查產品、文件類型、手冊索引與檔案路徑。
+4. 執行 `node tools/build-search-index.js` 重新產生搜尋索引，讓新內容可以被搜尋到。
+
+推送到 GitHub 後，`.github/workflows/validate-and-index.yml` 會自動執行資料驗證並重建 `data/search-index.json`。如果手冊檔案遺失、索引重複或資料關聯無效，workflow 會失敗，不會產生不完整的搜尋索引。
 
 ### 手冊內容的兩種格式：`format` 欄位
 

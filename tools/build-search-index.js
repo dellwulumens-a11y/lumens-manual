@@ -34,13 +34,13 @@ function stripHtml(html) {
 function main() {
   const manualsIndex = JSON.parse(fs.readFileSync(INDEX_PATH, "utf8"));
   const out = [];
-  let missing = 0;
+  const missing = [];
 
   manualsIndex.forEach((entry) => {
     const filePath = path.join(ROOT, entry.path);
     if (!fs.existsSync(filePath)) {
       console.warn("  ! missing file, skipped:", entry.path);
-      missing++;
+      missing.push(entry.path);
       return;
     }
     // A "standalone" manual (format: "standalone") keeps its own original,
@@ -62,8 +62,11 @@ function main() {
     });
   });
 
+  if (missing.length) {
+    throw new Error("Cannot build search index because these manual files are missing:\n- " + missing.join("\n- "));
+  }
   fs.writeFileSync(OUT_PATH, JSON.stringify(out, null, 2), "utf8");
-  console.log("Wrote " + out.length + " entries to data/search-index.json" + (missing ? " (" + missing + " missing files skipped)" : ""));
+  console.log("Wrote " + out.length + " entries to data/search-index.json");
 }
 
 main();

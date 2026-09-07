@@ -208,10 +208,71 @@
     });
   }
 
-  function saveCategories(message) { return ghPut(PATHS.categories, JSON.stringify({ categories: state.categories }, null, 2) + "\n", message); }
-  function saveTypes(message) { return ghPut(PATHS.types, JSON.stringify({ types: state.types }, null, 2) + "\n", message); }
-  function saveManualsIndex(message) { return ghPut(PATHS.manualsIndex, JSON.stringify(state.manualsIndex, null, 2) + "\n", message); }
-  function saveSearchIndex(message) { return ghPut(PATHS.searchIndex, JSON.stringify(state.searchIndex, null, 2) + "\n", message); }
+  function assertUnique(values, label) {
+    var seen = {};
+    values.forEach(function (value) {
+      if (!value) throw new Error(label + " 不可為空。\n");
+      if (seen[value]) throw new Error(label + " 重複: " + value);
+      seen[value] = true;
+    });
+  }
+  function validateCategories() {
+    assertUnique(state.categories.map(function (c) { return c.id; }), "產品線代碼");
+    var productIds = [];
+    state.categories.forEach(function (category) {
+      (category.products || []).forEach(function (product) {
+        productIds.push(product.id);
+        (product.manuals || []).forEach(function (typeId) {
+          if (!findType(typeId)) throw new Error("產品「" + product.id + "」引用了不存在的文件類型: " + typeId);
+        });
+      });
+    });
+    assertUnique(productIds, "產品代碼");
+  }
+  function validateTypes() {
+    assertUnique(state.types.map(function (type) { return type.id; }), "文件類型代碼");
+  }
+  function validateManualsIndex() {
+    var keys = [];
+    state.manualsIndex.forEach(function (entry) {
+      var key = entry.productId + "/" + entry.typeId + "/" + entry.lang;
+      keys.push(key);
+      if (!findProductEntry(entry.productId)) throw new Error("手冊索引引用了不存在的產品: " + entry.productId);
+      if (!findType(entry.typeId)) throw new Error("手冊索引引用了不存在的文件類型: " + entry.typeId);
+      if (LANGS.indexOf(entry.lang) === -1) throw new Error("手冊索引語言無效: " + entry.lang);
+      if (!/^manuals\/[A-Za-z0-9._/-]+$/.test(entry.path || "") || entry.path.indexOf("..") !== -1) {
+        throw new Error("手冊路徑無效: " + entry.path);
+      }
+    });
+    assertUnique(keys, "手冊索引項目");
+  }
+  function validateSearchIndex() {
+    if (searchIndexWarning) throw new Error("搜尋索引目前損壞，請先在本機執行 tools/build-search-index.js 並推送重建後的 data/search-index.json。");
+    var keys = state.searchIndex.map(function (entry) { return entry.productId + "/" + entry.typeId + "/" + entry.lang; });
+    assertUnique(keys, "搜尋索引項目");
+  }
+  function saveCategories(message) {
+    validateCategories();
+    return ghPut(PATHS.categories, JSON.stringify({ categories: state.categories }, null, 2) + "\n", message);
+  }
+  function saveTypes(message) {
+    validateTypes();
+    validateCategories();
+    return ghPut(PATHS.types, JSON.stringify({ types: state.types }, null, 2) + "\n", message);
+  }
+  function saveManualsIndex(message) {
+    validateCategories();
+    validateTypes();
+    validateManualsIndex();
+    return ghPut(PATHS.manualsIndex, JSON.stringify(state.manualsIndex, null, 2) + "\n", message);
+  }
+  function saveSearchIndex(message) {
+    validateCategories();
+    validateTypes();
+    validateManualsIndex();
+    validateSearchIndex();
+    return ghPut(PATHS.searchIndex, JSON.stringify(state.searchIndex, null, 2) + "\n", message);
+  }
 
   // ------------------------------------------------------------ data lookups --
 

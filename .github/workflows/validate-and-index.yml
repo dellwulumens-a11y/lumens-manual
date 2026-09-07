@@ -1,0 +1,47 @@
+name: Validate data and rebuild search index
+
+on:
+  push:
+    paths:
+      - "data/**"
+      - "manuals/**"
+      - "tools/**"
+      - ".github/workflows/validate-and-index.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate source data and manual files
+        run: node tools/validate-data.js
+
+      - name: Rebuild search index
+        run: node tools/build-search-index.js
+
+      - name: Check generated files
+        run: git diff --check
+
+      - name: Commit regenerated search index
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/search-index.json
+          if git diff --cached --quiet; then
+            echo "Search index is already up to date."
+          else
+            git commit -m "Rebuild search index"
+            git push
+          fi

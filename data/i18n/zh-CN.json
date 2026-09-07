@@ -8,7 +8,8 @@
     "byProduct": "按产品浏览",
     "byType": "按文件类型浏览",
     "search": "搜索",
-    "home": "首页"
+    "home": "首页",
+    "navigation": "主导航"
   },
   "home": {
     "heroTitle": "找到您 Lumens 产品的手册",
@@ -18,7 +19,8 @@
     "enterByTypeTitle": "按文件类型浏览",
     "enterByTypeDesc": "想找特定类型的文件（跨所有产品）？从这里开始。",
     "searchTitle": "或直接搜索",
-    "quickLinksTitle": "近期更新"
+    "quickLinksTitle": "近期更新",
+    "popularTitle": "热门产品"
   },
   "common": {
     "searchPlaceholder": "搜索手册、型号、指令…",
@@ -40,6 +42,8 @@
     "switchViewByProduct": "想改用「按产品」浏览吗？",
     "onThisPage": "本页目录",
     "lastUpdated": "最后更新",
+    "previousManual": "上一份文件",
+    "nextManual": "下一份文件",
     "loading": "加载中…",
     "loadError": "内容加载失败，请稍后再试。",
     "openOriginal": "在新分页开启原始页面",
@@ -59,7 +63,14 @@
     "resultsFor": "搜索关键字",
     "noResults": "找不到符合的文件，请换个关键字试试。",
     "resultCount": "条结果",
-    "inputLabel": "搜索所有手册"
+    "inputLabel": "搜索所有手册",
+    "productLine": "产品线",
+    "documentType": "文件类型",
+    "documentLanguage": "文件语言",
+    "filtersLabel": "搜索筛选条件",
+    "allLanguages": "所有语言",
+    "clearFilters": "清除筛选",
+    "searchPrompt": "输入型号、产品名称或关键字来寻找手册。"
   },
   "footer": {
     "note": "Lumens Digital Optics Inc. — 内部手册中心，测试构建版本。",

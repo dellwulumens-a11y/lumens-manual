@@ -13,6 +13,8 @@
     form.action = I18N.urlFor("search.html", lang);
     var input = document.getElementById("heroSearchInput");
     input.placeholder = t.common.searchPlaceholder;
+    input.setAttribute("aria-label", t.search.inputLabel);
+    form.querySelector("button").textContent = t.common.searchButton;
 
     var iconProduct = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="11" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>';
     var iconType = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>';
@@ -63,6 +65,23 @@
             '<a class="btn" href="' + href + '">' + esc(t.common.viewProduct) + "</a>" +
           "</div>"
         );
+      }).join("");
+    }
+
+    var preferred = ctx.manualsIndex.filter(function (e) { return e.lang === lang; });
+    var popularitySource = preferred.length ? preferred : ctx.manualsIndex;
+    var counts = {};
+    popularitySource.forEach(function (e) { counts[e.productId] = (counts[e.productId] || 0) + 1; });
+    var popular = Object.keys(counts).map(function (productId) {
+      var found = DATA.findProduct(ctx.categories, productId);
+      return { productId: productId, model: found ? found.product.model : productId, count: counts[productId] };
+    }).sort(function (a, b) { return b.count - a.count || a.model.localeCompare(b.model, "en", { numeric: true }); }).slice(0, 6);
+    var popularWrap = document.getElementById("popularLinks");
+    if (popular.length) {
+      document.getElementById("popularLinksTitle").textContent = t.home.popularTitle;
+      popularWrap.innerHTML = popular.map(function (item) {
+        var href = I18N.urlFor("product-detail.html", lang, { id: item.productId });
+        return '<div class="manual-row"><div><div class="title">' + esc(item.model) + '</div><div class="meta">' + esc(item.count + " " + t.common.documentsAvailable) + '</div></div><a class="btn" href="' + href + '">' + esc(t.common.viewProduct) + "</a></div>";
       }).join("");
     }
   }

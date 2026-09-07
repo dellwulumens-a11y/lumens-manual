@@ -144,15 +144,6 @@
     "text": ""
   },
   {
-    "productId": "tp-200",
-    "categoryId": "control-panel",
-    "typeId": "user-guide",
-    "lang": "zh-TW",
-    "title": "TP-200 使用手冊",
-    "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
-    "text": ""
-  },
-  {
     "productId": "bc-602",
     "categoryId": "fixed-camera",
     "typeId": "installation-guide",

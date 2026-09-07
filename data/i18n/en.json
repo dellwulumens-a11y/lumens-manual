@@ -8,7 +8,8 @@
     "byProduct": "By Product",
     "byType": "By Document Type",
     "search": "Search",
-    "home": "Home"
+    "home": "Home",
+    "navigation": "Main navigation"
   },
   "home": {
     "heroTitle": "Find the manual for your Lumens product",
@@ -18,7 +19,8 @@
     "enterByTypeTitle": "Browse by Document Type",
     "enterByTypeDesc": "Looking for a specific kind of document across all products? Start here.",
     "searchTitle": "Or search directly",
-    "quickLinksTitle": "Recently updated"
+    "quickLinksTitle": "Recently updated",
+    "popularTitle": "Popular products"
   },
   "common": {
     "searchPlaceholder": "Search manuals, models, commands…",
@@ -40,6 +42,8 @@
     "switchViewByProduct": "Prefer to browse by product instead?",
     "onThisPage": "On this page",
     "lastUpdated": "Last updated",
+    "previousManual": "Previous document",
+    "nextManual": "Next document",
     "loading": "Loading…",
     "loadError": "This content could not be loaded. Please try again later.",
     "openOriginal": "Open original document in a new tab",
@@ -59,7 +63,14 @@
     "resultsFor": "Results for",
     "noResults": "No matching documents found. Try a different keyword.",
     "resultCount": "results",
-    "inputLabel": "Search all manuals"
+    "inputLabel": "Search all manuals",
+    "productLine": "Product line",
+    "documentType": "Document type",
+    "documentLanguage": "Document language",
+    "filtersLabel": "Search filters",
+    "allLanguages": "All languages",
+    "clearFilters": "Clear filters",
+    "searchPrompt": "Enter a model, product name, or keyword to find a manual."
   },
   "footer": {
     "note": "Lumens Digital Optics Inc. — Internal manual center, draft build.",

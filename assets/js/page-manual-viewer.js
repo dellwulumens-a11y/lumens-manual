@@ -16,13 +16,16 @@
 
     var found = DATA.findProduct(ctx.categories, productId);
     var type = DATA.findType(ctx.types, typeId);
-    var body = document.getElementById("viewerBody");
+    var body = document.getElementById("manualContent");
 
     if (!found || !type) {
       body.innerHTML = '<p class="state-msg">' + esc(t.common.loadError) + "</p>";
       return;
     }
     var product = found.product, category = found.category;
+
+    document.querySelector("#tocDesktop h4").textContent = t.common.onThisPage;
+    document.querySelector("#tocMobile summary").textContent = t.common.onThisPage;
 
     var availableLangs = DATA.langsForManual(ctx.manualsIndex, productId, typeId);
     var entry = DATA.manualEntry(ctx.manualsIndex, productId, typeId, wantLang);
@@ -55,13 +58,14 @@
 
     // language tabs
     var tabsWrap = document.getElementById("langTabs");
+    tabsWrap.setAttribute("aria-label", t.search.documentLanguage);
     tabsWrap.innerHTML = I18N.SUPPORTED.map(function (code) {
       var has = availableLangs.indexOf(code) !== -1;
       var active = code === wantLang ? " active" : "";
       var disabled = has ? "" : " disabled";
       var href = has ? I18N.urlFor("manual-viewer.html", lang, { product: productId, type: typeId, lang: code }) : "#";
       var label = { en: "English", "zh-CN": "简体中文", "zh-TW": "繁體中文" }[code];
-      return '<a href="' + href + '" class="' + active.trim() + " " + disabled.trim() + '">' + label + "</a>";
+      return '<a href="' + href + '" class="' + active.trim() + " " + disabled.trim() + '" role="tab"' + (code === wantLang ? ' aria-selected="true"' : ' aria-selected="false"') + (has ? "" : ' aria-disabled="true"') + '>' + label + "</a>";
     }).join("");
 
     // actions
@@ -99,6 +103,24 @@
 
     document.getElementById("switchToTypeView").href = I18N.urlFor("manual-type-detail.html", lang, { type: typeId });
     document.getElementById("switchToTypeView").textContent = t.common.switchView;
+
+    var documentTypes = ctx.types.filter(function (candidate) {
+      return ctx.manualsIndex.some(function (manual) { return manual.productId === productId && manual.typeId === candidate.id; });
+    });
+    var currentTypeIndex = documentTypes.findIndex(function (candidate) { return candidate.id === typeId; });
+    var previousType = currentTypeIndex > 0 ? documentTypes[currentTypeIndex - 1] : null;
+    var nextType = currentTypeIndex >= 0 && currentTypeIndex < documentTypes.length - 1 ? documentTypes[currentTypeIndex + 1] : null;
+    function navigationLink(elementId, candidate, label) {
+      if (!candidate) return;
+      var languages = DATA.langsForManual(ctx.manualsIndex, productId, candidate.id);
+      var preferred = languages.indexOf(wantLang) !== -1 ? wantLang : languages.indexOf(lang) !== -1 ? lang : languages[0];
+      var element = document.getElementById(elementId);
+      element.href = I18N.urlFor("manual-viewer.html", lang, { product: productId, type: candidate.id, lang: preferred });
+      element.textContent = label + " " + I18N.pickLocale(candidate.name, lang);
+      element.hidden = false;
+    }
+    navigationLink("previousManual", previousType, "‹ " + t.common.previousManual);
+    navigationLink("nextManual", nextType, t.common.nextManual + " ›");
 
     // load content, then build TOC
     var contentEl = document.getElementById("manualContent");
@@ -159,28 +181,39 @@
       return;
     }
 
+    var esc = window.LumensCommon.esc;
     var items = Array.prototype.map.call(headings, function (h) {
-      return '<li><a href="#' + h.id + '">' + h.textContent + "</a></li>";
+      return '<li><a href="#' + esc(h.id) + '">' + esc(h.textContent) + "</a></li>";
     }).join("");
     if (tocDesktop) tocDesktop.innerHTML = items;
     if (tocMobile) tocMobile.innerHTML = items;
 
-    var links = document.querySelectorAll("#tocDesktop a");
+    var links = document.querySelectorAll("#tocDesktop a, #tocMobile a");
     if (links.length && "IntersectionObserver" in window) {
       var map = {};
-      links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      links.forEach(function (a) {
+        var id = a.getAttribute("href").slice(1);
+        if (!map[id]) map[id] = [];
+        map[id].push(a);
+      });
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
-          var link = map[en.target.id];
-          if (!link) return;
+          var matchingLinks = map[en.target.id];
+          if (!matchingLinks) return;
           if (en.isIntersecting) {
             links.forEach(function (a) { a.classList.remove("active"); });
-            link.classList.add("active");
+            matchingLinks.forEach(function (a) { a.classList.add("active"); });
           }
         });
       }, { rootMargin: "-20% 0px -70% 0px" });
       headings.forEach(function (h) { observer.observe(h); });
     }
+    document.querySelectorAll("#tocMobile a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var mobileToc = document.getElementById("tocMobile");
+        if (mobileToc) mobileToc.open = false;
+      });
+    });
   }
 
   window.addEventListener("DOMContentLoaded", function () {
