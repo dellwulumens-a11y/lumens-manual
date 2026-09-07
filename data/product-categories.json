@@ -173,7 +173,10 @@
             "zh-TW": "4K 12x AI自動追蹤攝影機（Teams認證）"
           },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": []
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
         },
         {
           "id": "vc-tr61",
@@ -186,7 +189,8 @@
           "image": "assets/images/products/placeholder-camera.svg",
           "manuals": [
             "user-guide",
-            "command-set"
+            "command-set",
+            "installation-guide"
           ]
         },
         {
@@ -198,7 +202,177 @@
             "zh-TW": "HD 20x AI自動追蹤攝影機"
           },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": []
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-ta50",
+          "model": "VC-TA50",
+          "name": {
+            "en": "VC-TA50",
+            "zh-CN": "VC-TA50",
+            "zh-TW": "VC-TA50"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr1",
+          "model": "VC-TR1",
+          "name": {
+            "en": "VC-TR1",
+            "zh-CN": "VC-TR1",
+            "zh-TW": "VC-TR1"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr30",
+          "model": "VC-TR30",
+          "name": {
+            "en": "VC-TR30",
+            "zh-CN": "VC-TR30",
+            "zh-TW": "VC-TR30"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr32",
+          "model": "VC-TR32",
+          "name": {
+            "en": "VC-TR32",
+            "zh-CN": "VC-TR32",
+            "zh-TW": "VC-TR32"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr40n",
+          "model": "VC-TR40N",
+          "name": {
+            "en": "VC-TR40N",
+            "zh-CN": "VC-TR40N",
+            "zh-TW": "VC-TR40N"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr41",
+          "model": "VC-TR41",
+          "name": {
+            "en": "VC-TR41",
+            "zh-CN": "VC-TR41",
+            "zh-TW": "VC-TR41"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr41n",
+          "model": "VC-TR41N",
+          "name": {
+            "en": "VC-TR41N",
+            "zh-CN": "VC-TR41N",
+            "zh-TW": "VC-TR41N"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr45",
+          "model": "VC-TR45",
+          "name": {
+            "en": "VC-TR45",
+            "zh-CN": "VC-TR45",
+            "zh-TW": "VC-TR45"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr60",
+          "model": "VC-TR60",
+          "name": {
+            "en": "VC-TR60",
+            "zh-CN": "VC-TR60",
+            "zh-TW": "VC-TR60"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr60a-dante-av-h",
+          "model": "VC-TR60A, Dante AV-H",
+          "name": {
+            "en": "VC-TR60A, Dante AV-H",
+            "zh-CN": "VC-TR60A, Dante AV-H",
+            "zh-TW": "VC-TR60A, Dante AV-H"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr61n",
+          "model": "VC-TR61N",
+          "name": {
+            "en": "VC-TR61N",
+            "zh-CN": "VC-TR61N",
+            "zh-TW": "VC-TR61N"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-tr70",
+          "model": "VC-TR70",
+          "name": {
+            "en": "VC-TR70",
+            "zh-CN": "VC-TR70",
+            "zh-TW": "VC-TR70"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
         }
       ]
     },
@@ -239,7 +413,10 @@
             "zh-TW": "Full HD 20x PTZ攝影機"
           },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": []
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
         },
         {
           "id": "vc-r32",
@@ -250,7 +427,272 @@
             "zh-TW": "HD 12x PTZ攝影機"
           },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": []
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "pth-01",
+          "model": "PTH-01",
+          "name": {
+            "en": "PTH-01",
+            "zh-CN": "PTH-01",
+            "zh-TW": "PTH-01"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a50p",
+          "model": "VC-A50P,V01",
+          "name": {
+            "en": "VC-A50P,V01",
+            "zh-CN": "VC-A50P,V01",
+            "zh-TW": "VC-A50P,V01"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a50pn",
+          "model": "VC-A50PN,V01",
+          "name": {
+            "en": "VC-A50PN,V01",
+            "zh-CN": "VC-A50PN,V01",
+            "zh-TW": "VC-A50PN,V01"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a51p",
+          "model": "VC-A51P",
+          "name": {
+            "en": "VC-A51P",
+            "zh-CN": "VC-A51P",
+            "zh-TW": "VC-A51P"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a51pn",
+          "model": "VC-A51PN",
+          "name": {
+            "en": "VC-A51PN",
+            "zh-CN": "VC-A51PN",
+            "zh-TW": "VC-A51PN"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a52s",
+          "model": "VC-A52S,V01",
+          "name": {
+            "en": "VC-A52S,V01",
+            "zh-CN": "VC-A52S,V01",
+            "zh-TW": "VC-A52S,V01"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a60s",
+          "model": "VC-A60S",
+          "name": {
+            "en": "VC-A60S",
+            "zh-CN": "VC-A60S",
+            "zh-TW": "VC-A60S"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide"
+          ]
+        },
+        {
+          "id": "vc-a61p",
+          "model": "VC-A61P",
+          "name": {
+            "en": "VC-A61P",
+            "zh-CN": "VC-A61P",
+            "zh-TW": "VC-A61P"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a61p-pro",
+          "model": "VC-A61P,PRO",
+          "name": {
+            "en": "VC-A61P,PRO",
+            "zh-CN": "VC-A61P,PRO",
+            "zh-TW": "VC-A61P,PRO"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a61pn",
+          "model": "VC-A61PN",
+          "name": {
+            "en": "VC-A61PN",
+            "zh-CN": "VC-A61PN",
+            "zh-TW": "VC-A61PN"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a62",
+          "model": "VC-A62",
+          "name": {
+            "en": "VC-A62",
+            "zh-CN": "VC-A62",
+            "zh-TW": "VC-A62"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a62n",
+          "model": "VC-A62N",
+          "name": {
+            "en": "VC-A62N",
+            "zh-CN": "VC-A62N",
+            "zh-TW": "VC-A62N"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a70h",
+          "model": "VC-A70H",
+          "name": {
+            "en": "VC-A70H",
+            "zh-CN": "VC-A70H",
+            "zh-TW": "VC-A70H"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide"
+          ]
+        },
+        {
+          "id": "vc-a71p-hn",
+          "model": "VC-A71P-HN",
+          "name": {
+            "en": "VC-A71P-HN",
+            "zh-CN": "VC-A71P-HN",
+            "zh-TW": "VC-A71P-HN"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a71pn",
+          "model": "VC-A71PN",
+          "name": {
+            "en": "VC-A71PN",
+            "zh-CN": "VC-A71PN",
+            "zh-TW": "VC-A71PN"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-a71sn",
+          "model": "VC-A71SN",
+          "name": {
+            "en": "VC-A71SN",
+            "zh-CN": "VC-A71SN",
+            "zh-TW": "VC-A71SN"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-g50",
+          "model": "VC-G50",
+          "name": {
+            "en": "VC-G50",
+            "zh-CN": "VC-G50",
+            "zh-TW": "VC-G50"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide"
+          ]
+        },
+        {
+          "id": "vc-r30",
+          "model": "VC-R30",
+          "name": {
+            "en": "VC-R30",
+            "zh-CN": "VC-R30",
+            "zh-TW": "VC-R30"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-r31",
+          "model": "VC-R31",
+          "name": {
+            "en": "VC-R31",
+            "zh-CN": "VC-R31",
+            "zh-TW": "VC-R31"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
         }
       ]
     },
@@ -276,7 +718,10 @@
             "zh-TW": "4K 箱型攝影機"
           },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": []
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
         },
         {
           "id": "bc-602",
@@ -287,7 +732,10 @@
             "zh-TW": "HD 30x 箱型攝影機"
           },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": []
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
         },
         {
           "id": "vc-b11u",
@@ -298,7 +746,10 @@
             "zh-TW": "4K 網路攝影機"
           },
           "image": "assets/images/products/placeholder-camera.svg",
-          "manuals": []
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
         },
         {
           "id": "bc-601p",
@@ -308,6 +759,116 @@
             "user-guide",
             "installation-guide",
             "command-set"
+          ]
+        },
+        {
+          "id": "vc-b2u",
+          "model": "VC-B2U",
+          "name": {
+            "en": "VC-B2U",
+            "zh-CN": "VC-B2U",
+            "zh-TW": "VC-B2U"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide"
+          ]
+        },
+        {
+          "id": "vc-b30u",
+          "model": "VC-B30U,V01",
+          "name": {
+            "en": "VC-B30U,V01",
+            "zh-CN": "VC-B30U,V01",
+            "zh-TW": "VC-B30U,V01"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-b50u",
+          "model": "VC-B50U",
+          "name": {
+            "en": "VC-B50U",
+            "zh-CN": "VC-B50U",
+            "zh-TW": "VC-B50U"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-b70u",
+          "model": "VC-B70U",
+          "name": {
+            "en": "VC-B70U",
+            "zh-CN": "VC-B70U",
+            "zh-TW": "VC-B70U"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-bc601p",
+          "model": "VC-BC601P",
+          "name": {
+            "en": "VC-BC601P",
+            "zh-CN": "VC-BC601P",
+            "zh-TW": "VC-BC601P"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-bc701p",
+          "model": "VC-BC701P",
+          "name": {
+            "en": "VC-BC701P",
+            "zh-CN": "VC-BC701P",
+            "zh-TW": "VC-BC701P"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-bc801p",
+          "model": "VC-BC801P",
+          "name": {
+            "en": "VC-BC801P",
+            "zh-CN": "VC-BC801P",
+            "zh-TW": "VC-BC801P"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide",
+            "user-guide"
+          ]
+        },
+        {
+          "id": "vc-br58s",
+          "model": "VC-BR58S",
+          "name": {
+            "en": "VC-BR58S",
+            "zh-CN": "VC-BR58S",
+            "zh-TW": "VC-BR58S"
+          },
+          "image": "assets/images/products/placeholder-camera.svg",
+          "manuals": [
+            "installation-guide"
           ]
         }
       ]

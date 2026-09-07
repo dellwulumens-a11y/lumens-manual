@@ -2,74 +2,11 @@
   {
     "productId": "vc-a71p",
     "categoryId": "ptz-camera",
-    "typeId": "user-guide",
-    "lang": "en",
-    "title": "VC-A71P User Manual",
-    "path": "manuals/ptz-camera/vc-a71p/user-guide/en.html",
-    "updatedAt": "2026-08-01"
-  },
-  {
-    "productId": "vc-a71p",
-    "categoryId": "ptz-camera",
-    "typeId": "user-guide",
-    "lang": "zh-CN",
-    "title": "VC-A71P 使用手册",
-    "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-CN.html",
-    "updatedAt": "2026-08-01"
-  },
-  {
-    "productId": "vc-a71p",
-    "categoryId": "ptz-camera",
-    "typeId": "user-guide",
-    "lang": "zh-TW",
-    "title": "VC-A71P 使用手冊",
-    "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-TW.html",
-    "updatedAt": "2026-08-01"
-  },
-  {
-    "productId": "vc-a71p",
-    "categoryId": "ptz-camera",
-    "typeId": "installation-guide",
-    "lang": "en",
-    "title": "VC-A71P Installation Guide",
-    "path": "manuals/ptz-camera/vc-a71p/installation-guide/en.html",
-    "updatedAt": "2026-08-01"
-  },
-  {
-    "productId": "vc-a71p",
-    "categoryId": "ptz-camera",
-    "typeId": "installation-guide",
-    "lang": "zh-TW",
-    "title": "VC-A71P 安裝手冊",
-    "path": "manuals/ptz-camera/vc-a71p/installation-guide/zh-TW.html",
-    "updatedAt": "2026-08-01"
-  },
-  {
-    "productId": "vc-a71p",
-    "categoryId": "ptz-camera",
     "typeId": "command-set",
     "lang": "en",
     "title": "VC-A71P Command Set",
     "path": "manuals/ptz-camera/vc-a71p/command-set/en.html",
     "updatedAt": "2026-08-01"
-  },
-  {
-    "productId": "vc-tr61",
-    "categoryId": "auto-tracking-ptz",
-    "typeId": "user-guide",
-    "lang": "en",
-    "title": "VC-TR61 User Manual",
-    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/en.html",
-    "updatedAt": "2026-07-20"
-  },
-  {
-    "productId": "vc-tr61",
-    "categoryId": "auto-tracking-ptz",
-    "typeId": "user-guide",
-    "lang": "zh-TW",
-    "title": "VC-TR61 使用手冊",
-    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/zh-TW.html",
-    "updatedAt": "2026-07-20"
   },
   {
     "productId": "vc-tr61",
@@ -203,8 +140,8 @@
     "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
     "format": "standalone",
     "updatedAt": "2026-09-03"
-  }
-  ,{
+  },
+  {
     "productId": "tp-200",
     "categoryId": "control-panel",
     "typeId": "user-guide",
@@ -223,5 +160,2405 @@
     "path": "manuals/control-panel/tp-200/user-guide/zh-TW.html",
     "format": "standalone",
     "updatedAt": "2026-09-01"
+  },
+  {
+    "productId": "bc-602",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "BC-602 Installation Guide",
+    "path": "manuals/fixed-camera/bc-602/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "bc-602",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "BC-602 Installation Guide",
+    "path": "manuals/fixed-camera/bc-602/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "bc-602",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "BC-602 Installation Guide",
+    "path": "manuals/fixed-camera/bc-602/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "bc-602",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "BC-602 User Manual",
+    "path": "manuals/fixed-camera/bc-602/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "bc-602",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "BC-602 User Manual",
+    "path": "manuals/fixed-camera/bc-602/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "bc-602",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "BC-602 User Manual",
+    "path": "manuals/fixed-camera/bc-602/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "pth-01",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "PTH-01 Installation Guide",
+    "path": "manuals/ptz-camera/pth-01/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "pth-01",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "PTH-01 User Manual",
+    "path": "manuals/ptz-camera/pth-01/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "pth-01",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "PTH-01 User Manual",
+    "path": "manuals/ptz-camera/pth-01/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "pth-01",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "PTH-01 User Manual",
+    "path": "manuals/ptz-camera/pth-01/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A50P,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a50p/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A50P,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a50p/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A50P,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a50p/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A50P,V01 User Manual",
+    "path": "manuals/ptz-camera/vc-a50p/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A50P,V01 User Manual",
+    "path": "manuals/ptz-camera/vc-a50p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A50P,V01 User Manual",
+    "path": "manuals/ptz-camera/vc-a50p/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A50PN,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a50pn/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A50PN,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a50pn/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A50PN,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a50pn/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A50PN,V01 User Manual",
+    "path": "manuals/ptz-camera/vc-a50pn/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A50PN,V01 User Manual",
+    "path": "manuals/ptz-camera/vc-a50pn/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a50pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A50PN,V01 User Manual",
+    "path": "manuals/ptz-camera/vc-a50pn/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A51P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a51p/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A51P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a51p/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A51P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a51p/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A51P User Manual",
+    "path": "manuals/ptz-camera/vc-a51p/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A51P User Manual",
+    "path": "manuals/ptz-camera/vc-a51p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A51P User Manual",
+    "path": "manuals/ptz-camera/vc-a51p/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A51PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a51pn/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A51PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a51pn/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A51PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a51pn/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A51PN User Manual",
+    "path": "manuals/ptz-camera/vc-a51pn/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A51PN User Manual",
+    "path": "manuals/ptz-camera/vc-a51pn/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a51pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A51PN User Manual",
+    "path": "manuals/ptz-camera/vc-a51pn/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a52s",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A52S,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a52s/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a52s",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A52S,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a52s/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a52s",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A52S,V01 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a52s/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a52s",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A52S,V01 User Manual",
+    "path": "manuals/ptz-camera/vc-a52s/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a52s",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A52S,V01 User Manual",
+    "path": "manuals/ptz-camera/vc-a52s/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a53",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A53 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a53/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a53",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A53 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a53/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a53",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A53 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a53/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a53",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A53 User Manual",
+    "path": "manuals/ptz-camera/vc-a53/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a53",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A53 User Manual",
+    "path": "manuals/ptz-camera/vc-a53/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a53",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A53 User Manual",
+    "path": "manuals/ptz-camera/vc-a53/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a60s",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A60S Installation Guide",
+    "path": "manuals/ptz-camera/vc-a60s/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A61P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a61p/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A61P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a61p/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A61P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a61p/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A61P User Manual",
+    "path": "manuals/ptz-camera/vc-a61p/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A61P User Manual",
+    "path": "manuals/ptz-camera/vc-a61p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A61P User Manual",
+    "path": "manuals/ptz-camera/vc-a61p/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61p-pro",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A61P,PRO User Manual",
+    "path": "manuals/ptz-camera/vc-a61p-pro/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A61PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a61pn/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A61PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a61pn/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A61PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a61pn/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A61PN User Manual",
+    "path": "manuals/ptz-camera/vc-a61pn/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A61PN User Manual",
+    "path": "manuals/ptz-camera/vc-a61pn/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a61pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A61PN User Manual",
+    "path": "manuals/ptz-camera/vc-a61pn/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A62 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a62/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A62 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a62/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A62 Installation Guide",
+    "path": "manuals/ptz-camera/vc-a62/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A62 User Manual",
+    "path": "manuals/ptz-camera/vc-a62/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A62 User Manual",
+    "path": "manuals/ptz-camera/vc-a62/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A62 User Manual",
+    "path": "manuals/ptz-camera/vc-a62/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62n",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A62N Installation Guide",
+    "path": "manuals/ptz-camera/vc-a62n/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62n",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A62N Installation Guide",
+    "path": "manuals/ptz-camera/vc-a62n/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62n",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A62N Installation Guide",
+    "path": "manuals/ptz-camera/vc-a62n/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62n",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A62N User Manual",
+    "path": "manuals/ptz-camera/vc-a62n/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62n",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A62N User Manual",
+    "path": "manuals/ptz-camera/vc-a62n/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a62n",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A62N User Manual",
+    "path": "manuals/ptz-camera/vc-a62n/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a70h",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A70H Installation Guide",
+    "path": "manuals/ptz-camera/vc-a70h/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A71P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71p/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A71P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71p/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71P Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71p/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A71P User Manual",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71P User Manual",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A71P User Manual",
+    "path": "manuals/ptz-camera/vc-a71p/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p-hn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71P-HN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71p-hn/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p-hn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A71P-HN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71p-hn/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p-hn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A71P-HN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71p-hn/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p-hn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71P-HN User Manual",
+    "path": "manuals/ptz-camera/vc-a71p-hn/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p-hn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A71P-HN User Manual",
+    "path": "manuals/ptz-camera/vc-a71p-hn/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71p-hn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A71P-HN User Manual",
+    "path": "manuals/ptz-camera/vc-a71p-hn/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A71PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71pn/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-A71PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71pn/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71pn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71PN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71pn/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A71PN User Manual",
+    "path": "manuals/ptz-camera/vc-a71pn/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71PN User Manual",
+    "path": "manuals/ptz-camera/vc-a71pn/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71pn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-A71PN User Manual",
+    "path": "manuals/ptz-camera/vc-a71pn/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71sn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-A71SN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71sn/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71sn",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71SN Installation Guide",
+    "path": "manuals/ptz-camera/vc-a71sn/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71sn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-A71SN User Manual",
+    "path": "manuals/ptz-camera/vc-a71sn/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-a71sn",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-A71SN User Manual",
+    "path": "manuals/ptz-camera/vc-a71sn/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b11u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-B11U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b11u/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b11u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-B11U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b11u/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b11u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-B11U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b11u/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b11u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-B11U User Manual",
+    "path": "manuals/fixed-camera/vc-b11u/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b11u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-B11U User Manual",
+    "path": "manuals/fixed-camera/vc-b11u/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b11u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-B11U User Manual",
+    "path": "manuals/fixed-camera/vc-b11u/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b2u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-B2U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b2u/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b2u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-B2U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b2u/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b30u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-B30U,V01 Installation Guide",
+    "path": "manuals/fixed-camera/vc-b30u/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b30u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-B30U,V01 Installation Guide",
+    "path": "manuals/fixed-camera/vc-b30u/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b30u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-B30U,V01 User Manual",
+    "path": "manuals/fixed-camera/vc-b30u/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b30u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-B30U,V01 User Manual",
+    "path": "manuals/fixed-camera/vc-b30u/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b30u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-B30U,V01 User Manual",
+    "path": "manuals/fixed-camera/vc-b30u/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b50u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-B50U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b50u/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b50u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-B50U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b50u/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b50u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-B50U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b50u/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b50u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-B50U User Manual",
+    "path": "manuals/fixed-camera/vc-b50u/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b50u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-B50U User Manual",
+    "path": "manuals/fixed-camera/vc-b50u/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b50u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-B50U User Manual",
+    "path": "manuals/fixed-camera/vc-b50u/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b70u",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-B70U Installation Guide",
+    "path": "manuals/fixed-camera/vc-b70u/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-b70u",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-B70U User Manual",
+    "path": "manuals/fixed-camera/vc-b70u/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc301p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-BC301P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc301p/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc301p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-BC301P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc301p/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc301p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-BC301P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc301p/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc301p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-BC301P User Manual",
+    "path": "manuals/fixed-camera/vc-bc301p/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc301p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-BC301P User Manual",
+    "path": "manuals/fixed-camera/vc-bc301p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc301p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-BC301P User Manual",
+    "path": "manuals/fixed-camera/vc-bc301p/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc601p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-BC601P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc601p/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc601p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-BC601P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc601p/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc601p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-BC601P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc601p/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc601p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-BC601P User Manual",
+    "path": "manuals/fixed-camera/vc-bc601p/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc601p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-BC601P User Manual",
+    "path": "manuals/fixed-camera/vc-bc601p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc601p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-BC601P User Manual",
+    "path": "manuals/fixed-camera/vc-bc601p/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc701p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-BC701P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc701p/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc701p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-BC701P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc701p/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc701p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-BC701P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc701p/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc701p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-BC701P User Manual",
+    "path": "manuals/fixed-camera/vc-bc701p/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc701p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-BC701P User Manual",
+    "path": "manuals/fixed-camera/vc-bc701p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc701p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-BC701P User Manual",
+    "path": "manuals/fixed-camera/vc-bc701p/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc801p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-BC801P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc801p/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc801p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-BC801P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc801p/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc801p",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-BC801P Installation Guide",
+    "path": "manuals/fixed-camera/vc-bc801p/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc801p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-BC801P User Manual",
+    "path": "manuals/fixed-camera/vc-bc801p/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc801p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-BC801P User Manual",
+    "path": "manuals/fixed-camera/vc-bc801p/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-bc801p",
+    "categoryId": "fixed-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-BC801P User Manual",
+    "path": "manuals/fixed-camera/vc-bc801p/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-br58s",
+    "categoryId": "fixed-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-BR58S Installation Guide",
+    "path": "manuals/fixed-camera/vc-br58s/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-g50",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-G50 Installation Guide",
+    "path": "manuals/ptz-camera/vc-g50/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r30",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-R30 Installation Guide",
+    "path": "manuals/ptz-camera/vc-r30/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r30",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-R30 Installation Guide",
+    "path": "manuals/ptz-camera/vc-r30/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r30",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-R30 Installation Guide",
+    "path": "manuals/ptz-camera/vc-r30/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r30",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-R30 User Manual",
+    "path": "manuals/ptz-camera/vc-r30/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r30",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-R30 User Manual",
+    "path": "manuals/ptz-camera/vc-r30/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r30",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-R30 User Manual",
+    "path": "manuals/ptz-camera/vc-r30/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r31",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-R31 Installation Guide",
+    "path": "manuals/ptz-camera/vc-r31/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r31",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-R31 Installation Guide",
+    "path": "manuals/ptz-camera/vc-r31/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r31",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-R31 User Manual",
+    "path": "manuals/ptz-camera/vc-r31/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r31",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-R31 User Manual",
+    "path": "manuals/ptz-camera/vc-r31/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r32",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-R32 Installation Guide",
+    "path": "manuals/ptz-camera/vc-r32/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r32",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-R32 Installation Guide",
+    "path": "manuals/ptz-camera/vc-r32/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r32",
+    "categoryId": "ptz-camera",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-R32 Installation Guide",
+    "path": "manuals/ptz-camera/vc-r32/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r32",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-R32 User Manual",
+    "path": "manuals/ptz-camera/vc-r32/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r32",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-R32 User Manual",
+    "path": "manuals/ptz-camera/vc-r32/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-r32",
+    "categoryId": "ptz-camera",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-R32 User Manual",
+    "path": "manuals/ptz-camera/vc-r32/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-ta50",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TA50 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-ta50/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-ta50",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TA50 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-ta50/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-ta50",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TA50 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-ta50/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-ta50",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TA50 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-ta50/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-ta50",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TA50 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-ta50/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-ta50",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TA50 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-ta50/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr1",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR1 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr1/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr1",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR1 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr1/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr1",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR1 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr1/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr1",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR1 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr1/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr1",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR1 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr1/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr1",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR1 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr1/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr30",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR30 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr30/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr30",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR30 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr30/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr30",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR30 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr30/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr30",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR30 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr30/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr30",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR30 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr30/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr30",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR30 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr30/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr32",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR32 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr32/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr32",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR32 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr32/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr32",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR32 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr32/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr32",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR32 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr32/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr32",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR32 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr32/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr32",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR32 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr32/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR40 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr40/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR40 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr40/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR40 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr40/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR40 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr40/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR40 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr40/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR40 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr40/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR40N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr40n/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR40N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr40n/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR40N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr40n/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR40N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr40n/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR40N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr40n/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr40n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR40N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr40n/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR41 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr41/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR41 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr41/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR41 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr41/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR41 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr41/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR41 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr41/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR41 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr41/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR41N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr41n/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR41N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr41n/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR41N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr41n/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR41N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr41n/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR41N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr41n/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr41n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR41N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr41n/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr45",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR45 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr45/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR60 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR60 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR60 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR60 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR60 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR60 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR60A Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR60A Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR60A Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR60A User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR60A User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR60A User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a-dante-av-h",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR60A, Dante AV-H Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a-dante-av-h/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a-dante-av-h",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR60A, Dante AV-H Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a-dante-av-h/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a-dante-av-h",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR60A, Dante AV-H Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a-dante-av-h/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a-dante-av-h",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR60A, Dante AV-H User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a-dante-av-h/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a-dante-av-h",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR60A, Dante AV-H User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a-dante-av-h/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr60a-dante-av-h",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR60A, Dante AV-H User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr60a-dante-av-h/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR61 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR61 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR61 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR61 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR61 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR61 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr61/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR61N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr61n/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR61N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr61n/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR61N Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr61n/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR61N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr61n/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "en",
+    "title": "VC-TR61N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr61n/user-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr61n",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR61N User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr61n/user-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr70",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR70 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr70/installation-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr70",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "en",
+    "title": "VC-TR70 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr70/installation-guide/en.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr70",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "installation-guide",
+    "lang": "zh-CN",
+    "title": "VC-TR70 Installation Guide",
+    "path": "manuals/auto-tracking-ptz/vc-tr70/installation-guide/zh-CN.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
+  },
+  {
+    "productId": "vc-tr70",
+    "categoryId": "auto-tracking-ptz",
+    "typeId": "user-guide",
+    "lang": "zh-TW",
+    "title": "VC-TR70 User Manual",
+    "path": "manuals/auto-tracking-ptz/vc-tr70/user-guide/zh-TW.pdf",
+    "format": "pdf",
+    "updatedAt": "2026-09-07"
   }
 ]
