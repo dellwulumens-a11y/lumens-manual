@@ -45,10 +45,12 @@
     var recent = ctx.manualsIndex
       .slice()
       .sort(function (a, b) { return (b.updatedAt || "").localeCompare(a.updatedAt || ""); })
+      .filter(function (e) { var found = DATA.findProduct(ctx.categories, e.productId); return found && DATA.isProductVisible(found.product, lang); })
       .filter(function (e) { return e.lang === lang; })
       .slice(0, 5);
     if (!recent.length) {
-      recent = ctx.manualsIndex.slice().sort(function (a, b) { return (b.updatedAt || "").localeCompare(a.updatedAt || ""); }).slice(0, 5);
+      recent = ctx.manualsIndex.slice().sort(function (a, b) { return (b.updatedAt || "").localeCompare(a.updatedAt || ""); })
+        .filter(function (e) { var found = DATA.findProduct(ctx.categories, e.productId); return found && DATA.isProductVisible(found.product, lang); }).slice(0, 5);
     }
 
     var quickWrap = document.getElementById("quickLinks");
@@ -68,7 +70,10 @@
       }).join("");
     }
 
-    var preferred = ctx.manualsIndex.filter(function (e) { return e.lang === lang; });
+    var preferred = ctx.manualsIndex.filter(function (e) {
+      var found = DATA.findProduct(ctx.categories, e.productId);
+      return e.lang === lang && found && DATA.isProductVisible(found.product, lang);
+    });
     var popularitySource = preferred.length ? preferred : ctx.manualsIndex;
     var counts = {};
     popularitySource.forEach(function (e) { counts[e.productId] = (counts[e.productId] || 0) + 1; });

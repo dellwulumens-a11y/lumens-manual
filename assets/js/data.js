@@ -52,6 +52,12 @@
     return null;
   }
 
+  function isProductVisible(product, lang) {
+    var audiences = product && product.audiences;
+    if (!audiences || !audiences.length || audiences.length === 2) return true;
+    return audiences.indexOf(lang === "zh-CN" ? "mainland" : "global") !== -1;
+  }
+
   function findCategory(categories, categoryId) {
     return categories.filter(function (c) { return c.id === categoryId; })[0] || null;
   }
@@ -77,11 +83,11 @@
   }
 
   /** Products whose declared `manuals` list includes this type id. */
-  function productsForType(categories, typeId) {
+  function productsForType(categories, typeId, lang) {
     var out = [];
     categories.forEach(function (cat) {
       (cat.products || []).forEach(function (p) {
-        if ((p.manuals || []).indexOf(typeId) !== -1) {
+        if ((p.manuals || []).indexOf(typeId) !== -1 && isProductVisible(p, lang)) {
           out.push(Object.assign({}, p, { categoryId: cat.id, categoryName: cat.name }));
         }
       });
@@ -95,6 +101,7 @@
     getManualsIndex: getManualsIndex,
     flattenProducts: flattenProducts,
     findProduct: findProduct,
+    isProductVisible: isProductVisible,
     findCategory: findCategory,
     findType: findType,
     manualsForProduct: manualsForProduct,

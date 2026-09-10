@@ -18,7 +18,8 @@
 
     var grid = document.getElementById("categoryGrid");
     grid.innerHTML = ctx.categories.map(function (cat, i) {
-      var products = (cat.products || []).slice().sort(function (a, b) {
+      var visibleProducts = (cat.products || []).filter(function (p) { return window.LumensData.isProductVisible(p, lang); });
+      var products = visibleProducts.slice().sort(function (a, b) {
         var dateA = latestByProduct[a.id] || "";
         var dateB = latestByProduct[b.id] || "";
         return dateB.localeCompare(dateA);
@@ -30,11 +31,11 @@
           "</a>"
         );
       }).join("");
-      var hasMore = (cat.products || []).length > 3;
+      var hasMore = visibleProducts.length > 3;
       return (
         '<div class="category-card" style="' + window.LumensCommon.tagColorStyle(i) + '">' +
           '<span class="cat-badge">' + esc(t.footer.productLine) + "</span>" +
-          '<div class="count">' + (cat.products || []).length + " " + esc(t.common.modelsAvailable) + "</div>" +
+          '<div class="count">' + visibleProducts.length + " " + esc(t.common.modelsAvailable) + "</div>" +
           "<h3>" + esc(I18N.pickLocale(cat.name, lang)) + "</h3>" +
           '<p class="desc">' + esc(I18N.pickLocale(cat.description, lang)) + "</p>" +
           '<div class="product-list' + (hasMore ? ' is-collapsed' : '') + '" id="products-' + cat.id + '">' + products + "</div>" +

@@ -15,6 +15,10 @@
     }
 
     var product = found.product, category = found.category;
+    if (!DATA.isProductVisible(product, lang)) {
+      document.getElementById("productBody").innerHTML = '<p class="state-msg">' + esc(t.common.loadError) + "</p>";
+      return;
+    }
 
     document.getElementById("crumbProducts").textContent = t.breadcrumb.products;
     document.getElementById("crumbProducts").href = I18N.urlFor("products.html", lang);

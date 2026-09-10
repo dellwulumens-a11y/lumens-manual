@@ -24,7 +24,7 @@
     document.getElementById("crumbCurrent").textContent = I18N.pickLocale(type.name, lang);
     document.getElementById("pageTitle").textContent = I18N.pickLocale(type.name, lang);
 
-    var products = DATA.productsForType(ctx.categories, typeId);
+    var products = DATA.productsForType(ctx.categories, typeId, lang);
     document.getElementById("pageDesc").textContent =
       products.length + " " + t.common.documentsAvailable;
 

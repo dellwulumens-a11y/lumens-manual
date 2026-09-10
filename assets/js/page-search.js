@@ -105,7 +105,8 @@
       });
       ctx.types.forEach(function (ty) { typeMap[ty.id] = ty; });
       var filtered = all.filter(function (e) {
-        return (!categoryId || e.categoryId === categoryId) && (!typeId || e.typeId === typeId) &&
+        return (!productMap[e.productId] || DATA.isProductVisible(productMap[e.productId], lang)) &&
+          (!categoryId || e.categoryId === categoryId) && (!typeId || e.typeId === typeId) &&
           (!docLang || e.lang === docLang);
       });
       var preferred = docLang ? filtered : filtered.filter(function (e) { return e.lang === lang; });

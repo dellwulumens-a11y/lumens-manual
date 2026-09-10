@@ -23,6 +23,10 @@
       return;
     }
     var product = found.product, category = found.category;
+    if (!DATA.isProductVisible(product, lang)) {
+      body.innerHTML = '<p class="state-msg">' + esc(t.common.loadError) + "</p>";
+      return;
+    }
 
     document.querySelector("#tocDesktop h4").textContent = t.common.onThisPage;
     document.querySelector("#tocMobile summary").textContent = t.common.onThisPage;

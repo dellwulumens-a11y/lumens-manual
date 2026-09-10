@@ -222,6 +222,12 @@
     state.categories.forEach(function (category) {
       (category.products || []).forEach(function (product) {
         productIds.push(product.id);
+        if (product.audiences) {
+          assertUnique(product.audiences, "產品適用市場");
+          product.audiences.forEach(function (audience) {
+            if (["mainland", "global"].indexOf(audience) === -1) throw new Error("產品「" + product.id + "」的適用市場無效: " + audience);
+          });
+        }
         (product.manuals || []).forEach(function (typeId) {
           if (!findType(typeId)) throw new Error("產品「" + product.id + "」引用了不存在的文件類型: " + typeId);
         });
@@ -331,7 +337,7 @@
       var cat = findCategory(data.categoryId);
       if (!cat) return Promise.reject(new Error("找不到產品線: " + data.categoryId));
       cat.products = cat.products || [];
-      cat.products.push({ id: data.id, model: data.model, name: data.name, image: data.image, manuals: data.manuals || [] });
+      cat.products.push({ id: data.id, model: data.model, name: data.name, image: data.image, manuals: data.manuals || [], audiences: data.audiences || ["mainland", "global"] });
     } else {
       var found = findProductEntry(data.id);
       if (!found) return Promise.reject(new Error("找不到產品: " + data.id));
@@ -340,10 +346,11 @@
         var newCat = findCategory(data.categoryId);
         if (!newCat) return Promise.reject(new Error("找不到產品線: " + data.categoryId));
         newCat.products = newCat.products || [];
-        newCat.products.push({ id: data.id, model: data.model, name: data.name, image: data.image, manuals: data.manuals || [] });
+        newCat.products.push({ id: data.id, model: data.model, name: data.name, image: data.image, manuals: data.manuals || [], audiences: data.audiences || ["mainland", "global"] });
       } else {
         found.product.model = data.model;
         found.product.image = data.image; found.product.manuals = data.manuals || [];
+        found.product.audiences = data.audiences || ["mainland", "global"];
       }
     }
     return saveCategories((isNew ? "新增" : "更新") + "產品: " + data.id);
@@ -652,11 +659,15 @@
         var chips = (p.manuals || []).map(function (tid) {
           return '<span class="chip-sm">' + esc(typeMap[tid] ? typeMap[tid].name["zh-TW"] : tid) + "</span>";
         }).join("") || '<span class="muted">尚未設定</span>';
+        var audienceLabels = { mainland: "大陸", global: "全球" };
+        var audienceChips = (p.audiences && p.audiences.length ? p.audiences : ["mainland", "global"]).map(function (audience) {
+          return '<span class="chip-sm">' + audienceLabels[audience] + "</span>";
+        }).join("");
         return (
           "<tr>" +
             "<td><code>" + esc(p.model) + "</code></td>" +
             "<td>" + esc(e.category.name["zh-TW"] || e.category.name.en) + "</td>" +
-            '<td><div class="chip-row">' + chips + "</div></td>" +
+            '<td><div class="chip-row">' + chips + audienceChips + "</div></td>" +
             '<td class="row-actions">' +
               '<button class="btn small" data-edit-prod="' + esc(p.id) + '">編輯</button>' +
               '<button class="btn small danger" data-del-prod="' + esc(p.id) + '">刪除</button>' +
@@ -691,6 +702,11 @@
       var checked = product && (product.manuals || []).indexOf(t.id) !== -1 ? " checked" : "";
       return '<label><input type="checkbox" name="manuals" value="' + esc(t.id) + '"' + checked + "> " + esc(t.name["zh-TW"] || t.name.en) + "</label>";
     }).join("");
+    var audiences = product && product.audiences && product.audiences.length ? product.audiences : ["mainland", "global"];
+    var audienceChecks = '<div class="checkbox-grid">' +
+      '<label><input type="checkbox" name="audiences" value="mainland"' + (audiences.indexOf("mainland") !== -1 ? " checked" : "") + '> 大陸專屬（僅簡體中文）</label>' +
+      '<label><input type="checkbox" name="audiences" value="global"' + (audiences.indexOf("global") !== -1 ? " checked" : "") + '> 全球機種（英文／繁體中文）</label>' +
+      "</div>";
 
     var fields =
       '<div class="form-grid-2">' +
@@ -702,6 +718,7 @@
         var selected = (product ? product.image : "assets/images/products/placeholder-camera.svg") === option.path ? " checked" : "";
         return '<label class="product-image-option"><input type="radio" name="imageChoice" value="' + esc(option.path) + '"' + selected + '><img src="../' + esc(option.path) + '" alt="' + esc(option.label) + '"><span>' + esc(option.label) + '</span></label>';
       }).join("") + '</div><input name="image" type="text" value="' + esc(product ? product.image : "assets/images/products/placeholder-camera.svg") + '" placeholder="或輸入自訂圖片路徑"><div class="field-help">選取上方常見 ProAV 縮圖，或保留／輸入自訂路徑。</div></div>' +
+      '<div class="field"><label>適用市場（至少選擇一項）</label>' + audienceChecks + '<div class="field-help">大陸專屬機種只會在簡體中文介面顯示；全球機種只會在英文與繁體中文介面顯示；兩者皆選則全部語言顯示。</div></div>' +
       '<div class="field"><label>已宣告的文件類型（勾選代表這個產品「將會有」這些手冊，之後在「手冊文件」分頁補上實際內容）</label><div class="checkbox-grid">' + (typeChecks || '<span class="muted">尚未建立任何文件類型</span>') + "</div></div>";
 
     openDialog({
@@ -711,12 +728,15 @@
         var id = isNew ? slugify(form.elements.id.value) : product.id;
         if (!id) return Promise.reject(new Error("請輸入代碼"));
         var manuals = $all('input[name="manuals"]:checked', form).map(function (i) { return i.value; });
+        var selectedAudiences = $all('input[name="audiences"]:checked', form).map(function (i) { return i.value; });
+        if (!selectedAudiences.length) return Promise.reject(new Error("請至少選擇一個適用市場"));
         var data = {
           id: id,
           model: (form.elements.model.value || "").trim(),
           categoryId: form.elements.categoryId.value,
           image: (form.elements.image.value || "").trim() || "assets/images/products/placeholder-camera.svg",
-          manuals: manuals
+          manuals: manuals,
+          audiences: selectedAudiences
         };
         var selectedImage = form.querySelector('input[name="imageChoice"]:checked');
         data.image = selectedImage ? selectedImage.value : data.image;

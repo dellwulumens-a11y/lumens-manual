@@ -13,7 +13,10 @@
 
     var grid = document.getElementById("typeGrid");
     grid.innerHTML = ctx.types.map(function (ty, i) {
-      var docCount = ctx.manualsIndex.filter(function (m) { return m.typeId === ty.id; }).length;
+      var docCount = ctx.manualsIndex.filter(function (m) {
+        var found = window.LumensData.findProduct(ctx.categories, m.productId);
+        return m.typeId === ty.id && found && window.LumensData.isProductVisible(found.product, lang);
+      }).length;
       var href = I18N.urlFor("manual-type-detail.html", lang, { type: ty.id });
       var countLabel = docCount ? (docCount + " " + t.common.documentsAvailable) : t.common.noDocumentsYet;
       return (
