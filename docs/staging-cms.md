@@ -43,15 +43,17 @@ Keep `AUTH_GOOGLE_ALLOW_PUBLIC_REGISTRATION=false`. New SSO logins still need a 
 
 ## 3. Initial Directus collections
 
-Create these collections in Directus before migrating content:
+Schema is created by two idempotent scripts (safe to re-run): `node tools/setup-directus-qa.js` and `node tools/setup-directus-content.js`. They create:
 
 - `qa_items`: `id`, `status`, `sort`, `category`, `question_en`, `question_zh_cn`, `question_zh_tw`, `answer_en`, `answer_zh_cn`, `answer_zh_tw`, `products` (tags field, one or more product models a Q&A applies to; presets are seeded from `data/product-categories.json`), `date_updated` (auto-maintained; query with `?sort=-date_updated` to show the most recently published/edited Q&A first)
-- `products`: existing product metadata plus `audiences`
-- `manuals`: product relation, document type, language, title, status, file, updated date
-- `product_categories`
-- `manual_types`
+- `product_categories`: `id`, `order`, `name_en`/`name_zh_cn`/`name_zh_tw`, `description_en`/`description_zh_cn`/`description_zh_tw`
+- `manual_types`: `id`, `order`, `name_en`/`name_zh_cn`/`name_zh_tw`
+- `products`: `id`, `category` (relation → `product_categories`), `model`, `name_en`/`name_zh_cn`/`name_zh_tw` (optional — the site falls back to showing the model), `image` (asset path string), `audiences` (tags: `mainland`, `global`)
+- `manuals`: `id`, `product` (relation → `products`), `type` (relation → `manual_types`), `lang`, `title`, `format` (`fragment`/`standalone`/`pdf`), `status`, `content` (HTML, for `fragment`), `file` (relation → `directus_files`, for `standalone`/`pdf`), `date_updated`
 
-Use Directus status values `draft`, `in_review`, and `published`. Public API permissions must allow read access only to `published` records. Staff write permissions should be role-based.
+Directus status values used: `draft` and `published` (`qa_items` also has `in_review`). Public API read permissions are already scoped to `published` only for `qa_items` and `manuals`; `product_categories`, `manual_types` and `products` are fully public-readable (they carry no customer-sensitive content, matching how the current static JSON files are public today).
+
+**Not done yet:** migrating the actual content from `data/product-categories.json` / `data/manual-types.json` / `data/manuals-index.json` into these collections, and pointing the site's frontend (`assets/js/data.js`) at the Directus API instead of the static files. Any migration script must build the request body in Node (e.g. `fetch` + `JSON.stringify`) rather than passing Chinese text as inline shell/curl arguments — the latter gets corrupted by the Windows console codepage on this machine.
 
 ## 4. Test sequence
 

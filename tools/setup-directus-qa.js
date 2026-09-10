@@ -112,7 +112,7 @@ async function main() {
   }
 
   const actions = ["read", "create", "update", "delete"];
-  const permissionCollections = ["qa_items", "directus_files"];
+  const permissionCollections = ["qa_items", "directus_files", "directus_folders"];
   for (const collection of permissionCollections) {
     for (const action of actions) {
       const existing = await api("/permissions?filter[collection][_eq]=" + collection + "&filter[action][_eq]=" + action + "&filter[policy][_eq]=" + policyId);
