@@ -55,6 +55,14 @@
     document.getElementById("docTitle").textContent = entry.title;
     document.getElementById("docMeta").textContent = t.common.lastUpdated + ": " + (entry.updatedAt || "—");
     document.title = entry.title + " · " + t.site.name;
+    window.LumensCommon.track("view_manual", {
+      product_id: productId,
+      product_model: product.model,
+      document_type: typeId,
+      document_language: wantLang,
+      document_title: entry.title,
+      document_format: entry.format || "fragment"
+    });
 
     // language tabs
     var tabsWrap = document.getElementById("langTabs");
@@ -73,17 +81,29 @@
     var isStandalone = entry.format === "standalone";
     var actionsEl = document.querySelector(".doc-actions");
     if (isPdf) {
-      actionsEl.innerHTML = '<a class="btn primary" target="_blank" rel="noopener" href="' + entry.path + '">' + esc(t.common.openOriginal) + "</a>";
+      actionsEl.innerHTML = '<a class="btn primary" id="openOriginalBtn" target="_blank" rel="noopener" href="' + entry.path + '">' + esc(t.common.openOriginal) + "</a>";
+      document.getElementById("openOriginalBtn").addEventListener("click", function () {
+        window.LumensCommon.track("download_document", { product_id: productId, document_type: typeId, document_language: wantLang, document_format: "pdf", document_title: entry.title });
+      });
     } else if (isStandalone) {
       // A full standalone document has its own layout/behavior; printing the
       // shared page shell around an iframe is unreliable across browsers, so
       // offer a plain link to the original file instead of Print/Save-as-PDF.
       actionsEl.innerHTML = '<a class="btn primary" id="openStandaloneBtn" target="_blank" rel="noopener" href="' + entry.path + '">' + esc(t.common.openOriginal) + "</a>";
+      document.getElementById("openStandaloneBtn").addEventListener("click", function () {
+        window.LumensCommon.track("open_document", { product_id: productId, document_type: typeId, document_language: wantLang, document_format: "standalone", document_title: entry.title });
+      });
     } else {
       document.getElementById("printBtn").textContent = t.common.print;
       document.getElementById("pdfBtn").textContent = t.common.downloadPdf;
-      document.getElementById("printBtn").addEventListener("click", function () { window.print(); });
-      document.getElementById("pdfBtn").addEventListener("click", function () { window.print(); });
+      document.getElementById("printBtn").addEventListener("click", function () {
+        window.LumensCommon.track("print_manual", { product_id: productId, document_type: typeId, document_language: wantLang, document_title: entry.title });
+        window.print();
+      });
+      document.getElementById("pdfBtn").addEventListener("click", function () {
+        window.LumensCommon.track("download_document", { product_id: productId, document_type: typeId, document_language: wantLang, document_format: "print_to_pdf", document_title: entry.title });
+        window.print();
+      });
     }
 
     // related manuals

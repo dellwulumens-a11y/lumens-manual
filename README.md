@@ -124,6 +124,18 @@ PDF 索引範例：
 
 **安全提醒**：`admin/` 底下的頁面本身沒有帳號密碼保護，只要知道網址任何人都能打開登入畫面——但沒有有效的 Token 就完全無法讀取或修改任何資料，所以實際的存取控制是靠 Token 本身，而不是隱藏這個網址。請把 Token 當密碼一樣保管，不要分享、不要貼到公開的地方；覺得外流時，直接到 GitHub 的 Token 設定頁面撤銷即可，不影響網站本身。
 
+## Google Analytics 4 統計
+
+網站已接入 Google Analytics 4 Measurement ID `G-852D5TWW99`。公開頁面會收集一般頁面瀏覽，另外記錄以下事件：
+
+- `view_manual`：查看手冊，包含產品、文件類型、語言、標題與格式
+- `search`：搜尋關鍵字、篩選條件與結果數量
+- `download_document`：開啟 PDF 或使用另存 PDF
+- `open_document`：開啟獨立 HTML 文件
+- `print_manual`：列印手冊
+
+登入 Google Analytics 後，可在「報表 → 互動 → 事件」查看事件；「報表 → 使用者 → 使用者屬性 → 人口統計資料」可查看 Google 依 IP 粗略推估的國家。GA4 不會提供訪客姓名，且網站本身不儲存完整 IP。
+
 ## 設計說明
 
 - 版面延續 mylumens.com 的白底、深色文字、企業風格；主色（連結、按鈕、目前分頁）與強調色定義在 `assets/css/style.css` 開頭的 `:root` 區塊（`--brand-*`、`--accent-*`），拿到正式品牌色票後直接改這幾個變數即可全站套用。

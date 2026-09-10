@@ -115,6 +115,14 @@
         .filter(function (x) { return x.s > 0; })
         .sort(function (a, b) { return b.s - a.s; });
 
+      window.LumensCommon.track("search", {
+        search_term: q,
+        category: categoryId || "all",
+        document_type: typeId || "all",
+        document_language: docLang || "all",
+        result_count: scored.length
+      });
+
       countEl.textContent = scored.length + " " + t.search.resultCount;
 
       if (!scored.length) {

@@ -5,6 +5,24 @@
 (function (global) {
   var I18N = global.LumensI18n;
   var DATA = global.LumensData;
+  var GA_MEASUREMENT_ID = "G-852D5TWW99";
+
+  function initAnalytics(pageKey, lang) {
+    if (!global.dataLayer) global.dataLayer = [];
+    if (!global.gtag) {
+      global.gtag = function () { global.dataLayer.push(arguments); };
+      global.gtag("js", new Date());
+      global.gtag("config", GA_MEASUREMENT_ID, { page_type: pageKey, language: lang });
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    }
+  }
+
+  function track(eventName, params) {
+    if (global.gtag) global.gtag("event", eventName, params || {});
+  }
 
   // Cyclic color-coding for category/type cards — position-based (1st, 2nd, ...)
   // rather than tied to a specific id or name, so newly added product lines
@@ -141,6 +159,7 @@
   function init(pageKey) {
     var lang = I18N.getLang();
     document.documentElement.lang = lang;
+    initAnalytics(pageKey, lang);
 
     return Promise.all([
       I18N.load(lang),
@@ -163,5 +182,5 @@
     });
   }
 
-  global.LumensCommon = { init: init, esc: esc, tagColorStyle: tagColorStyle };
+  global.LumensCommon = { init: init, esc: esc, tagColorStyle: tagColorStyle, track: track };
 })(window);
