@@ -7,12 +7,15 @@ const fs = require("fs");
 const path = require("path");
 
 const env = {};
-fs.readFileSync(".env", "utf8").split(/\r?\n/).forEach((line) => {
-  const match = line.match(/^([^#=]+)=(.*)$/);
-  if (match) env[match[1]] = match[2];
-});
+try {
+  fs.readFileSync(".env", "utf8").split(/\r?\n/).forEach((line) => {
+    const match = line.match(/^([^#=]+)=(.*)$/);
+    if (match) env[match[1]] = match[2];
+  });
+} catch (e) {}
+Object.assign(env, process.env); // e.g. DIRECTUS_URL / DIRECTUS_ADMIN_EMAIL / DIRECTUS_ADMIN_PASSWORD to target a remote instance without editing .env
 
-const baseUrl = "http://127.0.0.1:8055";
+const baseUrl = env.DIRECTUS_URL || "http://127.0.0.1:8055";
 let token;
 
 async function request(pathname, options = {}) {
