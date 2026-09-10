@@ -1,0 +1,16 @@
+# Keep the build context small for the Zeabur/Directus image build (root
+# Dockerfile only needs directus/extensions) — the manuals/ folder alone is
+# ~575MB and none of this is used by that image.
+manuals/
+assets/
+admin/
+data/
+docs/
+tools/
+.git/
+node_modules/
+*.md
+docker-compose.staging.yml
+.env
+.env.example
+*.html

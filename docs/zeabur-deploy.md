@@ -10,11 +10,12 @@ machine. Do this once staging testing has passed.
 1. In the Zeabur dashboard, create a new project.
 2. Add a **PostgreSQL** service from the marketplace (one click). Note the
    connection variables Zeabur generates for it.
-3. Add a service **from this GitHub repo**, pointing it at the `directus/`
-   directory so Zeabur builds `directus/Dockerfile` (this bakes in
-   `directus/extensions/restrict-email-domain` — the official Directus
-   template in Zeabur's marketplace does *not* include it, so don't use that
-   template directly).
+3. Add a service **from this GitHub repo** (Zeabur builds the root
+   `Dockerfile`, which bakes in `directus/extensions/restrict-email-domain` —
+   the official Directus template in Zeabur's marketplace does *not* include
+   it, so don't use that template directly). `.dockerignore` keeps the
+   ~575MB `manuals/` folder and other unrelated files out of the build
+   context.
 4. On the Directus service, add a **Volume** mounted at `/directus/uploads`
    (persistent file storage for uploaded manuals/PDFs — this replaces the
    `directus-uploads` named volume from the local docker-compose file).
