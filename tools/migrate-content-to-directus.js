@@ -99,7 +99,8 @@ async function main() {
         name_zh_cn: (p.name || {})["zh-CN"] || null,
         name_zh_tw: (p.name || {})["zh-TW"] || null,
         image: p.image,
-        audiences: p.audiences || ["mainland", "global"]
+        audiences: p.audiences || ["mainland", "global"],
+        manuals: p.manuals || []
       });
       productCount++;
       console.log(result + ": " + p.id);

@@ -181,10 +181,13 @@
 
     contentEl.innerHTML = '<div class="skeleton" style="height:18px;width:60%;margin-bottom:12px;"></div><div class="skeleton" style="height:14px;width:90%;margin-bottom:8px;"></div><div class="skeleton" style="height:14px;width:80%;"></div>';
 
-    fetch(entry.path).then(function (r) {
+    // Directus-backed fragments carry their HTML inline as entry.content
+    // (no file to fetch); static-JSON fragments still fetch entry.path.
+    var contentPromise = entry.content != null ? Promise.resolve(entry.content) : fetch(entry.path).then(function (r) {
       if (!r.ok) throw new Error("not found");
       return r.text();
-    }).then(function (html) {
+    });
+    contentPromise.then(function (html) {
       contentEl.innerHTML = html;
       buildToc(contentEl);
     }).catch(function () {

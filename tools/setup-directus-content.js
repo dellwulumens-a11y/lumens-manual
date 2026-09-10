@@ -115,6 +115,7 @@ async function main() {
   await ensureField(api, "products", langField("name_zh_tw", "產品名稱（繁體，可留空以型號顯示）"));
   await ensureField(api, "products", { field: "image", type: "string", meta: { interface: "input", note: "圖片路徑，例如 assets/images/products/placeholder-camera.svg", width: "full" }, schema: {} });
   await ensureField(api, "products", { field: "audiences", type: "json", meta: { interface: "tags", note: "適用市場：mainland、global", options: { presets: ["mainland", "global"] }, width: "full" }, schema: {} });
+  await ensureField(api, "products", { field: "manuals", type: "json", meta: { interface: "tags", note: "這個產品規劃要有哪些手冊類型（即使檔案還沒上架也可先列出）", options: { presets: ["user-guide", "installation-guide", "command-set", "quick-start", "other"] }, width: "full" }, schema: {} });
 
   await ensureField(api, "manuals", { field: "product", type: "string", meta: { interface: "select-dropdown-m2o", width: "half" }, schema: {} });
   await ensureM2ORelation(api, "manuals", "product", "products");
@@ -135,6 +136,7 @@ async function main() {
   await ensurePublicPermission(api, publicPolicyId, "manual_types", "read", {});
   await ensurePublicPermission(api, publicPolicyId, "products", "read", {});
   await ensurePublicPermission(api, publicPolicyId, "manuals", "read", { status: { _eq: "published" } });
+  await ensurePublicPermission(api, publicPolicyId, "directus_files", "read", {});
 
   console.log("Directus content schema setup complete.");
 }
