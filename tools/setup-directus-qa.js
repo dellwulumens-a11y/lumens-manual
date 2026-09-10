@@ -8,6 +8,9 @@ fs.readFileSync(".env", "utf8").split(/\r?\n/).forEach((line) => {
 
 const baseUrl = "http://127.0.0.1:8055";
 
+const productCategories = JSON.parse(fs.readFileSync("data/product-categories.json", "utf8"));
+const PRODUCT_MODELS = productCategories.categories.flatMap((cat) => (cat.products || []).map((p) => p.model || p.id));
+
 async function request(path, options = {}) {
   const response = await fetch(baseUrl + path, {
     ...options,
@@ -51,7 +54,24 @@ async function main() {
     { field: "question_zh_tw", type: "text", meta: { interface: "input", width: "full" }, schema: {} },
     { field: "answer_en", type: "text", meta: { interface: "input-multiline", width: "full" }, schema: {} },
     { field: "answer_zh_cn", type: "text", meta: { interface: "input-multiline", width: "full" }, schema: {} },
-    { field: "answer_zh_tw", type: "text", meta: { interface: "input-multiline", width: "full" }, schema: {} }
+    { field: "answer_zh_tw", type: "text", meta: { interface: "input-multiline", width: "full" }, schema: {} },
+    {
+      field: "products",
+      type: "json",
+      meta: {
+        interface: "tags",
+        note: "適用機種型號，可複選多個",
+        options: { presets: PRODUCT_MODELS, allowCustom: true },
+        width: "full"
+      },
+      schema: {}
+    },
+    {
+      field: "date_updated",
+      type: "timestamp",
+      meta: { special: ["date-updated"], interface: "datetime", readonly: true, width: "half", note: "發布/更新時間，前台以此欄位排序（最新在最上面）" },
+      schema: {}
+    }
   ];
 
   for (const field of fields) {
@@ -92,13 +112,16 @@ async function main() {
   }
 
   const actions = ["read", "create", "update", "delete"];
-  for (const action of actions) {
-    const existing = await api("/permissions?filter[collection][_eq]=qa_items&filter[action][_eq]=" + action + "&filter[policy][_eq]=" + policyId);
-    if (!existing.data || !existing.data.length) {
-      await api("/permissions", { method: "POST", body: JSON.stringify({ collection: "qa_items", action, permissions: {}, validation: {}, presets: {}, fields: ["*"] , policy: policyId }) });
-      console.log("Created permission: " + action);
-    } else {
-      console.log("Permission already exists: " + action);
+  const permissionCollections = ["qa_items", "directus_files"];
+  for (const collection of permissionCollections) {
+    for (const action of actions) {
+      const existing = await api("/permissions?filter[collection][_eq]=" + collection + "&filter[action][_eq]=" + action + "&filter[policy][_eq]=" + policyId);
+      if (!existing.data || !existing.data.length) {
+        await api("/permissions", { method: "POST", body: JSON.stringify({ collection, action, permissions: {}, validation: {}, presets: {}, fields: ["*"], policy: policyId }) });
+        console.log("Created permission: " + collection + "." + action);
+      } else {
+        console.log("Permission already exists: " + collection + "." + action);
+      }
     }
   }
 

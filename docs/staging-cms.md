@@ -45,7 +45,7 @@ Keep `AUTH_GOOGLE_ALLOW_PUBLIC_REGISTRATION=false`. New SSO logins still need a 
 
 Create these collections in Directus before migrating content:
 
-- `qa_items`: `id`, `status`, `sort`, `category`, `question_en`, `question_zh_cn`, `question_zh_tw`, `answer_en`, `answer_zh_cn`, `answer_zh_tw`
+- `qa_items`: `id`, `status`, `sort`, `category`, `question_en`, `question_zh_cn`, `question_zh_tw`, `answer_en`, `answer_zh_cn`, `answer_zh_tw`, `products` (tags field, one or more product models a Q&A applies to; presets are seeded from `data/product-categories.json`), `date_updated` (auto-maintained; query with `?sort=-date_updated` to show the most recently published/edited Q&A first)
 - `products`: existing product metadata plus `audiences`
 - `manuals`: product relation, document type, language, title, status, file, updated date
 - `product_categories`
