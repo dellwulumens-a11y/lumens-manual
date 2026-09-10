@@ -510,6 +510,15 @@ ul{margin:0; padding:0;}
 
 /* ---------------------------------- misc -------------------------------------- */
 .state-msg{padding:60px 24px; text-align:center; color:var(--ink-faint);}
+.qa-list{max-width:900px; margin:28px auto 0;}
+.qa-item{border-top:1px solid var(--line);}
+.qa-item:last-child{border-bottom:1px solid var(--line);}
+.qa-item summary{display:flex; align-items:center; justify-content:space-between; gap:20px; padding:20px 4px; color:var(--ink); font-size:17px; font-weight:700; cursor:pointer; list-style:none;}
+.qa-item summary::-webkit-details-marker{display:none;}
+.qa-item summary::after{content:"+"; color:var(--brand); font-size:24px; font-weight:400; line-height:1;}
+.qa-item[open] summary::after{content:"−";}
+.qa-answer{padding:0 42px 22px 4px; color:var(--ink-soft); line-height:1.8;}
+.qa-category{margin-top:14px; color:var(--ink-faint); font-size:12px;}
 .skeleton{background:linear-gradient(90deg,var(--bg-soft) 25%,#eef0f2 37%,var(--bg-soft) 63%); background-size:400% 100%; animation:sk 1.4s ease infinite; border-radius:8px;}
 @keyframes sk{0%{background-position:100% 50%;}100%{background-position:0 50%;}}
 @media (prefers-reduced-motion:reduce){ .skeleton{animation:none;} html{scroll-behavior:auto;} }

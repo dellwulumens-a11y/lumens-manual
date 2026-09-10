@@ -12,14 +12,15 @@
 
   var cfg = null; // { owner, repo, branch, token }
   var shas = {};  // path -> sha
-  var state = { categories: [], types: [], manualsIndex: [], searchIndex: [] };
+  var state = { categories: [], types: [], manualsIndex: [], searchIndex: [], qa: [] };
   var searchIndexWarning = "";
 
   var PATHS = {
     categories: "data/product-categories.json",
     types: "data/manual-types.json",
     manualsIndex: "data/manuals-index.json",
-    searchIndex: "data/search-index.json"
+    searchIndex: "data/search-index.json",
+    qa: "data/qa.json"
   };
 
   var SECTION_TEMPLATES = {
@@ -168,7 +169,7 @@
   function loadAll() {
     searchIndexWarning = "";
     return Promise.all([
-      ghGet(PATHS.categories), ghGet(PATHS.types), ghGet(PATHS.manualsIndex), ghGet(PATHS.searchIndex)
+      ghGet(PATHS.categories), ghGet(PATHS.types), ghGet(PATHS.manualsIndex), ghGet(PATHS.searchIndex), ghGet(PATHS.qa)
     ]).then(function (res) {
       if (!res[0] || !res[1] || !res[2]) throw new Error("找不到 data/product-categories.json、manual-types.json 或 manuals-index.json，請確認 repo 與分支是否正確。");
       try {
@@ -191,6 +192,11 @@
       } catch (e) {
         state.searchIndex = [];
         searchIndexWarning = "搜尋索引格式錯誤，後台已連線但搜尋索引暫時停用。請先執行 tools/build-search-index.js 重建 data/search-index.json，再重新整理資料。";
+      }
+      try {
+        state.qa = res[4] ? ((JSON.parse(res[4].text) || {}).items || []) : [];
+      } catch (e) {
+        throw new Error("無法解析 data/qa.json：" + e.message);
       }
     });
   }
@@ -280,6 +286,10 @@
     return ghPut(PATHS.searchIndex, JSON.stringify(state.searchIndex, null, 2) + "\n", message);
   }
 
+  function saveQa(message) {
+    return ghPut(PATHS.qa, JSON.stringify({ items: state.qa }, null, 2) + "\n", message);
+  }
+
   // ------------------------------------------------------------ data lookups --
 
   function findCategory(id) { return state.categories.filter(function (c) { return c.id === id; })[0] || null; }
@@ -329,6 +339,23 @@
     if ((c.products || []).length) return Promise.reject(new Error("這個產品線底下還有 " + c.products.length + " 個產品，請先刪除或搬移產品後再刪除產品線。"));
     state.categories = state.categories.filter(function (x) { return x.id !== id; });
     return saveCategories("刪除產品線: " + id);
+  }
+
+  function upsertQa(data, isNew) {
+    if (isNew) {
+      if (state.qa.some(function (item) { return item.id === data.id; })) return Promise.reject(new Error("這個 Q&A 代碼已經存在: " + data.id));
+      state.qa.push(data);
+    } else {
+      var index = state.qa.findIndex(function (item) { return item.id === data.id; });
+      if (index === -1) return Promise.reject(new Error("找不到 Q&A: " + data.id));
+      state.qa[index] = data;
+    }
+    return saveQa((isNew ? "新增" : "更新") + " Q&A: " + data.id);
+  }
+
+  function deleteQa(id) {
+    state.qa = state.qa.filter(function (item) { return item.id !== id; });
+    return saveQa("刪除 Q&A: " + id);
   }
 
   function upsertProduct(data, isNew, prevCategoryId) {
@@ -1021,17 +1048,80 @@
     }).catch(function (err) { showStatus("err", "載入內容失敗：" + err.message); });
   }
 
+  // --------------------------------------------------------------- Q&A tab --
+
+  function renderQa() {
+    var panel = $("#panel-qa");
+    var rows = state.qa.slice().sort(function (a, b) {
+      return (a.order || 0) - (b.order || 0) || String(a.id).localeCompare(String(b.id));
+    }).map(function (item) {
+      return "<tr>" +
+        "<td><code>" + esc(item.id) + "</code></td>" +
+        "<td>" + esc(item.question && (item.question["zh-TW"] || item.question.en) || "") + "<div class=\"muted\">" + esc(item.question && item.question.en || "") + "</div></td>" +
+        "<td>" + esc(item.category && (item.category["zh-TW"] || item.category.en) || "") + "</td>" +
+        "<td>" + (item.enabled === false ? '<span class="chip-sm warn">停用</span>' : '<span class="chip-sm">啟用</span>') + "</td>" +
+        '<td class="row-actions"><button class="btn small" data-edit-qa="' + esc(item.id) + '">編輯</button><button class="btn small danger" data-del-qa="' + esc(item.id) + '">刪除</button></td>' +
+      "</tr>";
+    }).join("");
+    panel.innerHTML =
+      '<div class="admin-toolbar"><div class="spacer"></div><button class="btn primary" id="addQaBtn">+ 新增 Q&amp;A</button></div>' +
+      '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>代碼</th><th>問題</th><th>分類</th><th>狀態</th><th></th></tr></thead><tbody>' +
+      (rows || '<tr><td colspan="5" class="empty-state">尚未建立任何 Q&amp;A</td></tr>') +
+      "</tbody></table></div>";
+    $("#addQaBtn").onclick = function () { openQaForm(null); };
+    $all("[data-edit-qa]", panel).forEach(function (button) {
+      button.onclick = function () { openQaForm(state.qa.filter(function (item) { return item.id === button.dataset.editQa; })[0]); };
+    });
+    $all("[data-del-qa]", panel).forEach(function (button) {
+      button.onclick = function () {
+        if (!confirm("確定要刪除 Q&A「" + button.dataset.delQa + "」嗎？")) return;
+        withBusy("刪除 Q&A", function () { return deleteQa(button.dataset.delQa); }).then(renderQa).catch(function () {});
+      };
+    });
+  }
+
+  function openQaForm(existing) {
+    var isNew = !existing;
+    var fields =
+      '<div class="form-grid-2">' +
+      '<div class="field"><label>代碼 (id)</label><input name="id" type="text" value="' + esc(existing ? existing.id : "") + '" ' + (isNew ? "" : "disabled") + ' placeholder="例如 camera-no-signal" required></div>' +
+      '<div class="field"><label>排序</label><input name="order" type="number" value="' + esc(existing ? existing.order : (state.qa.length + 1) * 10) + '" required></div>' +
+      "</div>" +
+      langFieldGroup("question", "問題", existing ? existing.question : {}) +
+      langFieldGroup("answer", "答案（可換行）", existing ? existing.answer : {}, { textarea: true }) +
+      langFieldGroup("category", "分類", existing ? existing.category : {}) +
+      '<div class="field checkbox-field"><label><input name="enabled" type="checkbox"' + (!existing || existing.enabled !== false ? " checked" : "") + '> 發布到前台</label></div>';
+    openDialog({
+      title: isNew ? "新增 Q&A" : "編輯 Q&A：" + existing.id,
+      fieldsHtml: fields,
+      onSubmit: function (form) {
+        var id = isNew ? slugify(form.elements.id.value) : existing.id;
+        var data = {
+          id: id,
+          order: Number(form.elements.order.value) || 0,
+          question: readLangField(form, "question"),
+          answer: readLangField(form, "answer"),
+          category: readLangField(form, "category"),
+          enabled: form.elements.enabled.checked
+        };
+        if (!id || !data.question.en || !data.answer.en) return Promise.reject(new Error("請至少填寫代碼、英文問題與英文答案"));
+        return withBusy(isNew ? "新增 Q&A" : "更新 Q&A", function () { return upsertQa(data, isNew); })
+          .then(renderQa);
+      }
+    });
+  }
+
   // ------------------------------------------------------------------ tabs --
 
   function switchTab(name) {
     $all(".admin-tab").forEach(function (b) { b.classList.toggle("active", b.dataset.tab === name); });
-    ["categories", "products", "types", "manuals"].forEach(function (n) {
+    ["categories", "products", "types", "manuals", "qa"].forEach(function (n) {
       $("#panel-" + n).hidden = n !== name;
     });
   }
 
   function renderAll() {
-    renderCategories(); renderProducts(); renderTypes(); renderManuals();
+    renderCategories(); renderProducts(); renderTypes(); renderManuals(); renderQa();
   }
 
   // -------------------------------------------------------------- bootstrap --

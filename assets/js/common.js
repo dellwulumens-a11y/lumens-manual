@@ -5,7 +5,7 @@
 (function (global) {
   var I18N = global.LumensI18n;
   var DATA = global.LumensData;
-  var SITE_VERSION = "V1.1.0";
+  var SITE_VERSION = "V1.1.1";
   var GA_MEASUREMENT_ID = "G-852D5TWW99";
 
   function initAnalytics(pageKey, lang) {
@@ -53,7 +53,8 @@
     var nav = [
       { key: "home", href: "index.html", label: t.nav.home },
       { key: "products", href: "products.html", label: t.nav.byProduct },
-      { key: "types", href: "manual-types.html", label: t.nav.byType }
+      { key: "types", href: "manual-types.html", label: t.nav.byType },
+      { key: "qa", href: "qa.html", label: t.nav.qa }
     ];
     var navHtml = nav.map(function (n) {
       var current = n.key === pageKey ? ' aria-current="page"' : "";
@@ -154,7 +155,7 @@
 
   /**
    * Renders header/footer, resolves language + UI strings + shared data,
-   * and returns { t, lang, categories, types, manualsIndex } for the page's
+  * and returns { t, lang, categories, types, manualsIndex, qa } for the page's
    * own render function to use.
    */
   function init(pageKey) {
@@ -166,9 +167,10 @@
       I18N.load(lang),
       DATA.getCategories(),
       DATA.getTypes(),
-      DATA.getManualsIndex()
+      DATA.getManualsIndex(),
+      DATA.getQa()
     ]).then(function (res) {
-      var t = res[0], categories = res[1], types = res[2], manualsIndex = res[3];
+      var t = res[0], categories = res[1], types = res[2], manualsIndex = res[3], qa = res[4];
 
       var headerEl = document.getElementById("site-header");
       if (headerEl) headerEl.innerHTML = renderHeader(t, lang, pageKey);
@@ -179,7 +181,7 @@
       var titleEl = document.querySelector("title[data-i18n-site-name]");
       if (titleEl) titleEl.textContent = t.site.name;
 
-      return { t: t, lang: lang, categories: categories, types: types, manualsIndex: manualsIndex, esc: esc };
+      return { t: t, lang: lang, categories: categories, types: types, manualsIndex: manualsIndex, qa: qa, esc: esc };
     });
   }
 

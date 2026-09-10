@@ -29,6 +29,10 @@
     return fetchJson("data/manuals-index.json");
   }
 
+  function getQa() {
+    return fetchJson("data/qa.json").then(function (d) { return d.items || []; });
+  }
+
   /** Flatten categories into a single product list, each tagged with its category. */
   function flattenProducts(categories) {
     var out = [];
@@ -99,6 +103,7 @@
     getCategories: getCategories,
     getTypes: getTypes,
     getManualsIndex: getManualsIndex,
+    getQa: getQa,
     flattenProducts: flattenProducts,
     findProduct: findProduct,
     isProductVisible: isProductVisible,

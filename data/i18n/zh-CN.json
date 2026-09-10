@@ -7,6 +7,7 @@
   "nav": {
     "byProduct": "按产品浏览",
     "byType": "按文件类型浏览",
+    "qa": "Q&A",
     "search": "搜索",
     "home": "首页",
     "navigation": "主导航"
@@ -71,6 +72,11 @@
     "allLanguages": "所有语言",
     "clearFilters": "清除筛选",
     "searchPrompt": "输入型号、产品名称或关键字来寻找手册。"
+  },
+  "qa": {
+    "title": "常见问题与解答",
+    "description": "查看 Lumens 产品与手册相关的常见问题。",
+    "empty": "目前尚未发布任何问答。"
   },
   "footer": {
     "note": "Lumens Digital Optics Inc. — 内部手册中心，测试构建版本。",

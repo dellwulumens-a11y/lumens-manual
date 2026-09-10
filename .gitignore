@@ -1,0 +1,11 @@
+.env
+*.local
+
+# Local Directus/PostgreSQL data
+.directus/
+postgres-data/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/

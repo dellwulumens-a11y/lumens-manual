@@ -7,6 +7,7 @@
   "nav": {
     "byProduct": "By Product",
     "byType": "By Document Type",
+    "qa": "Q&A",
     "search": "Search",
     "home": "Home",
     "navigation": "Main navigation"
@@ -71,6 +72,11 @@
     "allLanguages": "All languages",
     "clearFilters": "Clear filters",
     "searchPrompt": "Enter a model, product name, or keyword to find a manual."
+  },
+  "qa": {
+    "title": "Questions & Answers",
+    "description": "Find answers to common questions about Lumens products and manuals.",
+    "empty": "No questions and answers have been published yet."
   },
   "footer": {
     "note": "Lumens Digital Optics Inc. — Internal manual center, draft build.",
