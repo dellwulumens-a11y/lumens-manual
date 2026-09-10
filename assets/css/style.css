@@ -505,7 +505,8 @@ ul{margin:0; padding:0;}
 .footer-grid h5{font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--brand); font-weight:800; margin-bottom:12px;}
 .footer-grid ul{display:flex; flex-direction:column; gap:8px;}
 .footer-grid a{color:var(--ink-soft); font-size:13.5px;}
-.footer-note{border-top:1px solid var(--line-strong); padding-top:18px; font-size:12.5px; color:var(--ink-faint);}
+.footer-note{border-top:1px solid var(--line-strong); padding-top:18px; font-size:12.5px; color:var(--ink-faint); display:flex; justify-content:space-between; gap:16px;}
+.site-version{font-family:var(--font-mono); white-space:nowrap;}
 
 /* ---------------------------------- misc -------------------------------------- */
 .state-msg{padding:60px 24px; text-align:center; color:var(--ink-faint);}

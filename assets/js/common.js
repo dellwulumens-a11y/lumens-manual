@@ -5,6 +5,7 @@
 (function (global) {
   var I18N = global.LumensI18n;
   var DATA = global.LumensData;
+  var SITE_VERSION = "V1.1.0";
   var GA_MEASUREMENT_ID = "G-852D5TWW99";
 
   function initAnalytics(pageKey, lang) {
@@ -107,7 +108,7 @@
           "<div><h5>" + esc(t.footer.productLine) + '</h5><ul>' + catLinks + "</ul></div>" +
           "<div><h5>" + esc(t.footer.documentType) + '</h5><ul>' + typeLinks + "</ul></div>" +
         "</div>" +
-        '<div class="footer-note">' + esc(t.footer.note) + "</div>" +
+        '<div class="footer-note">' + esc(t.footer.note) + '<span class="site-version">' + SITE_VERSION + "</span></div>" +
       "</div>"
     );
   }
