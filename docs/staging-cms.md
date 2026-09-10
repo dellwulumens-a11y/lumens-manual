@@ -30,15 +30,16 @@ Never commit `.env`, production credentials, or customer files.
 
 ## 2. Google account login
 
-For staging, create a Google OAuth Web application and use the staging Directus URL as the authorized origin. The redirect URI is:
+1. Sign in to https://console.cloud.google.com/ with a company Google account and create a project (e.g. "Lumens Manual Staging").
+2. Under APIs & Services > OAuth consent screen, set **User Type = Internal**. This is what restricts sign-in to `@lumens.com.tw` accounts only — an external Google account cannot authenticate at all. If "Internal" is not offered, the account/project is not recognized as part of the Workspace org; involve the Workspace admin or fall back to an "External" app plus a domain check.
+3. Fill in the basic app info (name, support email) and save.
+4. Under Credentials > Create Credentials > OAuth client ID, choose **Web application**, and add this authorized redirect URI (use the real staging hostname instead of `localhost` for a shared server):
+   ```text
+   http://localhost:8055/auth/login/google/callback
+   ```
+5. Copy the generated Client ID and Client Secret into `.env` as `AUTH_GOOGLE_CLIENT_ID` / `AUTH_GOOGLE_CLIENT_SECRET`, and set `AUTH_PROVIDERS=google`.
 
-```text
-http://localhost:8055/auth/login/google/callback
-```
-
-Set `AUTH_PROVIDERS=google` and fill in the Google client ID and secret in `.env`. For a shared staging server, replace the localhost values with the real staging hostname before creating the OAuth credentials.
-
-Use a Google Workspace domain restriction at the identity-provider or reverse-proxy layer. Keep `AUTH_GOOGLE_ALLOW_PUBLIC_REGISTRATION=false`; create and assign Directus roles for approved staff accounts.
+Keep `AUTH_GOOGLE_ALLOW_PUBLIC_REGISTRATION=false`. New SSO logins still need a Directus role to have any permissions — run `tools/setup-directus-qa.js` first (it creates and prints the id of the "TS Q&A Editor" role) and set that id as `AUTH_GOOGLE_DEFAULT_ROLE_ID` so first-time company logins are automatically provisioned into it instead of a no-permission account.
 
 ## 3. Initial Directus collections
 

@@ -1,0 +1,12 @@
+{
+  "name": "directus-extension-restrict-email-domain",
+  "version": "1.0.0",
+  "description": "Rejects new Directus accounts whose email is outside an allowed domain list (used to restrict Google SSO to company accounts).",
+  "type": "module",
+  "directus:extension": {
+    "type": "hook",
+    "path": "index.js",
+    "source": "index.js",
+    "host": "^11.0.0"
+  }
+}

@@ -102,15 +102,12 @@ async function main() {
     }
   }
 
-  try {
-    await api("/roles/" + roleId + "/policies", { method: "POST", body: JSON.stringify({ policy: policyId }) });
+  const access = await api("/access?filter[role][_eq]=" + roleId + "&filter[policy][_eq]=" + policyId);
+  if (access.data && access.data.length) {
+    console.log("Policy already attached to role");
+  } else {
+    await api("/access", { method: "POST", body: JSON.stringify({ role: roleId, policy: policyId }) });
     console.log("Attached policy to role");
-  } catch (error) {
-    const roleDetail = await api("/roles/" + roleId + "?fields=*");
-    const policyDetail = await api("/policies/" + policyId + "?fields=*");
-    console.log("Role fields: " + Object.keys(roleDetail.data).join(","));
-    console.log("Policy fields: " + Object.keys(policyDetail.data).join(","));
-    console.log("Policy attachment needs the Directus UI or relation endpoint: " + error.message);
   }
 
   console.log("Directus Q&A schema setup complete.");

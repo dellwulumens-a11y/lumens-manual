@@ -43,13 +43,15 @@ services:
       AUTH_GOOGLE_CLIENT_SECRET: ${AUTH_GOOGLE_CLIENT_SECRET:-}
       AUTH_GOOGLE_ISSUER_URL: ${AUTH_GOOGLE_ISSUER_URL:-https://accounts.google.com}
       AUTH_GOOGLE_IDENTIFIER_KEY: ${AUTH_GOOGLE_IDENTIFIER_KEY:-email}
-      AUTH_GOOGLE_ALLOW_PUBLIC_REGISTRATION: "false"
+      AUTH_GOOGLE_ALLOW_PUBLIC_REGISTRATION: "true"
+      AUTH_GOOGLE_DEFAULT_ROLE_ID: ${AUTH_GOOGLE_DEFAULT_ROLE_ID:-}
       AUTH_GOOGLE_SCOPE: "openid profile email"
+      ALLOWED_EMAIL_DOMAINS: ${ALLOWED_EMAIL_DOMAINS:-lumens.com.tw}
+      ALLOWED_EMAILS: ${ALLOWED_EMAILS:-}
     volumes:
       - directus-uploads:/directus/uploads
-      - directus-extensions:/directus/extensions
+      - ./directus/extensions:/directus/extensions
 
 volumes:
   directus-db:
   directus-uploads:
-  directus-extensions:
