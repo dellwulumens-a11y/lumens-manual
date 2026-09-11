@@ -41,12 +41,12 @@ async function upsert(collection, id, data) {
   }
 }
 
-async function uploadFile(filePath) {
+async function uploadFile(filePath, filename, title) {
   const buffer = fs.readFileSync(filePath);
-  const filename = path.basename(filePath);
   const ext = path.extname(filename).toLowerCase();
   const type = ext === ".pdf" ? "application/pdf" : "text/html";
   const form = new FormData();
+  form.append("title", title);
   form.append("file", new Blob([buffer], { type }), filename);
   const response = await fetch(baseUrl + "/files", { method: "POST", headers: { Authorization: "Bearer " + token }, body: form });
   const body = await response.json().catch(() => ({}));
@@ -132,7 +132,12 @@ async function main() {
       if (format === "fragment") {
         payload.content = fs.readFileSync(m.path, "utf8");
       } else {
-        payload.file = await uploadFile(m.path);
+        // Source files are only named by language (e.g. "en.pdf") since the
+        // folder structure already encodes product/type; Directus's file
+        // library is flat, so give each upload a filename that's
+        // identifiable on its own once it's out of that folder structure.
+        const filename = m.productId + "-" + m.typeId + "-" + m.lang + path.extname(m.path).toLowerCase();
+        payload.file = await uploadFile(m.path, filename, m.title);
       }
 
       await request("/items/manuals", { method: "POST", headers: jsonHeaders, body: JSON.stringify(payload) });

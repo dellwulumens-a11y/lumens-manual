@@ -7,10 +7,10 @@
   var cache = {};
 
   // CMS source toggle: the live site always reads the static JSON files
-  // below. Passing ?cms=directus once (e.g. while testing the V2.0 backend
-  // locally) switches every page to read from Directus instead and remembers
-  // the choice in this browser via localStorage; ?cms=static switches back.
-  var DIRECTUS_URL = "http://localhost:8055";
+  // below. Passing ?cms=directus once (e.g. while testing the V2.0 backend)
+  // switches every page to read from Directus instead and remembers the
+  // choice in this browser via localStorage; ?cms=static switches back.
+  var DIRECTUS_URL = "https://lumens-manual-directus.zeabur.app";
   function cmsSource() {
     try {
       var requested = new URLSearchParams(global.location.search).get("cms");
