@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumens 手冊中心藍圖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+TC:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a2647;
+    --bg-panel:#0f3460;
+    --bg-panel-2:#0d2c52;
+    --grid-line:rgba(142,202,230,0.09);
+    --line:#3f6f9c;
+    --line-bright:#8ecae6;
+    --ink:#eaf4fb;
+    --ink-dim:#93b3cf;
+    --ink-faint:#5d7fa0;
+    --accent:#f4a259;
+    --accent-dim:#c98444;
+    --mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    --sans:'IBM Plex Sans TC', 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{height:auto;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+  img{max-width:100%;}
+  [hidden]{display:none!important;}
+
+  .sheet{ max-width:980px; margin:0 auto; padding:28px 20px 40px; }
+
+  .frame{ border:1.5px solid var(--line); border-radius:2px; position:relative; padding:22px clamp(16px,4vw,40px) 30px; }
+  .frame::before, .frame::after, .frame .tick-tl, .frame .tick-br{
+    content:''; position:absolute; width:14px; height:14px; border:1.5px solid var(--line-bright);
+  }
+  .frame::before{ top:-1.5px; left:-1.5px; border-right:none; border-bottom:none; }
+  .frame::after{ bottom:-1.5px; right:-1.5px; border-left:none; border-top:none; }
+  .tick-tl{ top:-1.5px; right:-1.5px; border-left:none; border-bottom:none; }
+  .tick-br{ bottom:-1.5px; left:-1.5px; border-right:none; border-top:none; }
+
+  .titleblock{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; border-bottom:1.5px solid var(--line); padding-bottom:18px; margin-bottom:26px; }
+  .titleblock .eyebrow{ font-family:var(--sans); font-size:12px; letter-spacing:.12em; color:var(--line-bright); font-weight:600; }
+  .titleblock h1{ font-size:clamp(28px,4.4vw,42px); line-height:1.15; margin:8px 0 6px; font-weight:700; text-wrap:balance; }
+  .titleblock .sub{ color:var(--ink-dim); font-size:14.5px; max-width:56ch; }
+  .stampgrid{ display:grid; grid-template-columns:repeat(3,auto); gap:2px; font-family:var(--mono); font-size:10.5px; flex-shrink:0; }
+  .stampgrid div{ border:1px solid var(--line); padding:5px 10px; min-width:96px; }
+  .stampgrid .k{ font-family:var(--sans); color:var(--ink-faint); letter-spacing:.04em; display:block; font-size:9.5px; margin-bottom:2px;}
+  .stampgrid .v{ color:var(--ink); font-weight:600; }
+
+  .legend{ display:flex; gap:22px; flex-wrap:wrap; font-size:13px; color:var(--ink-dim); margin-bottom:34px; }
+  .legend span.dot{ display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; position:relative; top:-1px; }
+  .dot.live{ background:var(--line-bright); box-shadow:0 0 0 3px rgba(142,202,230,.18); }
+  .dot.prog{ background:var(--accent); box-shadow:0 0 0 3px rgba(244,162,89,.18); }
+  .dot.gap{ background:transparent; border:1.5px solid var(--ink-faint); }
+
+  .panel{ margin-bottom:44px; }
+  .panel-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:14px; }
+  .panel-num{ font-family:var(--mono); font-size:12px; color:var(--line-bright); border:1px solid var(--line); padding:2px 7px; }
+  .panel-head h2{ font-size:19px; margin:0; font-weight:600; text-wrap:balance; }
+  .panel-desc{ color:var(--ink-dim); font-size:14px; max-width:70ch; margin:0 0 18px; }
+
+  figure{ margin:0 0 8px; }
+  figcaption{ font-size:12px; color:var(--ink-faint); margin-top:8px; }
+  svg text{ font-family:var(--sans); fill:var(--ink); }
+  .diagram-wrap{ overflow-x:auto; }
+  .diagram-wrap svg{ display:block; max-width:100%; height:auto; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  caption{ text-align:left; font-size:12px; color:var(--ink-faint); margin-bottom:8px; }
+  th, td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-size:11.5px; letter-spacing:.03em; color:var(--ink-faint); font-weight:600; border-bottom:1.5px solid var(--line); }
+  td.mono, th.mono{ font-family:var(--mono); font-size:12px; }
+  .table-scroll{ overflow-x:auto; }
+  tr.status-live td:first-child{ box-shadow:inset 3px 0 0 var(--line-bright); }
+  tr.status-prog td:first-child{ box-shadow:inset 3px 0 0 var(--accent); }
+  tr.status-gap td:first-child{ box-shadow:inset 3px 0 0 var(--ink-faint); }
+
+  .note{ border:1px dashed var(--ink-faint); padding:14px 16px; font-size:13.5px; color:var(--ink-dim); margin-top:10px; }
+  .note b{ color:var(--ink); }
+  .note-title{ font-size:11.5px; letter-spacing:.06em; color:var(--accent); font-weight:700; display:block; margin-bottom:6px; }
+
+  code{ font-family:var(--mono); background:var(--bg-panel-2); border:1px solid var(--line); padding:1px 6px; border-radius:2px; font-size:12px; color:var(--line-bright); }
+
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  @media (max-width:640px){ .two-col{ grid-template-columns:1fr; } .titleblock{ flex-direction:column; align-items:flex-start; } .stampgrid{ grid-template-columns:repeat(3,1fr); width:100%; } }
+
+  .footblock{ margin-top:46px; padding-top:18px; border-top:1.5px solid var(--line); display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font-size:12px; color:var(--ink-faint); }
+  .footblock .rev-table{ border-collapse:collapse; }
+  .footblock .rev-table td{ border:1px solid var(--line); padding:4px 10px; font-size:11px; }
+  .footblock .sheet-no{ font-family:var(--mono); color:var(--line-bright); font-size:13px; align-self:flex-end; }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="frame">
+    <span class="tick-tl"></span><span class="tick-br"></span>
+
+    <div class="titleblock">
+      <div>
+        <span class="eyebrow">系統架構圖・現況</span>
+        <h1>Lumens 手冊中心</h1>
+        <p class="sub">產品手冊與問答網站：目前正式上線的靜態版本，以及正在並行運作的 Directus／PostgreSQL 後端（「V2.0」）。</p>
+      </div>
+      <div class="stampgrid">
+        <div><span class="k">繪製</span><span class="v">Claude Code</span></div>
+        <div><span class="k">日期</span><span class="v">2026-09-11</span></div>
+        <div><span class="k">圖號</span><span class="v">1 / 1</span></div>
+        <div><span class="k">版次</span><span class="v">V2.0-wip</span></div>
+        <div><span class="k">比例</span><span class="v">系統級</span></div>
+        <div><span class="k">狀態</span><span class="v" style="color:var(--accent)">混合中</span></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><span class="dot live"></span>正式上線</span>
+      <span><span class="dot prog"></span>已建置測試完成，尚未成為預設</span>
+      <span><span class="dot gap"></span>尚未開始／暫緩</span>
+    </div>
+
+    <!-- 01 -->
+    <div class="panel">
+      <div class="panel-head"><span class="panel-num">01</span><h2>系統總覽</h2></div>
+      <p class="panel-desc">同一套程式碼、同一個 repo，兩種資料來源。前台預設仍讀取原本的靜態 JSON 檔案；瀏覽器加上一個切換參數後，會改讀新的 Directus API。每次 push 到 main，前台跟 Directus 服務都會重新部署——不管這次改動有沒有牽涉到 Directus。</p>
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 920 400" role="img" aria-label="瀏覽器向 GitHub Pages 請求網站，預設讀取 repo 裡的靜態 JSON 檔案，或在帶有 cms=directus 參數時改讀 Zeabur 上的 Directus API。Directus 讀寫 PostgreSQL，並透過 Google OAuth 驗證員工登入。推送到 GitHub repo 會同時讓 GitHub Pages 與 Directus 服務重新部署。">
+          <defs>
+            <marker id="bp-arrow-zh" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+              <polygon points="0,0 8,3.5 0,7" fill="var(--line-bright)"/>
+            </marker>
+            <marker id="bp-arrow-dim-zh" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+              <polygon points="0,0 8,3.5 0,7" fill="var(--line)"/>
+            </marker>
+          </defs>
+
+          <rect x="380" y="14" width="160" height="42" fill="none" stroke="var(--line-bright)" stroke-width="1.5"/>
+          <text x="460" y="39" text-anchor="middle" font-size="12" font-weight="600">GitHub repo · main</text>
+
+          <line x1="440" y1="56" x2="230" y2="96" stroke="var(--line-bright)" stroke-width="1.5" marker-end="url(#bp-arrow-zh)"/>
+          <text x="270" y="75" font-size="11" fill="var(--ink-dim)">push → 部署</text>
+          <line x1="480" y1="56" x2="690" y2="96" stroke="var(--line-bright)" stroke-width="1.5" marker-end="url(#bp-arrow-zh)"/>
+          <text x="565" y="75" font-size="11" fill="var(--ink-dim)">push → 重新建置（任何檔案）</text>
+
+          <rect x="130" y="106" width="200" height="42" fill="none" stroke="var(--ink-dim)" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <text x="230" y="131" text-anchor="middle" font-size="12">訪客瀏覽器</text>
+
+          <line x1="230" y1="148" x2="230" y2="180" stroke="var(--ink-dim)" stroke-width="1.5" marker-end="url(#bp-arrow-dim-zh)"/>
+          <text x="238" y="167" font-size="10.5" fill="var(--ink-dim)">GET /</text>
+
+          <rect x="110" y="180" width="240" height="52" fill="none" stroke="var(--line-bright)" stroke-width="1.5"/>
+          <text x="230" y="203" text-anchor="middle" font-size="12" font-weight="600">GitHub Pages</text>
+          <text x="230" y="219" text-anchor="middle" font-size="10" fill="var(--ink-dim)">靜態 HTML／CSS／JS</text>
+
+          <line x1="180" y1="232" x2="120" y2="290" stroke="var(--line-bright)" stroke-width="1.5" marker-end="url(#bp-arrow-zh)"/>
+          <text x="30" y="264" font-size="11" fill="var(--ink-dim)">預設</text>
+          <line x1="290" y1="232" x2="380" y2="290" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#bp-arrow-zh)"/>
+          <text x="300" y="264" font-size="10.5" fill="var(--accent)">?cms=directus</text>
+
+          <rect x="20" y="290" width="200" height="46" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="120" y="311" text-anchor="middle" font-size="11.5">repo 裡的 data/*.json</text>
+          <text x="120" y="326" text-anchor="middle" font-size="10" fill="var(--ink-dim)">256 筆手冊、66 個產品</text>
+
+          <rect x="360" y="290" width="200" height="46" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+          <text x="460" y="311" text-anchor="middle" font-size="11.5" font-weight="600">Directus API</text>
+          <text x="460" y="326" text-anchor="middle" font-size="10" fill="var(--ink-dim)">lumens-manual-directus.zeabur.app</text>
+
+          <rect x="690" y="180" width="200" height="46" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="790" y="201" text-anchor="middle" font-size="11.5">Directus 服務</text>
+          <text x="790" y="216" text-anchor="middle" font-size="10" fill="var(--ink-dim)">Zeabur・自訂 Docker 映像檔</text>
+
+          <line x1="790" y1="226" x2="790" y2="290" stroke="var(--line)" stroke-width="1.5" marker-end="url(#bp-arrow-dim-zh)"/>
+          <rect x="690" y="290" width="200" height="46" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="790" y="311" text-anchor="middle" font-size="11.5">PostgreSQL</text>
+          <text x="790" y="326" text-anchor="middle" font-size="10" fill="var(--ink-dim)">結構定義＋內容＋檔案</text>
+
+          <line x1="560" y1="313" x2="690" y2="313" stroke="var(--line)" stroke-width="1.5" marker-end="url(#bp-arrow-dim-zh)"/>
+          <text x="590" y="305" font-size="9.5" fill="var(--ink-dim)">讀取</text>
+
+          <line x1="560" y1="298" x2="690" y2="203" stroke="var(--ink-faint)" stroke-width="1.5" marker-end="url(#bp-arrow-dim-zh)"/>
+          <text x="600" y="240" font-size="9.5" fill="var(--ink-faint)">登入</text>
+
+          <rect x="690" y="80" width="200" height="46" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <text x="790" y="101" text-anchor="middle" font-size="11.5">Google OAuth</text>
+          <text x="790" y="116" text-anchor="middle" font-size="10" fill="var(--ink-dim)">＋網域限制擴充套件</text>
+          <line x1="790" y1="126" x2="790" y2="180" stroke="var(--ink-faint)" stroke-width="1.5" marker-end="url(#bp-arrow-dim-zh)"/>
+        </svg>
+      </div>
+      <figcaption>圖 1 — 瀏覽器到資料來源的請求路徑，以及 push 到 main 會重新部署的兩個對象。</figcaption>
+    </div>
+
+    <!-- 02 -->
+    <div class="panel">
+      <div class="panel-head"><span class="panel-num">02</span><h2>V1（上線中）vs. V2.0（進行中）</h2></div>
+      <p class="panel-desc">同一份前台程式碼，兩種餵資料的方式。V1 是現在每位客戶看到的版本。V2.0 已經完整建置並測試過，加上 <code>?cms=directus</code> 就能連到，但還不是預設值。</p>
+      <div class="two-col">
+        <div>
+          <table>
+            <caption><span class="dot live"></span>V1 — 靜態 JSON ＋ admin.js</caption>
+            <tbody>
+              <tr><td>內容儲存</td><td>JSON 檔案直接 commit 進 repo</td></tr>
+              <tr><td>編輯方式</td><td>admin/ 後台介面 → 每位編輯者用各自的 GitHub Token 直接 commit</td></tr>
+              <tr><td>存取控管</td><td>只要持有具寫入權限的 Token 就能編輯</td></tr>
+              <tr><td>發布流程</td><td>沒有草稿機制——存檔後約 30～90 秒直接上線</td></tr>
+              <tr><td>搜尋</td><td><code>data/search-index.json</code>，由 GitHub Action 自動重建</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <caption><span class="dot prog"></span>V2.0 — Directus ＋ PostgreSQL</caption>
+            <tbody>
+              <tr><td>內容儲存</td><td>PostgreSQL 裡的 5 個 Directus collection，含上傳的 PDF 檔案</td></tr>
+              <tr><td>編輯方式</td><td>Directus 後台介面，不需要 GitHub Token</td></tr>
+              <tr><td>存取控管</td><td>限制只有 <code>@lumens.com.tw</code> 的 Google 帳號能登入</td></tr>
+              <tr><td>發布流程</td><td>每筆資料有草稿→已發布的狀態</td></tr>
+              <tr><td>搜尋</td><td>還沒接上——目前仍讀取 V1 的索引（缺口，見第 06 節）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="panel">
+      <div class="panel-head"><span class="panel-num">03</span><h2>Directus 內容資料模型</h2></div>
+      <p class="panel-desc">沿用原本 JSON 檔案的結構，改成真正的關聯式資料。<code>qa_items</code> 是獨立的——它用純文字標籤記錄適用產品型號，不是真正的外鍵關聯，因為 Q&amp;A 功能比產品／手冊的 schema 更早建立。</p>
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 900 210" role="img" aria-label="product_categories 對應多筆 products，products 對應多筆 manuals，manual_types 對應多筆 manuals，manuals 可選擇性連到 directus_files 的上傳檔案。qa_items 是獨立存在的，用純文字標籤記錄適用產品，不是真正的外鍵。">
+          <defs>
+            <marker id="er-arrow-zh" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+              <polygon points="0,0 8,3.5 0,7" fill="var(--line-bright)"/>
+            </marker>
+          </defs>
+          <rect x="10" y="20" width="150" height="44" fill="none" stroke="var(--line-bright)" stroke-width="1.5"/>
+          <text x="85" y="46" text-anchor="middle" font-size="11.5" font-weight="600">product_categories</text>
+
+          <line x1="160" y1="42" x2="230" y2="42" stroke="var(--line-bright)" stroke-width="1.5" marker-end="url(#er-arrow-zh)"/>
+          <text x="163" y="34" font-size="9.5" fill="var(--ink-dim)">1：N</text>
+
+          <rect x="230" y="20" width="120" height="44" fill="none" stroke="var(--line-bright)" stroke-width="1.5"/>
+          <text x="290" y="46" text-anchor="middle" font-size="11.5" font-weight="600">products</text>
+
+          <line x1="350" y1="42" x2="420" y2="42" stroke="var(--line-bright)" stroke-width="1.5" marker-end="url(#er-arrow-zh)"/>
+          <text x="353" y="34" font-size="9.5" fill="var(--ink-dim)">1：N</text>
+
+          <rect x="420" y="20" width="120" height="44" fill="none" stroke="var(--line-bright)" stroke-width="1.5"/>
+          <text x="480" y="46" text-anchor="middle" font-size="11.5" font-weight="600">manuals</text>
+
+          <rect x="420" y="110" width="140" height="44" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="490" y="136" text-anchor="middle" font-size="11.5">manual_types</text>
+          <line x1="490" y1="110" x2="480" y2="64" stroke="var(--line-bright)" stroke-width="1.5" marker-end="url(#er-arrow-zh)"/>
+          <text x="498" y="90" font-size="9.5" fill="var(--ink-dim)">1：N</text>
+
+          <rect x="630" y="20" width="150" height="44" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="705" y="40" text-anchor="middle" font-size="11.5">directus_files</text>
+          <text x="705" y="54" text-anchor="middle" font-size="9.5" fill="var(--ink-dim)">僅 pdf／standalone 用</text>
+          <line x1="540" y1="42" x2="630" y2="42" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#er-arrow-zh)"/>
+          <text x="548" y="34" font-size="9.5" fill="var(--ink-dim)">0..1</text>
+
+          <rect x="650" y="140" width="170" height="52" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+          <text x="735" y="162" text-anchor="middle" font-size="11.5" font-weight="600">qa_items</text>
+          <text x="735" y="178" text-anchor="middle" font-size="9.5" fill="var(--ink-dim)">products：純文字標籤</text>
+        </svg>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <caption>值得知道的欄位</caption>
+          <thead><tr><th>Collection</th><th>重要欄位</th><th>公開讀取</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">product_categories</td><td class="mono">id, order, name_en/zh_cn/zh_tw, description_*</td><td>全部可讀</td></tr>
+            <tr><td class="mono">manual_types</td><td class="mono">id, order, name_en/zh_cn/zh_tw</td><td>全部可讀</td></tr>
+            <tr><td class="mono">products</td><td class="mono">id, category→, model, audiences[]（適用市場）, manuals[]（規劃的手冊類型）</td><td>全部可讀</td></tr>
+            <tr><td class="mono">manuals</td><td class="mono">product→, type→, lang, format, content / file→, status</td><td>僅 <code>status = published</code></td></tr>
+            <tr><td class="mono">qa_items</td><td class="mono">question_*/answer_* ×3 語言, products[], date_updated</td><td>僅 <code>status = published</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="panel">
+      <div class="panel-head"><span class="panel-num">04</span><h2>員工登入與網域限制的難題</h2></div>
+      <p class="panel-desc"><code>lumens.com.tw</code> 的信箱其實是用 Microsoft 365，不是 Google Workspace——MX 紀錄指向 <code>mail.protection.outlook.com</code> 可以證實這點。這代表沒辦法用 Google 自己的「Internal」機構限制（那只認得 Google Cloud Identity 機構內的帳號）。解法改成放在 Directus 這一層處理。</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>層級</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">Google OAuth 用戶端</td><td>目標對象：External／測試中。任何完成登入的 Google 帳號都能通過（包含個人 Gmail）。</td></tr>
+            <tr><td class="mono">restrict-email-domain 擴充套件</td><td>自訂 Directus 擴充套件——信箱網域不符合 <code>ALLOWED_EMAIL_DOMAINS</code>（<code>lumens.com.tw</code>），且不在 <code>ALLOWED_EMAILS</code> 例外名單裡的話，就拒絕建立帳號。</td></tr>
+            <tr><td class="mono">TS Q&amp;A Editor 角色</td><td>透過 <code>AUTH_GOOGLE_DEFAULT_ROLE_ID</code> 自動指派給第一次登入的帳號。可以編輯 qa_items 與手冊相關的檔案／資料夾——不是管理員權限。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="note-title">踩過的坑</span>
+        用 <code>variable env</code> 設定 Zeabur 環境變數時，是「整批覆蓋」、不是新增合併——第二次設定 Google 相關變數時，不小心把第一批的 <code>KEY</code>／<code>SECRET</code>／資料庫連線資訊全部洗掉了。之所以沒有立刻發現，是因為當時正在跑的容器還沿用記憶體裡的舊環境變數，直到下一次完整重新建置才會真的套用新設定——而那次重建剛好是一個跟 Directus 完全無關的前端改動所觸發的。以後每次都要準備一份包含<b>全部</b>變數的完整 <code>.env</code> 檔案一起套用，或改用 <code>variable create</code> 做新增式的修改。
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="panel">
+      <div class="panel-head"><span class="panel-num">05</span><h2>部署架構</h2></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>項目</th><th>位置</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>前台網站</td><td>GitHub Pages</td><td>每次 push 到 <code>main</code> 都會部署，約 30～90 秒</td></tr>
+            <tr><td>Directus</td><td>Zeabur・免費方案・新加坡</td><td>從 repo 根目錄的 <code>Dockerfile</code> 建置（內含擴充套件）；任何 push 都會觸發重新建置，CLI 沒有提供限定監看路徑的功能</td></tr>
+            <tr><td>PostgreSQL</td><td>Zeabur 市集附加元件</td><td>同一個專案內，只走內部私有網路</td></tr>
+            <tr><td>檔案儲存</td><td>Zeabur Volume → <code>/directus/uploads</code></td><td>247 個 PDF＋2 個獨立頁面，約 575MB——沒有另外接物件儲存服務</td></tr>
+            <tr><td>網域</td><td><code>lumens-manual-directus.zeabur.app</code></td><td>免費子網域，自動 HTTPS；還沒設定 <code>lumens.com.tw</code> 底下的自訂子網域</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="panel">
+      <div class="panel-head"><span class="panel-num">06</span><h2>遷移檢查清單</h2></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>項目</th><th>狀態</th></tr></thead>
+          <tbody>
+            <tr class="status-live"><td>Directus schema（5 個 collection、關聯、權限）</td><td><span class="dot live"></span>已完成</td></tr>
+            <tr class="status-live"><td>內容遷移（10 個分類、66 個產品、256 筆手冊）</td><td><span class="dot live"></span>已完成</td></tr>
+            <tr class="status-live"><td>Google 登入限制在 <code>@lumens.com.tw</code></td><td><span class="dot live"></span>已完成</td></tr>
+            <tr class="status-live"><td>Directus 正式部署上線（Zeabur）</td><td><span class="dot live"></span>已完成</td></tr>
+            <tr class="status-prog"><td>前台透過 <code>?cms=directus</code> 讀取 Directus</td><td><span class="dot prog"></span>可運作，選擇性啟用</td></tr>
+            <tr class="status-gap"><td>全文搜尋讀取 Directus 內容</td><td><span class="dot gap"></span>尚未開始——仍是 V1 索引</td></tr>
+            <tr class="status-gap"><td>多人同時編輯測試（2 位員工同時操作）</td><td><span class="dot gap"></span>需要第二位測試者</td></tr>
+            <tr class="status-gap"><td>Directus 的 <code>lumens.com.tw</code> 自訂子網域</td><td><span class="dot gap"></span>暫緩</td></tr>
+            <tr class="status-gap"><td>Azure Blob Storage</td><td><span class="dot gap"></span>已捨棄——Zeabur Volume 已足夠</td></tr>
+            <tr class="status-gap"><td>讓 Directus 成為預設（不用再切換）</td><td><span class="dot gap"></span>上述項目都通過後才進行</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="footblock">
+      <div>
+        <table class="rev-table">
+          <tbody>
+            <tr><td>版次</td><td>日期</td><td>說明</td></tr>
+            <tr><td>A</td><td>2026-09-10</td><td>Directus schema、內容遷移、Google 登入</td></tr>
+            <tr><td>B</td><td>2026-09-11</td><td>Zeabur 部署、前台切換開關、介面修正</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sheet-no">LMC-ARCH-01</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
