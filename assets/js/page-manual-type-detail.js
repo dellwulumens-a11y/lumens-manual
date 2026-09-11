@@ -42,13 +42,18 @@
     var html = Object.keys(byCategory).map(function (catId) {
       var cat = DATA.findCategory(ctx.categories, catId);
       var rows = byCategory[catId].map(function (p) {
-        var langs = DATA.langsForManual(ctx.manualsIndex, p.id, typeId);
+        var langs = DATA.langsForManual(ctx.manualsIndex, p.id, typeId).slice().sort(function (a, b) {
+          return I18N.SUPPORTED.indexOf(a) - I18N.SUPPORTED.indexOf(b);
+        });
         var preferredLang = langs.indexOf(lang) !== -1 ? lang : langs[0];
         var href = preferredLang
           ? I18N.urlFor("manual-viewer.html", lang, { product: p.id, type: typeId, lang: preferredLang })
           : I18N.urlFor("product-detail.html", lang, { id: p.id });
         var langPills = langs.length
-          ? langs.map(function (l) { return '<span class="lang-pill">' + l + "</span>"; }).join("")
+          ? langs.map(function (l) {
+              var langHref = I18N.urlFor("manual-viewer.html", lang, { product: p.id, type: typeId, lang: l });
+              return '<a class="lang-pill" href="' + langHref + '">' + l + "</a>";
+            }).join("")
           : '<span class="lang-pill">' + esc(t.common.noDocumentsYet) + "</span>";
         return (
           '<div class="manual-row">' +

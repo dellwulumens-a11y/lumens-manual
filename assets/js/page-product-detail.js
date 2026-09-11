@@ -47,7 +47,9 @@
     var html = declaredTypes.map(function (typeId) {
       var ty = typeMap[typeId];
       if (!ty) return "";
-      var langs = DATA.langsForManual(ctx.manualsIndex, product.id, typeId);
+      var langs = DATA.langsForManual(ctx.manualsIndex, product.id, typeId).slice().sort(function (a, b) {
+        return I18N.SUPPORTED.indexOf(a) - I18N.SUPPORTED.indexOf(b);
+      });
       var row;
       if (langs.length) {
         var preferredLang = langs.indexOf(lang) !== -1 ? lang : langs[0];
