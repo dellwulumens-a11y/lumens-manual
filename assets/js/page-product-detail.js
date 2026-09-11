@@ -50,13 +50,15 @@
       var langs = DATA.langsForManual(ctx.manualsIndex, product.id, typeId);
       var row;
       if (langs.length) {
+        var preferredLang = langs.indexOf(lang) !== -1 ? lang : langs[0];
+        var titleHref = I18N.urlFor("manual-viewer.html", lang, { product: product.id, type: typeId, lang: preferredLang });
         var pills = langs.map(function (l) {
           var href = I18N.urlFor("manual-viewer.html", lang, { product: product.id, type: typeId, lang: l });
           return '<a class="lang-pill" href="' + href + '">' + l + "</a>";
         }).join("");
         row = (
           '<div class="manual-row">' +
-            '<div><div class="title">' + esc(I18N.pickLocale(ty.name, lang)) + "</div>" +
+            '<div><div class="title"><a href="' + titleHref + '">' + esc(I18N.pickLocale(ty.name, lang)) + "</a></div>" +
             '<div class="meta">' + esc(t.common.availableIn) + ": " + langs.join(" / ") + "</div></div>" +
             '<div class="langs">' + pills + "</div>" +
           "</div>"

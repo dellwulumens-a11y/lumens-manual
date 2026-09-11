@@ -136,6 +136,19 @@ async function main() {
     console.log("Attached policy to role");
   }
 
+  const publicPolicy = await api("/policies?filter[name][_eq]=%24t:public_label");
+  const publicPolicyId = publicPolicy.data[0].id;
+  const existingPublicRead = await api("/permissions?filter[collection][_eq]=qa_items&filter[action][_eq]=read&filter[policy][_eq]=" + publicPolicyId);
+  if (existingPublicRead.data && existingPublicRead.data.length) {
+    console.log("Public read permission already exists: qa_items");
+  } else {
+    await api("/permissions", {
+      method: "POST",
+      body: JSON.stringify({ collection: "qa_items", action: "read", policy: publicPolicyId, permissions: { status: { _eq: "published" } }, fields: ["*"] })
+    });
+    console.log("Created public read permission: qa_items (published only)");
+  }
+
   console.log("Directus Q&A schema setup complete.");
 }
 
