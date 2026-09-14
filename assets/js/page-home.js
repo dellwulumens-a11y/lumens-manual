@@ -28,7 +28,6 @@
     document.getElementById("entryProduct").innerHTML =
       '<a class="entry-card" href="' + I18N.urlFor("products.html", lang) + '">' +
         '<span class="entry-photo"><img src="assets/images/home/entry-product-highlight.png" alt="" loading="lazy"></span>' +
-        '<span class="badge">' + esc(t.nav.byProduct) + "</span>" +
         "<h3>" + esc(t.home.enterByProductTitle) + "</h3>" +
         "<p>" + esc(t.home.enterByProductDesc) + "</p>" +
         '<span class="chips"><span class="chip">' + chipCamera + '</span><span class="chip">' + chipBox + '</span><span class="chip">' + chipLens + "</span></span>" +
@@ -38,7 +37,6 @@
     document.getElementById("entryType").innerHTML =
       '<a class="entry-card" href="' + I18N.urlFor("manual-types.html", lang) + '">' +
         '<span class="entry-graphic"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="26" y="10" width="48" height="62" rx="6" fill="#25436f"/><rect x="16" y="20" width="48" height="62" rx="6" fill="#2f6fae"/><rect x="24" y="34" width="32" height="4" rx="2" fill="#bcdcff"/><rect x="24" y="44" width="32" height="4" rx="2" fill="#bcdcff" opacity=".7"/><rect x="24" y="54" width="20" height="4" rx="2" fill="#bcdcff" opacity=".5"/></svg></span>' +
-        '<span class="badge">' + esc(t.nav.byType) + "</span>" +
         "<h3>" + esc(t.home.enterByTypeTitle) + "</h3>" +
         "<p>" + esc(t.home.enterByTypeDesc) + "</p>" +
         '<span class="chips"><span class="chip">' + chipGuide + '</span><span class="chip">' + chipInstall + '</span><span class="chip">' + chipQuick + "</span></span>" +
