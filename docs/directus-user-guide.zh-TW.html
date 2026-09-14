@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Directus 後台使用手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+TC:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#0b5fae;
+    --brand-dark:#084a87;
+    --brand-soft:#eaf2fa;
+    --accent:#e8560c;
+    --accent-soft:#fdece2;
+    --ink:#16233a;
+    --ink-dim:#4b6079;
+    --ink-faint:#7f93ac;
+    --line:#d7e2ee;
+    --line-strong:#b7c8dc;
+    --bg:#f6f9fc;
+    --panel:#ffffff;
+    --ok:#1a8a5f;
+    --ok-soft:#e3f6ee;
+    --warn:#b5471f;
+    --warn-soft:#fdece2;
+    --mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    --sans:'IBM Plex Sans TC', 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:15px; line-height:1.65;
+  }
+  img{max-width:100%;}
+  [hidden]{display:none!important;}
+  a{color:var(--brand);}
+  code{ font-family:var(--mono); background:var(--brand-soft); border:1px solid var(--line); padding:1px 6px; border-radius:4px; font-size:12.5px; color:var(--brand-dark); }
+
+  .topbar{ background:var(--brand); color:#fff; padding:10px 20px; font-size:12.5px; letter-spacing:.03em; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .topbar b{ font-weight:600; }
+  .topbar span{ opacity:.85; }
+
+  .layout{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns:230px 1fr; gap:36px; padding:28px 20px 70px; align-items:start; }
+  @media (max-width:900px){ .layout{ grid-template-columns:1fr; } .toc{ position:static; order:2; } .content{ order:1; } }
+
+  .hero{ grid-column:1/-1; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:28px clamp(18px,4vw,40px); margin-bottom:6px; box-shadow:0 1px 2px rgba(16,40,80,.04); }
+  .hero .eyebrow{ font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--brand); text-transform:uppercase; }
+  .hero h1{ font-size:clamp(24px,3.6vw,34px); margin:8px 0 10px; font-weight:700; }
+  .hero p{ color:var(--ink-dim); max-width:70ch; margin:0 0 14px; }
+  .hero .meta{ display:flex; gap:18px; flex-wrap:wrap; font-size:12.5px; color:var(--ink-faint); }
+  .hero .meta b{ color:var(--ink); }
+
+  .toc{ position:sticky; top:20px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 16px 18px; }
+  .toc-title{ font-size:11.5px; font-weight:700; letter-spacing:.08em; color:var(--ink-faint); text-transform:uppercase; margin:0 0 10px; }
+  .toc ol{ list-style:none; margin:0; padding:0; counter-reset:toc; }
+  .toc li{ counter-increment:toc; margin-bottom:2px; }
+  .toc a{ display:block; text-decoration:none; color:var(--ink-dim); font-size:13.5px; padding:6px 8px; border-radius:6px; }
+  .toc a::before{ content:counter(toc) "."; color:var(--brand); font-weight:700; margin-right:6px; font-family:var(--mono); font-size:12px; }
+  .toc a:hover{ background:var(--brand-soft); color:var(--brand-dark); }
+  .toc ul{ list-style:none; margin:0 0 4px 22px; padding:0; }
+  .toc ul a{ font-size:12.5px; padding:3px 8px; }
+  .toc ul a::before{ content:"–"; margin-right:6px; color:var(--ink-faint); }
+
+  .content{ min-width:0; }
+  section.panel{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px clamp(18px,4vw,40px) 30px; margin-bottom:22px; box-shadow:0 1px 2px rgba(16,40,80,.03); scroll-margin-top:16px; }
+  .panel-head{ display:flex; align-items:center; gap:14px; margin-bottom:6px; }
+  .panel-num{ flex:none; width:38px; height:38px; border-radius:10px; background:var(--brand); color:#fff; font-family:var(--mono); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:center; }
+  .panel-head h2{ font-size:20px; margin:0; font-weight:700; }
+  .panel-sub{ color:var(--ink-dim); font-size:14px; margin:4px 0 20px; max-width:72ch; }
+
+  h3{ font-size:15.5px; margin:26px 0 8px; font-weight:700; color:var(--brand-dark); }
+  h3:first-of-type{ margin-top:6px; }
+  p{ margin:0 0 12px; }
+
+  ol.steps{ margin:0 0 14px; padding-left:0; list-style:none; counter-reset:step; }
+  ol.steps > li{ counter-increment:step; position:relative; padding:2px 0 2px 34px; margin-bottom:12px; }
+  ol.steps > li::before{ content:counter(step); position:absolute; left:0; top:0; width:24px; height:24px; border-radius:50%; background:var(--brand-soft); color:var(--brand-dark); font-family:var(--mono); font-weight:700; font-size:12.5px; display:flex; align-items:center; justify-content:center; }
+  ol.steps b{ color:var(--ink); }
+  ol.steps .sub{ margin-top:4px; font-size:13.5px; color:var(--ink-dim); }
+
+  ul.plain{ margin:0 0 14px; padding-left:22px; }
+  ul.plain li{ margin-bottom:5px; }
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:16px; }
+  @media (max-width:640px){ .grid2{ grid-template-columns:1fr; } }
+  .fmtcard{ border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:#fbfdff; }
+  .fmtcard .tag{ display:inline-block; font-family:var(--mono); font-size:11px; font-weight:700; background:var(--brand); color:#fff; padding:2px 8px; border-radius:5px; margin-bottom:8px; }
+  .fmtcard p{ font-size:13.5px; color:var(--ink-dim); margin:0; }
+
+  .table-scroll{ overflow-x:auto; margin-bottom:16px; }
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  caption{ text-align:left; font-size:12px; color:var(--ink-faint); margin-bottom:8px; }
+  th, td{ text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-size:11.5px; letter-spacing:.03em; color:var(--ink-faint); font-weight:700; background:var(--brand-soft); }
+  td.mono{ font-family:var(--mono); font-size:12px; color:var(--brand-dark); white-space:nowrap; }
+
+  .badge{ display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px; }
+  .badge.draft{ background:#eef1f6; color:var(--ink-dim); }
+  .badge.review{ background:var(--accent-soft); color:var(--warn); }
+  .badge.pub{ background:var(--ok-soft); color:var(--ok); }
+
+  .callout{ border-radius:10px; padding:14px 16px; font-size:13.5px; margin:14px 0; border:1px solid; }
+  .callout.tip{ background:var(--brand-soft); border-color:#c7ddf4; color:var(--ink); }
+  .callout.warn{ background:var(--warn-soft); border-color:#f3c7ae; color:#5a2a10; }
+  .callout .ctitle{ display:block; font-weight:700; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:5px; }
+  .callout.tip .ctitle{ color:var(--brand-dark); }
+  .callout.warn .ctitle{ color:var(--warn); }
+
+  details.faq{ border:1px solid var(--line); border-radius:10px; margin-bottom:10px; overflow:hidden; }
+  details.faq summary{ cursor:pointer; padding:13px 16px; font-weight:600; font-size:14px; list-style:none; display:flex; align-items:center; gap:10px; background:#fbfdff; }
+  details.faq summary::-webkit-details-marker{ display:none; }
+  details.faq summary::before{ content:"+"; font-family:var(--mono); font-weight:700; color:var(--brand); flex:none; width:18px; }
+  details.faq[open] summary::before{ content:"–"; }
+  details.faq .faq-body{ padding:2px 16px 16px 44px; font-size:13.5px; color:var(--ink-dim); }
+
+  .footline{ text-align:center; font-size:12px; color:var(--ink-faint); padding:10px 0 30px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span><b>Lumens 手冊中心</b> · 內部文件</span>
+  <span>僅供 Directus 後台編輯人員使用，請勿外流</span>
+</div>
+
+<div class="layout">
+  <div class="hero">
+    <span class="eyebrow">操作手冊</span>
+    <h1>Directus 後台使用手冊</h1>
+    <p>這份文件說明如何登入 Lumens 手冊中心的 Directus 後台，以及如何管理「手冊（Manuals）」與「Q&amp;A」這兩個你日常會用到的內容集合。若你要處理的是產品分類、手冊分類或系統架構等其他主題，請洽詢技術負責人。</p>
+    <div class="meta">
+      <span><b>適用對象：</b>TS Q&amp;A Editor 角色</span>
+      <span><b>版本：</b>A</span>
+      <span><b>更新日期：</b>2026-09-14</span>
+    </div>
+  </div>
+
+  <nav class="toc">
+    <p class="toc-title">目錄</p>
+    <ol>
+      <li><a href="#intro">後台介紹</a>
+        <ul>
+          <li><a href="#intro-login">如何登入</a></li>
+          <li><a href="#intro-layout">介面導覽</a></li>
+          <li><a href="#intro-perm">你的權限範圍</a></li>
+        </ul>
+      </li>
+      <li><a href="#manuals">手冊管理</a>
+        <ul>
+          <li><a href="#manuals-model">資料關聯</a></li>
+          <li><a href="#manuals-add">新增手冊</a></li>
+          <li><a href="#manuals-edit">修改手冊</a></li>
+          <li><a href="#manuals-delete">刪除／下架手冊</a></li>
+          <li><a href="#manuals-fields">欄位對照表</a></li>
+        </ul>
+      </li>
+      <li><a href="#qa">Q&amp;A 管理</a>
+        <ul>
+          <li><a href="#qa-add">新增 Q&amp;A</a></li>
+          <li><a href="#qa-edit">修改 Q&amp;A</a></li>
+          <li><a href="#qa-delete">刪除／下架 Q&amp;A</a></li>
+          <li><a href="#qa-fields">欄位對照表</a></li>
+        </ul>
+      </li>
+      <li><a href="#faq">常見問題</a></li>
+    </ol>
+  </nav>
+
+  <div class="content">
+
+    <!-- 01 -->
+    <section class="panel" id="intro">
+      <div class="panel-head"><span class="panel-num">01</span><h2>後台介紹</h2></div>
+      <p class="panel-sub">Directus 是 Lumens 手冊中心目前使用的內容管理系統。手冊 PDF、線上內容、以及 Q&amp;A 問答，都存放在這裡；你在這裡發布的內容會直接顯示在對外的手冊網站上。</p>
+
+      <h3 id="intro-login">如何登入</h3>
+      <ol class="steps">
+        <li>用瀏覽器開啟公司提供的 Directus 後台網址。<div class="sub">目前為 <code>https://lumens-manual-directus.zeabur.app</code>；日後若換成公司網域（例如 <code>cms.lumens.com.tw</code>），會另行通知。</div></li>
+        <li>點選「使用 Google 登入」，選擇你的 <code>@lumens.com.tw</code> 公司信箱。<div class="sub">系統只接受公司網域的信箱；個人 Gmail 或其他網域的帳號無法登入。</div></li>
+        <li>第一次登入會自動建立帳號並套用你的角色權限，不需要另外申請 GitHub 或資料庫帳號。</li>
+      </ol>
+
+      <h3 id="intro-layout">介面導覽</h3>
+      <ul class="plain">
+        <li><b>左側選單「Content」：</b>點開後會看到所有的資料集合（Collection），你會用到的是 <code>manuals</code>（手冊）與 <code>qa_items</code>（Q&amp;A）。</li>
+        <li><b>資料列表畫面：</b>每個集合點進去是一張表格，每一列是一筆資料。右上角有「＋建立」按鈕、篩選（Filter）與搜尋（Search）。</li>
+        <li><b>狀態欄位（Status）：</b>每一筆手冊或 Q&amp;A 都有狀態，決定它是否會出現在對外網站上：
+          <div style="margin-top:8px;">
+            <span class="badge draft">草稿 draft</span> 尚未公開，只有後台看得到
+            <span class="badge review">審核中 in_review</span> 僅 Q&amp;A 使用，待覆核
+            <span class="badge pub">已發布 published</span> 對外公開，網站上看得到
+          </div>
+        </li>
+        <li><b>右側詳細面板：</b>點開任一筆資料會在右側（或整頁）展開詳細欄位，改完記得按右上角「儲存」。</li>
+      </ul>
+
+      <h3 id="intro-perm">你的權限範圍</h3>
+      <p>你的帳號屬於「TS Q&amp;A Editor」角色，可以新增、修改、刪除 <code>manuals</code> 與 <code>qa_items</code> 的資料，以及上傳手冊檔案。你<b>看不到、也不能修改</b>使用者帳號、角色權限、或其他系統設定——這些是管理員才有的權限，如需調整請聯絡技術負責人。</p>
+    </section>
+
+    <!-- 02 -->
+    <section class="panel" id="manuals">
+      <div class="panel-head"><span class="panel-num">02</span><h2>手冊（Manuals）管理</h2></div>
+      <p class="panel-sub">「手冊」是使用者在網站上實際下載或閱讀的文件，例如某支手電筒的「使用手冊」PDF，或某台裝置的「快速指南」網頁內容。</p>
+
+      <h3 id="manuals-model">資料關聯：一筆手冊屬於誰</h3>
+      <p>新增手冊前，先確認這三件事，因為它們是每一筆手冊都必填的關聯欄位：</p>
+      <ul class="plain">
+        <li><b>屬於哪個產品（Product）</b>——例如「P7 Pro」，產品本身又屬於某個產品分類。</li>
+        <li><b>屬於哪個手冊類型（Manual Type）</b>——例如「使用手冊」「快速指南」「保固卡」，這個清單是固定的，若找不到需要的類型請聯絡技術負責人新增。</li>
+        <li><b>使用什麼語言（Language）</b>——同一份手冊的不同語言版本，是各自獨立的一筆資料，不是同一筆資料的分頁。</li>
+      </ul>
+
+      <h3 id="manuals-add">新增手冊</h3>
+      <p>手冊有三種呈現格式，新增前請先確定要用哪一種：</p>
+      <div class="grid2">
+        <div class="fmtcard"><span class="tag">fragment 網頁內容</span><p>直接把內容以 HTML 貼進「Content」欄位，網站會把它嵌入手冊頁面顯示，不需要另外上傳檔案。</p></div>
+        <div class="fmtcard"><span class="tag">pdf 檔案</span><p>上傳一份 PDF，使用者在網站上點擊後會下載或直接開啟這份 PDF。</p></div>
+        <div class="fmtcard"><span class="tag">standalone 獨立頁面</span><p>上傳一份完整的獨立 HTML 頁面檔案，網站會直接連到這個檔案。</p></div>
+      </div>
+      <ol class="steps">
+        <li>進入 <b>Content → manuals</b>，點右上角「＋建立」。</li>
+        <li>選擇 <b>Product（產品）</b>與 <b>Type（手冊類型）</b>，並填入 <b>Lang（語言）</b>與 <b>Title（標題）</b>。</li>
+        <li>選擇 <b>Format（格式）</b>：<code>fragment</code> / <code>pdf</code> / <code>standalone</code>。</li>
+        <li>依格式填內容：
+          <div class="sub"><code>fragment</code> → 在 <b>Content</b> 欄位貼上內容。　<code>pdf</code> 或 <code>standalone</code> → 在 <b>File</b> 欄位點「上傳檔案」，選擇電腦裡的檔案。</div>
+        </li>
+        <li>將 <b>Status</b> 先設為 <span class="badge draft">draft</span>，儲存後自行預覽確認內容無誤。</li>
+        <li>確認沒問題後，回到這筆資料把 <b>Status</b> 改成 <span class="badge pub">published</span> 並再次儲存，正式對外公開。</li>
+      </ol>
+      <div class="callout tip"><span class="ctitle">小提醒</span>先存成 draft 再檢查一次，比公開後才發現打錯字更省事——draft 狀態下一般使用者在網站上是看不到的。</div>
+
+      <h3 id="manuals-edit">修改手冊</h3>
+      <ol class="steps">
+        <li>在 <b>manuals</b> 列表用右上角「篩選」依 Product／Type／Lang 找到要改的那一筆，或用搜尋框輸入標題關鍵字。</li>
+        <li>點開該筆資料，修改需要的欄位（標題、內容、換一份檔案等）。</li>
+        <li>點右上角「儲存」。若這筆原本已是 <span class="badge pub">published</span>，修改儲存後會立即反映在對外網站上，請務必先確認內容再存檔。</li>
+      </ol>
+
+      <h3 id="manuals-delete">刪除／下架手冊</h3>
+      <div class="callout warn"><span class="ctitle">注意</span>刪除是永久性的、無法復原。如果只是想暫時讓某份手冊在網站上消失，<b>把 Status 改成 draft 存檔即可</b>，之後隨時可以再改回 published，不需要真的刪除重建。</div>
+      <ol class="steps">
+        <li>確定真的要永久移除時，在 <b>manuals</b> 列表勾選該筆資料左側的核取方塊。</li>
+        <li>點右上角的垃圾桶／刪除圖示，跳出確認視窗後點「刪除」。</li>
+      </ol>
+
+      <h3 id="manuals-fields">欄位對照表</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>欄位</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">product</td><td>這份手冊屬於哪個產品（關聯到 products）</td></tr>
+            <tr><td class="mono">type</td><td>手冊類型，例如使用手冊／快速指南（關聯到 manual_types）</td></tr>
+            <tr><td class="mono">lang</td><td>語言版本</td></tr>
+            <tr><td class="mono">title</td><td>顯示在網站上的手冊標題</td></tr>
+            <tr><td class="mono">format</td><td><code>fragment</code> / <code>pdf</code> / <code>standalone</code> 三選一</td></tr>
+            <tr><td class="mono">content</td><td>格式為 <code>fragment</code> 時填寫的 HTML 內容</td></tr>
+            <tr><td class="mono">file</td><td>格式為 <code>pdf</code> 或 <code>standalone</code> 時上傳的檔案</td></tr>
+            <tr><td class="mono">status</td><td><code>draft</code>（草稿）或 <code>published</code>（已發布，才會對外顯示）</td></tr>
+            <tr><td class="mono">date_updated</td><td>系統自動記錄，不需手動填寫</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="panel" id="qa">
+      <div class="panel-head"><span class="panel-num">03</span><h2>Q&amp;A 管理</h2></div>
+      <p class="panel-sub">Q&amp;A 是網站上的常見問答集，每一筆都需要同時填寫三種語言的問題與答案。</p>
+
+      <h3 id="qa-add">新增 Q&amp;A</h3>
+      <ol class="steps">
+        <li>進入 <b>Content → qa_items</b>，點右上角「＋建立」。</li>
+        <li>選擇 <b>Category（分類）</b>。</li>
+        <li>依序填寫三種語言的問題與答案：<b>question_en / answer_en</b>、<b>question_zh_cn / answer_zh_cn</b>、<b>question_zh_tw / answer_zh_tw</b>。<div class="sub">三種語言都要填，不能只填其中一種，否則其他語系的使用者會看不到這筆問答。</div></li>
+        <li>在 <b>Products（適用產品）</b>標籤欄位加入這筆問答適用的產品型號；若是通用問題（不限特定產品），可以留空。</li>
+        <li>視需要調整 <b>Sort（排序）</b>數字，數字越小顯示越前面。</li>
+        <li>將 <b>Status</b> 設為 <span class="badge draft">draft</span> 存檔預覽，確認無誤後改成 <span class="badge pub">published</span> 再次存檔即正式對外公開。</li>
+      </ol>
+
+      <h3 id="qa-edit">修改 Q&amp;A</h3>
+      <ol class="steps">
+        <li>在 <b>qa_items</b> 列表用篩選（依 Category 或 Products）或搜尋框（輸入問題關鍵字）找到要改的那一筆。</li>
+        <li>點開修改需要的欄位——別忘了三種語言的內容通常要一起檢查是否都需要更新。</li>
+        <li>儲存。若已是 <span class="badge pub">published</span>，修改會立即反映在網站上。</li>
+      </ol>
+
+      <h3 id="qa-delete">刪除／下架 Q&amp;A</h3>
+      <div class="callout warn"><span class="ctitle">注意</span>與手冊相同，刪除無法復原。想暫時下架某筆問答，<b>把 Status 改成 draft</b> 即可，不需要真的刪除。</div>
+      <ol class="steps">
+        <li>確定要永久移除時，在 <b>qa_items</b> 列表勾選該筆資料。</li>
+        <li>點刪除圖示並在確認視窗中確認。</li>
+      </ol>
+
+      <h3 id="qa-fields">欄位對照表</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>欄位</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">category</td><td>問答所屬分類</td></tr>
+            <tr><td class="mono">question_en / zh_cn / zh_tw</td><td>三種語言的問題文字，三個都要填</td></tr>
+            <tr><td class="mono">answer_en / zh_cn / zh_tw</td><td>三種語言的答案文字，三個都要填</td></tr>
+            <tr><td class="mono">products</td><td>適用的產品型號標籤，可複選或留空（代表通用）</td></tr>
+            <tr><td class="mono">sort</td><td>顯示排序，數字越小越前面</td></tr>
+            <tr><td class="mono">status</td><td><code>draft</code> / <code>in_review</code> / <code>published</code>（唯有 published 對外公開）</td></tr>
+            <tr><td class="mono">date_updated</td><td>系統自動記錄最後編輯時間，不需手動填寫</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="panel" id="faq">
+      <div class="panel-head"><span class="panel-num">04</span><h2>常見問題</h2></div>
+
+      <details class="faq">
+        <summary>我把狀態改成 published 了，為什麼網站上還是看不到？</summary>
+        <div class="faq-body">確認瀏覽器網址是否有加上 <code>?cms=directus</code>——目前網站預設仍讀取舊版的靜態資料，只有加上這個參數才會改讀 Directus 的內容。加過一次之後，同一台瀏覽器會記住這個設定。若已經加了還是看不到，稍等一分鐘再重新整理，或聯絡技術負責人確認。</div>
+      </details>
+      <details class="faq">
+        <summary>可以先存草稿、確認沒問題後再公開嗎？</summary>
+        <div class="faq-body">可以，而且建議這樣做。新增或大幅修改內容時，先把 Status 設為 draft 存檔，自行加 <code>?cms=directus</code> 預覽確認排版與文字都正確，再把 Status 改成 published。</div>
+      </details>
+      <details class="faq">
+        <summary>刪除跟改成 draft（草稿）有什麼不一樣？</summary>
+        <div class="faq-body">改成 draft 只是讓它暫時不對外顯示，資料還在，隨時可以改回 published。刪除是把整筆資料永久移除，無法復原。除非確定以後都不會再用到，否則建議一律用「改成 draft」來下架內容。</div>
+      </details>
+      <details class="faq">
+        <summary>Q&amp;A 只填了中文，可以先發布嗎？</summary>
+        <div class="faq-body">不建議。網站會依訪客選擇的語言分別讀取對應欄位，若某個語言欄位是空的，那個語系的使用者會看到空白內容。三種語言都填齊後再發布。</div>
+      </details>
+      <details class="faq">
+        <summary>上傳的 PDF 有檔案大小限制嗎？</summary>
+        <div class="faq-body">目前沒有在後台介面另外設定上限，但檔案仍會佔用伺服器儲存空間，請上傳前先用一般 PDF 壓縮工具處理過大的掃描檔（例如超過數十 MB 的檔案），避免不必要的空間浪費與載入變慢。</div>
+      </details>
+      <details class="faq">
+        <summary>我可以自己新增產品或手冊類型嗎？</summary>
+        <div class="faq-body">目前你的權限只開放編輯 manuals 與 qa_items。若需要新增產品、產品分類或手冊類型（例如出了新產品或新的文件類型），請聯絡技術負責人協助建立，建立好之後你就可以在新增手冊時選用。</div>
+      </details>
+      <details class="faq">
+        <summary>兩個人同時在改同一筆資料會怎樣？</summary>
+        <div class="faq-body">後面儲存的人會覆蓋前面的修改。若要同時處理同一批內容，建議先在群組內說一聲避免互相覆蓋，之後再各自處理不同筆資料。</div>
+      </details>
+    </section>
+
+  </div>
+</div>
+
+<p class="footline">LMC-GUIDE-01 · 版次 A · 2026-09-14</p>
+
+</body>
+</html>
