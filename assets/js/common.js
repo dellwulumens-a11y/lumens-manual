@@ -106,7 +106,7 @@
           "<div>" +
             '<h5>' + esc(t.site.name) + "</h5>" +
           "</div>" +
-          "<div><h5>" + esc(t.footer.productLine) + '</h5><ul>' + catLinks + "</ul></div>" +
+          "<div><h5>" + esc(t.footer.productLine) + '</h5><ul class="footer-col-list">' + catLinks + "</ul></div>" +
           "<div><h5>" + esc(t.footer.documentType) + '</h5><ul>' + typeLinks + "</ul></div>" +
         "</div>" +
         '<div class="footer-note">' + esc(t.footer.note) + '<span class="site-version">' + SITE_VERSION + "</span></div>" +

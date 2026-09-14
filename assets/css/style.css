@@ -40,10 +40,22 @@
   --tag-6:#0d9488; --tag-6-soft:#e2f5f3;
   --tag-7:#be123c; --tag-7-soft:#fbe4e9;
 
+  /* Dark "quick-action" card surface used by the homepage entry cards —
+     a deep navy gradient distinct from the page's white card surfaces. */
+  --card-dark-1:#1b2c4c;
+  --card-dark-2:#131f38;
+  --card-dark-ink:#ffffff;
+  --card-dark-ink-soft:rgba(255,255,255,.68);
+  --card-dark-chip:rgba(255,255,255,.10);
+  --card-dark-badge:rgba(255,255,255,.12);
+
   --radius-sm:6px;
   --radius:10px;
   --radius-lg:16px;
-  --shadow:0 1px 2px rgba(18,24,31,.04), 0 8px 24px -14px rgba(18,24,31,.18);
+  /* Softer, more diffused elevation — larger spread and lower opacity so
+     cards read as floating rather than pasted on with a hard drop shadow. */
+  --shadow:0 2px 4px rgba(18,24,31,.03), 0 28px 56px -28px rgba(18,24,31,.20);
+  --shadow-float:0 40px 70px -30px rgba(2,10,26,.55), 0 10px 20px -12px rgba(2,10,26,.35);
   --container:1180px;
 
   --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","PingFang SC","Microsoft JhengHei","Noto Sans CJK TC","Noto Sans CJK SC","Heiti TC",Arial,sans-serif;
@@ -137,7 +149,7 @@ ul{margin:0; padding:0;}
   border-radius:100px; font-size:13.5px; background:rgba(255,255,255,.16); color:#fff;
 }
 .header-search input::placeholder{color:rgba(255,255,255,.75);}
-.header-search input:focus{background:#fff; color:var(--ink);}
+.header-search input:focus{background:#fff; color:var(--ink); outline:none; box-shadow:0 0 0 4px rgba(140,195,255,.45);}
 .header-search input:focus::placeholder{color:var(--ink-faint);}
 .header-search svg{position:absolute; left:10px; top:50%; transform:translateY(-50%); color:rgba(255,255,255,.8);}
 .header-search:focus-within svg{color:var(--ink-faint);}
@@ -182,79 +194,108 @@ ul{margin:0; padding:0;}
 
 /* ---------------------------------- hero ---------------------------------- */
 .hero{
-  padding:64px 0 104px;
-  background:linear-gradient(135deg,var(--header-blue),var(--brand-dark) 120%);
+  position:relative; overflow:hidden;
+  padding:72px 0 220px;
+  /* Refined multi-stop diagonal gradient (rather than a flat two-color
+     one) plus two soft radial highlights for extra depth. */
+  background:linear-gradient(135deg,#0b5fae 0%,#0a4d92 45%,#083a73 75%,#062a56 100%);
   color:#fff;
 }
-.hero h1{font-size:42px; margin-bottom:14px; color:#fff; font-weight:800; letter-spacing:0;}
-.hero p.lede{color:rgba(255,255,255,.9); font-size:16px; max-width:620px; margin-bottom:30px;}
+.hero::before{
+  content:""; position:absolute; right:-140px; top:-180px; width:600px; height:600px; border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.10) 0%,rgba(255,255,255,0) 68%);
+}
+.hero::after{
+  content:""; position:absolute; left:-100px; bottom:-260px; width:480px; height:480px; border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.06) 0%,rgba(255,255,255,0) 70%);
+}
+.hero .container{position:relative;}
+.hero h1{font-size:38px; margin-bottom:14px; color:#fff; font-weight:800; letter-spacing:-.01em; line-height:1.3;}
+.hero p.lede{color:rgba(255,255,255,.85); font-size:16px; max-width:620px; margin-bottom:32px;}
 
-.hero-search{max-width:560px;}
-.hero-search form{display:flex; gap:8px;}
+.hero-search{max-width:600px;}
+.hero-search form{
+  display:flex; gap:8px; background:#fff; padding:7px; border-radius:13px;
+  box-shadow:0 22px 44px -16px rgba(2,14,32,.5);
+  transition:box-shadow .15s ease;
+}
+/* Brand-blue outer glow while the field is being used. */
+.hero-search form:focus-within{box-shadow:0 0 0 4px rgba(140,195,255,.45), 0 22px 44px -16px rgba(2,14,32,.5);}
 .hero-search input{
-  flex:1; padding:13px 16px; border:1.5px solid transparent; border-radius:10px;
+  flex:1; padding:10px 12px; border:none; border-radius:9px;
   font-size:15px;
 }
+.hero-search input:focus-visible{outline:none;}
 .hero-search button{
-  padding:0 22px; background:var(--accent); color:#fff; border:none; border-radius:10px;
+  padding:0 24px; background:var(--brand); color:#fff; border:none; border-radius:9px;
   font-weight:700; font-size:14.5px;
 }
-.hero-search button:hover{background:#c9490a;}
+.hero-search button:hover{background:var(--brand-dark);}
 
 /* ---------------------------------- entry cards ---------------------------- */
 .entry-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:22px;
-  margin:-70px 0 44px; position:relative; z-index:2;
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  position:relative; z-index:2; margin-bottom:0;
 }
 @media (max-width:720px){ .entry-grid{grid-template-columns:1fr;} }
+
+/* Dark "quick-action" cards inside the hero band — real product photography
+   and a small icon row instead of a plain white utility card. */
 .entry-card{
-  display:block; min-height:252px; background:#fff; border:1px solid #d7e0e8; border-top:4px solid var(--brand); border-radius:14px;
-  padding:28px; box-shadow:0 8px 14px rgba(18,24,31,.06),0 22px 38px -20px rgba(11,24,40,.28);
-  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  position:relative; overflow:hidden; display:block; min-height:252px;
+  background:linear-gradient(160deg,var(--card-dark-1),var(--card-dark-2));
+  border-radius:18px; padding:30px 30px 26px;
+  box-shadow:var(--shadow-float);
+  transition:transform .18s ease, box-shadow .18s ease;
   text-decoration:none;
 }
-.entry-card:hover{transform:translateY(-3px); box-shadow:0 10px 18px rgba(18,24,31,.08),0 20px 36px -18px rgba(18,24,31,.3); text-decoration:none;}
-.entry-card .icon-box{
-  width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
-  margin-bottom:18px; background:var(--brand-soft); color:var(--brand);
+.entry-card:hover{transform:translateY(-4px); text-decoration:none;}
+.entry-card .entry-photo{
+  position:absolute; right:-30px; bottom:-24px; width:230px; opacity:.94; pointer-events:none;
 }
-.entry-card .icon-box svg{width:22px; height:22px;}
-.entry-card .tag{
-  display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--brand-dark); background:var(--brand-soft); padding:4px 10px; border-radius:6px; margin-bottom:14px;
+.entry-card .entry-photo img{width:100%; height:auto; display:block; filter:drop-shadow(0 14px 22px rgba(0,0,0,.45));}
+.entry-card .entry-graphic{position:absolute; right:18px; top:18px; width:108px; height:108px; opacity:.95; pointer-events:none;}
+.entry-card .badge{
+  display:inline-block; position:relative; z-index:1; font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  color:#bcdcff; background:var(--card-dark-badge); padding:5px 12px; border-radius:100px; margin-bottom:18px;
 }
-.entry-card.alt{border-top-color:var(--accent);}
-.entry-card.alt .tag{color:#a53b08; background:var(--accent-soft);}
-.entry-card.alt .icon-box{background:var(--accent-soft); color:#c9490a;}
-.entry-card h3{font-size:19px; color:var(--ink); margin-bottom:8px;}
-.entry-card p{color:var(--ink-soft); font-size:14px;}
-.entry-card .go{display:inline-flex; align-items:center; gap:5px; margin-top:16px; font-weight:700; font-size:13.5px; color:var(--brand);}
-
-/* .entry-card.highlight — solid-color "primary path" card, echoing the
-   filled blue quick-action card pattern from mylumens.com's Support page. */
-.entry-card.highlight{
-  background:#fff; border-color:#d7e0e8; border-top-color:var(--brand); color:var(--ink);
+.entry-card h3{position:relative; z-index:1; font-size:21px; color:var(--card-dark-ink); margin-bottom:8px; max-width:70%;}
+.entry-card p{position:relative; z-index:1; color:var(--card-dark-ink-soft); font-size:13.5px; max-width:60%; margin-bottom:22px;}
+.entry-card .chips{position:relative; z-index:1; display:flex; gap:8px; margin-bottom:22px;}
+.entry-card .chip{
+  width:38px; height:38px; border-radius:9px; background:var(--card-dark-chip);
+  display:flex; align-items:center; justify-content:center; transition:background .15s ease;
 }
-.entry-card.highlight .icon-box{background:var(--brand-soft); color:var(--brand);}
-.entry-card.highlight .tag{background:var(--brand-soft); color:var(--brand-dark);}
-.entry-card.highlight h3{color:var(--ink);}
-.entry-card.highlight p{color:var(--ink-soft);}
-.entry-card.highlight .go{color:var(--brand);}
+.entry-card .chip svg{width:18px; height:18px; stroke:#cfe3fb;}
+.entry-card:hover .chip{background:rgba(255,255,255,.16);}
+.entry-card .go{position:relative; z-index:1; display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13.5px; color:#fff;}
 
 @media (max-width:640px){
   .site-header .bar{gap:8px;}
   .header-tools{gap:6px;}
   .header-search input{width:100px;}
   .lang-switch select{padding-left:8px; padding-right:22px;}
-  .hero{padding:44px 0 86px;}
+  .hero{padding:36px 0 64px;}
   .hero h1{font-size:32px;}
   .entry-card{min-height:0; padding:24px;}
+  .entry-card .entry-photo{width:140px;}
+  .entry-card .entry-graphic{width:76px; height:76px;}
 }
 
+/* ---------------------------------- updates panel --------------------------- */
+/* White panel that floats over the hero's bottom edge, holding "近期更新" —
+   same floating-card language as the dark entry cards above it. */
+.updates-panel{
+  position:relative; z-index:2; margin:-118px 0 64px;
+  background:var(--bg-raised); border-radius:20px; padding:38px 40px;
+  box-shadow:var(--shadow);
+}
+@media (max-width:640px){ .updates-panel{padding:26px 22px; margin:-40px 0 44px;} }
+
 /* ---------------------------------- section headers ------------------------ */
-.page-section{padding:44px 0;}
+.page-section{padding:64px 0;}
 .section-head{margin-bottom:26px;}
-.popular-head{margin-top:42px;}
+.popular-head{margin-top:56px;}
 .eyebrow{
   font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand);
   margin-bottom:8px; display:block;
@@ -353,11 +394,23 @@ ul{margin:0; padding:0;}
 .manual-row{
   display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
   padding:14px 16px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg-raised);
-  margin-bottom:8px;
+  margin-bottom:8px; transition:background .15s ease;
 }
+/* Whole-row hover feedback — a light gray fill rather than just the button changing. */
+.manual-row:hover{background:var(--bg-soft);}
 .manual-row .title{font-weight:700; font-size:14.5px;}
 .manual-row .meta{font-size:12px; color:var(--ink-faint); margin-top:2px;}
 .manual-row .langs{display:flex; gap:6px;}
+
+/* Inside the floating updates panel the rows sit flush (no per-row border/
+   background) — the panel's own card edge already provides the boundary. */
+.updates-panel .manual-row{border:none; background:transparent; margin-bottom:0; padding:18px 16px;}
+.updates-panel .manual-row:hover{background:var(--bg-soft);}
+
+/* 熱門產品 — two-column grid of bordered rows below the panel. */
+#popularLinks{display:grid; grid-template-columns:1fr 1fr; gap:12px 32px;}
+#popularLinks .manual-row{margin-bottom:0;}
+@media (max-width:640px){ #popularLinks{grid-template-columns:1fr;} }
 .lang-pill{
   display:inline-flex; align-items:center; min-height:44px; font-family:var(--font-mono); font-size:11.5px; font-weight:700; padding:5px 10px; border-radius:100px;
   border:1px solid var(--line-strong); color:var(--ink-soft); background:var(--bg-soft);
@@ -500,11 +553,17 @@ ul{margin:0; padding:0;}
 
 /* ---------------------------------- footer ------------------------------------ */
 .site-footer{border-top:3px solid var(--header-blue); background:var(--bg-soft); padding:44px 0 26px; margin-top:40px;}
-.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; margin-bottom:28px;}
+.footer-grid{display:grid; grid-template-columns:1fr 1.3fr 1fr; gap:32px; margin-bottom:28px;}
 @media (max-width:720px){ .footer-grid{grid-template-columns:1fr;} }
 .footer-grid h5{font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--brand); font-weight:800; margin-bottom:12px;}
 .footer-grid ul{display:flex; flex-direction:column; gap:8px;}
 .footer-grid a{color:var(--ink-soft); font-size:13.5px;}
+/* Product-line list runs long (one entry per category) — flow it into two
+   compact columns instead of one tall single-column list. */
+.footer-grid ul.footer-col-list{display:block; column-count:2; column-gap:24px;}
+.footer-grid ul.footer-col-list li{margin-bottom:8px; break-inside:avoid;}
+@media (max-width:720px){ .footer-grid ul.footer-col-list{column-count:2;} }
+@media (max-width:460px){ .footer-grid ul.footer-col-list{column-count:1;} }
 .footer-note{border-top:1px solid var(--line-strong); padding-top:18px; font-size:12.5px; color:var(--ink-faint); display:flex; justify-content:space-between; gap:16px;}
 .site-version{font-family:var(--font-mono); white-space:nowrap;}
 

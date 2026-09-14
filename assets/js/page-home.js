@@ -16,24 +16,32 @@
     input.setAttribute("aria-label", t.search.inputLabel);
     form.querySelector("button").textContent = t.common.searchButton;
 
-    var iconProduct = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="11" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>';
-    var iconType = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>';
+    // Small icon-chip row shown on each entry card — decorative shortcuts
+    // that echo the card's sub-categories, not data-bound to live counts.
+    var chipCamera = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="11" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>';
+    var chipBox = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M9 20h6M12 17v3"/></svg>';
+    var chipLens = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="12" cy="11" r="3.2"/></svg>';
+    var chipGuide = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>';
+    var chipInstall = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V7l8-4 8 4v13"/><path d="M9 20v-6h6v6"/></svg>';
+    var chipQuick = '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 4 14h6l-1 7 9-11h-6l1-7Z"/></svg>';
 
     document.getElementById("entryProduct").innerHTML =
-      '<a class="entry-card highlight" href="' + I18N.urlFor("products.html", lang) + '">' +
-        '<span class="icon-box">' + iconProduct + "</span>" +
-        '<span class="tag">' + esc(t.nav.byProduct) + "</span>" +
+      '<a class="entry-card" href="' + I18N.urlFor("products.html", lang) + '">' +
+        '<span class="entry-photo"><img src="assets/images/home/entry-product-highlight.png" alt="" loading="lazy"></span>' +
+        '<span class="badge">' + esc(t.nav.byProduct) + "</span>" +
         "<h3>" + esc(t.home.enterByProductTitle) + "</h3>" +
         "<p>" + esc(t.home.enterByProductDesc) + "</p>" +
+        '<span class="chips"><span class="chip">' + chipCamera + '</span><span class="chip">' + chipBox + '</span><span class="chip">' + chipLens + "</span></span>" +
         '<span class="go">' + esc(t.common.viewProduct) + " →</span>" +
       "</a>";
 
     document.getElementById("entryType").innerHTML =
-      '<a class="entry-card alt" href="' + I18N.urlFor("manual-types.html", lang) + '">' +
-        '<span class="icon-box">' + iconType + "</span>" +
-        '<span class="tag">' + esc(t.nav.byType) + "</span>" +
+      '<a class="entry-card" href="' + I18N.urlFor("manual-types.html", lang) + '">' +
+        '<span class="entry-graphic"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="26" y="10" width="48" height="62" rx="6" fill="#25436f"/><rect x="16" y="20" width="48" height="62" rx="6" fill="#2f6fae"/><rect x="24" y="34" width="32" height="4" rx="2" fill="#bcdcff"/><rect x="24" y="44" width="32" height="4" rx="2" fill="#bcdcff" opacity=".7"/><rect x="24" y="54" width="20" height="4" rx="2" fill="#bcdcff" opacity=".5"/></svg></span>' +
+        '<span class="badge">' + esc(t.nav.byType) + "</span>" +
         "<h3>" + esc(t.home.enterByTypeTitle) + "</h3>" +
         "<p>" + esc(t.home.enterByTypeDesc) + "</p>" +
+        '<span class="chips"><span class="chip">' + chipGuide + '</span><span class="chip">' + chipInstall + '</span><span class="chip">' + chipQuick + "</span></span>" +
         '<span class="go">' + esc(t.common.viewAllDocuments) + " →</span>" +
       "</a>";
 
